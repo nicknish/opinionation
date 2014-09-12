@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4 form_styles">
+
+    <h1 class="text-center">Sign up for OpinioNation.</h1>
+
+    <%= form_for @user, html: { id: 'formz' } do |f| %>
+
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <ul class="list-group">
+            <% @user.errors.full_messages.each do |msg| %>
+              <li class="list-group-item list-group-item-danger"><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+          <%= f.text_field :fname, placeholder: "What's your first name?", :class => "form-control", id: 'firzname' %>
+          <%= f.text_field :lname, placeholder: "What's your last name?", :class => "form-control", id: 'lazzname' %>
+          <%= f.text_field :username, placeholder: "Pick your public user name", :class => "form-control", id: 'uzername' %>
+          <br />
+        </div>
+        <div class="input-group">
+          <div class="input-group-addon" id="at-symbol-glyph">@</div>
+          <%= f.email_field :email, placeholder: "Email address", class: "form-control", id: 'emailz' %><br />
+        </div>
+        <div class="input-group">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+          <%= f.password_field :password, placeholder: "Password", :class => "form-control", id: 'pazzword' %>
+          <%= f.password_field :password_confirmation, placeholder: "Confirm password", :class => "form-control", id: 'pazzconf' %><br />
+          <br />
+        </div>
+        <div class="input-group">
+          <br />
+          <%= label_tag "Upload a profile picture." %>
+          <%= f.file_field :profile_pic, id: 'imagez' %><br />
+        </div>
+      </div>
+    <div>
+      <%= f.submit "Sign up", class: 'btn btn-primary btn-fetch-primary', id: 'zubmit' %>
+      <% end %>
+    </div>
+  </div>
+</div>
