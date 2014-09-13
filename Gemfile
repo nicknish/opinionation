@@ -7,7 +7,10 @@ gem 'rails', '4.1.1'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+# Bootstrap
 gem 'bootstrap-sass'
+# Automatically adds vendor prefixes
+gem 'autoprefixer-rails', '~> 3.0.1.20140826'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
