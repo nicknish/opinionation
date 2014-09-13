@@ -1,37 +1,39 @@
 /* Posts Styles
 ================ */
-.posts { position: relative; }
-
-// General Post Styles
-.post {
-	float:left;
-	width: 100%;
-	margin: 0 auto;
-	width: 95%;
-	height: 70vh;
-	background-color: white;
-	border-radius: 4px;
-	transition: transform .65s linear;
-  transform-style: preserve-3d;
-	padding: 5px;
-	margin-bottom: 10px;
+.posts { 
+	position: relative; 
 	
-	.front,
-	.back {
-	  display: block;
-	  position: absolute;
-	  width: 100%;
-	  height: 100%;
-	  backface-visibility: hidden;
-	  left: 0;
-		top: 0;
-		border-radius: 3px;
-	}
 	.flipped {
 		transform: scale(1.0) scaleZ(1.0) rotateY(180deg);
 		transform-origin: 50% 0%;
 		perspective: 0;
 		perspective-origin: 50% 100%;
+	}
+	// General Post Styles
+	.post {
+		float:left;
+		width: 100%;
+		margin: 0 auto;
+		width: 95%;
+		height: 70vh;
+		background-color: white;
+		border-radius: 4px;
+		transition: transform .65s linear;
+	  transform-style: preserve-3d;
+		padding: 5px;
+		margin-bottom: 10px;
+		
+		.front,
+		.back {
+		  display: block;
+		  position: absolute;
+		  width: 100%;
+		  height: 100%;
+		  backface-visibility: hidden;
+		  left: 0;
+			top: 0;
+			border-radius: 3px;
+		}
 	}
 }
 
@@ -39,6 +41,7 @@
 .front {
 	text-transform: uppercase;
 	cursor: pointer;
+
 	.full-image { 
 		transition: filter .7s linear;
 		filter: blur(1px);  
@@ -46,10 +49,10 @@
 		width: 100%;
 		height: 100%;
 		position: absolute;
+		padding: 0;
+		margin: 0;
 		z-index: -99;
-	}
-	&:hover { 
-		.full-image { filter: blur(3px); }
+		backface-visibility: hidden;
 	}
 }
 
@@ -58,23 +61,21 @@
 	transform: rotateY( 180deg ); 
 	margin-left: .5rem;
 	background-color: #ECF0F1;
+	overflow: hidden;
 
-	.row { 
-		padding-bottom: 10px; 
-		.close-button { 
-			cursor: pointer; 
-			font-size: 20px;
-			float: left;
-		}
-		.favorite-star {
-			position: relative;
-			right: 0;
-			top: 0;
-			width: 10px;
-			height: 10px;
-			border-radius: 50%;
-			background-color: white;
-		}
+	.close-button { 
+		cursor: pointer; 
+		font-size: 20px;
+		// float: left;
+	}
+	.favorite-star {
+		position: relative;
+		right: 0;
+		top: 0;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background-color: white;
 	}
 	.title { 
 		text-transform: uppercase; 
@@ -82,6 +83,7 @@
 		float: left;
 	}
 	.poster-profile-pic {
+		img { width: 100%; height: 100%; }
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;

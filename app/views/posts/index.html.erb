@@ -2,17 +2,17 @@
 <div class="posts container" data-ng-controller="PostCtrl">
   <h1>POSTS INDEX!</h1>
   
-  <div class="posts">
+  <div class="posts clearfix">
     
-    <div class="post col half" data-ng-repeat="post in posts">
-      <div class="front" ng-click="flip()">
+    <div class="post col half" ng-click="flip()" ng-class="{flipped: isFlipped}" data-ng-repeat="post in posts">
+      <div class="front">
         <div class="full-image" style="background-image: url({{post.post_pic}})"></div>
         <h1 class="title">{{ post.question }}</h1>
         <!-- <img data-ng-src="{{post.post_pic}}"> -->
       </div>
       
-      <div class="back">
-        <span class="close-button" ng-click="flip(post)">x</span>
+      <div class="back clearfix">
+        <span class="close-button" ng-click="flip()">x</span>
         <span class="favorite-star" ng-click="favorite(post)"></span>
         <h2 class="title">{{ post.question }}</h2>
         <h3><a href="">{{ post.poster.username }}</a></h3>
@@ -27,7 +27,7 @@
         </form>
 
         <div class="answers">
-          <div class="answer" data-ng-repeat="answer in post.answers">
+          <div class="answer clearfix" data-ng-repeat="answer in post.answers">
             <a href="#">
               <img data-ng-src="{{answer.user_pic}}" class="profile-pic">
             </a>
