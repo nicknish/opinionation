@@ -32,3 +32,12 @@ body { background-color: #497bad; }
 	font-size: 17px;
 }
 
+.clearfix:after,
+.clearfix:before {
+	content: "";
+	display: table;
+} .clearfix:after { clear: both; }
+
+// Media Queries
+
+@media(min-width: 60rem) { html { font-size: 112%; } }

@@ -1,9 +1,8 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
+/* Posts Styles
+================ */
 .posts { position: relative; }
 
+// General Post Styles
 .post {
 	float:left;
 	width: 100%;
@@ -24,19 +23,116 @@
 	  width: 100%;
 	  height: 100%;
 	  backface-visibility: hidden;
-	  left: -7px;
+	  left: 0;
 		top: 0;
 		border-radius: 3px;
 	}
-	.front {
-		text-transform: uppercase;
-		cursor: pointer;
-	}
-	.back {
-		transform: rotateY( 180deg ); 
-		margin-left: .5rem;
-		background-color: #ECF0F1;
+	.flipped {
+		transform: scale(1.0) scaleZ(1.0) rotateY(180deg);
+		transform-origin: 50% 0%;
+		perspective: 0;
+		perspective-origin: 50% 100%;
 	}
 }
 
+// Front Post Styles
+.front {
+	text-transform: uppercase;
+	cursor: pointer;
+	.full-image { 
+		transition: filter .7s linear;
+		filter: blur(1px);  
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: -99;
+	}
+	&:hover { 
+		.full-image { filter: blur(3px); }
+	}
+}
 
+// Back Post Styles
+.back {
+	transform: rotateY( 180deg ); 
+	margin-left: .5rem;
+	background-color: #ECF0F1;
+
+	.row { 
+		padding-bottom: 10px; 
+		.close-button { 
+			cursor: pointer; 
+			font-size: 20px;
+			float: left;
+		}
+		.favorite-star {
+			position: relative;
+			right: 0;
+			top: 0;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: white;
+		}
+	}
+	.title { 
+		text-transform: uppercase; 
+		font-size: 20px;
+		float: left;
+	}
+	.poster-profile-pic {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background-color: white;
+		float: right;
+	}
+	.post-photo {
+		width: 95%;
+	}
+}
+
+// Back Post Form Styles
+.form {
+	.answer-input {
+		border: 1px solid rgba(0,0,0,.33);
+		border-radius: 5px;
+		height: 30px;
+		padding-left: 5px;
+	}
+	.answer-submit {
+		border: 0;
+		background-color: inherit;
+		font-size: 16px;
+		font-weight: 800;
+		color: #637BD1;
+	}
+}
+
+// Answer Thread Styles
+.answer {
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding-top: 10px;
+	background-color: #F3F3F3;
+	.profile-pic {
+		border: 1px solid gray;
+		border-radius: 5px;
+		width: 38px;
+		height: 38px;
+		border-radius: 5px;
+		float: left;
+		margin-left: 5%;
+	}
+	.answer-body {
+		width: 75%;
+		padding-left: 5%;
+		float: left;
+	}
+}
+
+@media (min-width: 40rem) {
+	.post { height: 300px; float: left; padding: 10px; }
+	.half { width: 50%; }
+}
