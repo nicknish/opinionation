@@ -1,4 +1,19 @@
-<div data-ng-controller="PostsCtrl">
+<div data-ng-controller="PostCtrl">
   <h1>POSTS INDEX!</h1>
-  <h1>{{ test }}</h1>
+  
+  <div data-ng-repeat="post in posts">
+    <h1>{{ post.question }}</h1>
+    <h3>{{ post.poster.username }}</h3>
+    <img data-ng-src="{{post.post_pic}}">
+    
+    <div data-ng-repeat="answer in post.answers">
+      <h4>{{ answer.body }}</h4>
+      <p>{{ answer.username }}</p>
+      <img data-ng-src="{{answer.user_pic}}">
+    </div>
+
+  </div>
+
+
+
 </div>

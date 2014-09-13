@@ -1,3 +1,5 @@
-opinionationApp.controller('PostCtrl', ['$scope', function($scope){
-  $scope.test = "Hello world!";
+opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post){
+  Post.query(function(json){
+    $scope.posts = json;
+  })
 }])
