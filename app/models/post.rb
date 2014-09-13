@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :answers
+  has_many :favorites
 
   validates :question, presence: true, length: { in: 5..100 }
 
