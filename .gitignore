@@ -15,3 +15,5 @@
 /log/*.log
 /tmp
 /vendor
+/public/system/users/profile_pics
+/public/system/posts/post_pics
