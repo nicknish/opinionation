@@ -4,3 +4,4 @@ opinionationApp.factory('Post', ['$resource', function($resource){
     { update: { method: 'PATCH' } }
   );
 }]);
+

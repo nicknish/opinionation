@@ -1,0 +1,5 @@
+<%= form_for @post do |f| %>
+  <%= f.text_field :question, placeholder: "What's your question?", id: 'queztion' %><br />
+  <%= f.file_field :post_pic, id: 'poztpic' %><br />
+  <%= f.submit "Ask the world!", id: 'poztzubmit' %>
+<% end %>
