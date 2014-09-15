@@ -11,11 +11,18 @@ class User < ActiveRecord::Base
 
   #validations
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
-
-  validates :username, presence: true, uniqueness: { case_sensitive: false }
+  validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { in: 3..15 }
+  #need a validation to prevent space in username
   validates :fname, presence: true, length: { in: 2..30 }
   validates :lname, presence: true, length: { in: 2..30 }
   validates :password, presence: true, length: { in: 6..20 }
   validates_attachment :profile_pic, presence: true, content_type: { content_type: ["image/jpeg", "image/jpg", "image/gif", "image/png"] }
 
+  #formatting user inputs before save
+  before_save {[
+    self.email = email.downcase, 
+    self.fname = fname.titleize, 
+    self.lname = lname.titleize 
+  ]}
+  
 end
