@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   scope '/api' do
     resources :posts, only: [:index], defaults: { format: :json }
+    resources :answers, only: [:new, :create], defaults: { format: :json }
   end
 
 end

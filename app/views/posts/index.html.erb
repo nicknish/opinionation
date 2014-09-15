@@ -6,11 +6,21 @@
     <h3>{{ post.poster.username }}</h3>
     <img data-ng-src="{{post.post_pic}}">
     
-    <div data-ng-repeat="answer in post.answers">
-      <h4>{{ answer.body }}</h4>
-      <p>{{ answer.username }}</p>
-      <img data-ng-src="{{answer.user_pic}}">
-    </div>
+    <form ng-controller="AnswerCtrl as answer" ng-submit="answer.addAnswer(post.id)">
+      <input type="text" placeholder="Answer" class="answer-input" ng-model="body">
+      <input type="submit" value="Send" class="answer-submit">
+    </form>
+
+    <div class="answers">
+      <div class="answer clearfix" data-ng-repeat="answer in post.answers">
+        <a href="#">
+          <img data-ng-src="{{answer.user_pic}}" class="profile-pic">
+        </a>
+        <a href="#">{{ answer.username }}</a>
+        <p class="answer-body">{{ answer.body }}</p>
+        <span class="checkmark"></span>
+      </div>
+    </div> <!-- /.answer -->
 
   </div>
 
