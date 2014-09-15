@@ -9,7 +9,14 @@
 </head>
 <body>
 
-<%= yield %>
+  <% if current_user %>
+    <%= "Hello, #{current_user.fname}!" %>
+    <%= link_to "Sign out", session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Sign in", new_session_path %>
+  <% end %>
+
+  <%= yield %>
 
 </body>
 </html>
