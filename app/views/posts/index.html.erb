@@ -1,10 +1,10 @@
 <!-- Posts -->
 <div class="posts container" data-ng-controller="PostCtrl">
   <h1>POSTS INDEX!</h1>
-  
+
   <div class="posts clearfix">
     
-    <div class="post col half" ng-click="flip()" ng-class="{flipped: isFlipped}" data-ng-repeat="post in posts">
+    <div class="post col half" data-ng-repeat="post in posts" ng-click="flip()" ng-class="{flipped: isFlipped}">
       <div class="front">
         <div class="full-image" style="background-image: url({{post.post_pic}})"></div>
         <h1 class="title">{{ post.question }}</h1>
@@ -13,7 +13,9 @@
       
       <div class="back clearfix">
         <span class="close-button" ng-click="flip()">x</span>
-        <span class="favorite-star" ng-click="favorite(post)"></span>
+        <form ng-controller="FavCtrl as fav" ng-submit="fav.addFavorite(post.id)">
+          <input type="submit" value="Favorite" class="">
+        </form>
         <h2 class="title">{{ post.question }}</h2>
         <h3><a href="">{{ post.poster.username }}</a></h3>
         <a href="#">
@@ -21,8 +23,8 @@
         </a>
         <img ng-src="{{post.post_pic}}" class="post-photo">
 
-        <form ng-submit="addAnswer()">
-          <input type="text" placeholder="Answer" class="answer-input">
+        <form ng-controller="AnswerCtrl as answer" ng-submit="answer.addAnswer(post.id)">
+          <input type="text" placeholder="Answer" class="answer-input" ng-model="body">
           <input type="submit" value="Send" class="answer-submit">
         </form>
 
@@ -35,7 +37,7 @@
             <p class="answer-body">{{ answer.body }}</p>
             <span class="checkmark"></span>
           </div>
-        </div> <!-- /.answer -->
+        </div> <!-- /.answers -->
       </div> <!-- /.back -->
     </div> <!-- /.post -->
 

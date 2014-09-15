@@ -8,7 +8,7 @@ class PostSerializer < ActiveModel::Serializer
   end
 
   def post_pic
-    object.post_pic = "http://2.media.collegehumor.cvcdn.com/96/27/921d080be5f1bc3745a4a993c2556db4-cigar-smoking-tommy-gun-wielding-bear-riding-a-shark-is-probably-the-b.jpg"
+    object.post_pic ? object.post_pic(:large) : object.user.profile_pic(:large)
   end
 
   def is_favorite
@@ -20,7 +20,7 @@ class PostSerializer < ActiveModel::Serializer
 
     object.answers.each do |answer|
 
-      a = {body: answer.body, username: answer.user.username, user_pic: answer.user.profile_pic(:small), vote_count: answer.votes.count, current_user_endorsed: endorsement_check(answer) }
+      a = {id: answer.id, body: answer.body, username: answer.user.username, user_pic: answer.user.profile_pic(:small), vote_count: answer.votes.count, current_user_endorsed: endorsement_check(answer) }
       
       answers_arr.push(a)
     end
