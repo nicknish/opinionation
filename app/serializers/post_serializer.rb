@@ -20,7 +20,7 @@ class PostSerializer < ActiveModel::Serializer
 
     object.answers.each do |answer|
 
-      a = {body: answer.body, username: answer.user.username, user_pic: answer.user.profile_pic(:small), vote_count: answer.votes.count, current_user_endorsed: endorsement_check(answer) }
+      a = {id: answer.id, body: answer.body, username: answer.user.username, user_pic: answer.user.profile_pic(:small), vote_count: answer.votes.count, current_user_endorsed: endorsement_check(answer) }
       
       answers_arr.push(a)
     end

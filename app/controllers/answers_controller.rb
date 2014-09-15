@@ -2,10 +2,6 @@ class AnswersController < ApplicationController
 
   respond_to :json
 
-  def new
-    @answer = Answer.new
-  end
-
   def create
     @answer = Answer.new(answer_params)
     @answer.user = current_user

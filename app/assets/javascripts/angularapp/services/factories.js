@@ -12,3 +12,16 @@ opinionationApp.factory('Answer', ['$resource', function($resource){
   );
 }]);
 
+opinionationApp.factory('Favorite', ['$resource', function($resource){
+  return $resource('/api/favorites/:id',
+    { id: '@id' },
+    { update: { method: 'PATCH' } }
+  );
+}]);
+
+opinionationApp.factory('Vote', ['$resource', function($resource){
+  return $resource('/api/votes/:id',
+    { id: '@id' },
+    { update: { method: 'PATCH' } }
+  );
+}]);

@@ -4,6 +4,10 @@
   <div data-ng-repeat="post in posts">
     <h1>{{ post.question }}</h1>
     <h3>{{ post.poster.username }}</h3>
+    <form ng-controller="FavCtrl as fav" ng-submit="fav.addFavorite(post.id)">
+      <input type="submit" value="Favorite" class="">
+    </form>
+    
     <img data-ng-src="{{post.post_pic}}">
     
     <form ng-controller="AnswerCtrl as answer" ng-submit="answer.addAnswer(post.id)">
@@ -18,6 +22,9 @@
         </a>
         <a href="#">{{ answer.username }}</a>
         <p class="answer-body">{{ answer.body }}</p>
+        <form ng-controller="VoteCtrl as vote" ng-submit="vote.addVote(answer.id)">
+          <input type="submit" value="Endorse" class="">
+        </form>
         <span class="checkmark"></span>
       </div>
     </div> <!-- /.answer -->
