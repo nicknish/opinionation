@@ -135,6 +135,8 @@
 }
 
 @media (min-width: 40rem) {
-	.post { height: 300px; float: left; padding: 10px; }
-	.half { width: 50%; }
+	.posts {
+		.post { height: 300px; float: left; padding: 10px; }
+		.half { width: 50%; }
+	}
 }
