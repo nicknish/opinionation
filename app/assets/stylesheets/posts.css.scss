@@ -33,10 +33,10 @@
 		  left: 0;
 			top: 0;
 			border-radius: 3px;
+			margin: 0;
 		}
 	}
 }
-
 // Front Post Styles
 .front {
 	text-transform: uppercase;
@@ -81,7 +81,10 @@
 		text-transform: uppercase; 
 		font-size: 20px;
 		float: left;
+		margin-top: 5px;
+		width: 70%;
 	}
+	h3 a { font-size: 15px; }
 	.poster-profile-pic {
 		img { width: 100%; height: 100%; }
 		width: 50px;
@@ -89,6 +92,11 @@
 		border-radius: 50%;
 		background-color: white;
 		float: right;
+	}
+	.lightbox-photo { 
+		margin: 0 auto; 
+		width: 100%;
+		display: block;
 	}
 	.post-photo {
 		width: 95%;

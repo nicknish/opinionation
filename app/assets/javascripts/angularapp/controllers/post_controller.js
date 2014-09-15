@@ -6,12 +6,11 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   // Flip checks if a post is flipped,
   // which an ng-class will respond by adding or 
   // removing the 'flipped' class
-  $scope.flip = function() {
-		var flipped = $scope.isFlipped;
-  	if (flipped == false || flipped == null) {
-  		$scope.isFlipped = true;
+  $scope.flip = function(post) {
+  	if (post.flipState == false || post.flipState == null) {
+  		post.flipState = true;
   	} else { 
-  		$scope.isFlipped = false; 
+  		post.flipState = false; 
   	}
   }
 }]);
