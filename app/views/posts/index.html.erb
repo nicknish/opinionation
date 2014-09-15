@@ -4,8 +4,8 @@
 
   <div class="posts clearfix">
     
-    <div class="post col half" ng-click="flip(post)" ng-class="{flipped: post.flipState}" data-ng-repeat="post in posts">
-      <div class="front">
+    <div class="post col half" ng-class="{flipped: post.flipState}" data-ng-repeat="post in posts">
+      <div class="front" ng-click="flip(post)" >
         <div class="full-image" style="background-image: url({{post.post_pic}})"></div>
         <h1 class="title">{{ post.question }}</h1>
       </div>
