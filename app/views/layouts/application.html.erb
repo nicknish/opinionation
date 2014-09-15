@@ -11,7 +11,7 @@
 
   <% if current_user %>
     <%= "Hello, #{current_user.fname}!" %>
-    <%= link_to "Sign out", session_path, method: :delete %>
+    <%= link_to "Sign out", session_path, method: :delete, id: "signzout" %>
   <% else %>
     <%= link_to "Sign in", new_session_path %>
   <% end %>
