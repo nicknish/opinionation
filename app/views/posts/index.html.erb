@@ -8,9 +8,22 @@
   <div data-ng-repeat="post in posts">
     <h1>{{ post.question }}</h1>
     <h3>{{ post.poster.username }}</h3>
-    <form ng-controller="FavCtrl as fav" ng-submit="fav.addFavorite(post.id)">
-      <input type="submit" value="Favorite" class="">
-    </form>
+    <div>{{ post.post_favorite }}</div>
+
+    <a ng-click="destroy(post)">Delete Post!</a>
+
+
+    <div data-ng-controller="FavCtrl as fav">
+      <!-- <form ng-submit="fav.addFavorite(post.id)">
+        <input type="submit" value="Favorite" class="">
+      </form> -->
+
+      <a ng-click="favoriteUpdate(post)" class="btn btn-primary">Favorite/Unfavorite</a>
+
+      <!-- <a ng-click="fav.addFavorite(post.id)" class="btn btn-primary">Favorite</a>
+
+      <a ng-click="fav.destroyFavorite(post.post_favorite)" class="btn btn-danger">Unfavorite</a> -->
+    </div>
     
     <img data-ng-src="{{post.post_pic}}">
     

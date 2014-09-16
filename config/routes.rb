@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :new, :create]
 
   scope '/api' do
-    resources :posts, only: [:index], defaults: { format: :json }
+    resources :posts, only: [:index, :destroy], defaults: { format: :json }
     resources :answers, only: [:create], defaults: { format: :json }
-    resources :favorites, only: [:create, :destroy], defaults: {format: :json }
+    resources :favorites, only: [:show, :create, :destroy], defaults: {format: :json }
     resources :votes, only: [:create, :destroy], defaults: {format: :json }
   end
 

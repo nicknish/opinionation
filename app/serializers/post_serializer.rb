@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :question, :poster, :post_pic, :is_favorite, :answers
+  attributes :id, :question, :poster, :post_pic, :post_favorite, :is_favorite, :answers
 
   delegate :current_user, to: :scope
 
@@ -9,6 +9,14 @@ class PostSerializer < ActiveModel::Serializer
 
   def post_pic
     object.post_pic ? object.post_pic(:large) : object.user.profile_pic(:large)
+  end
+
+  def post_favorite
+    if object.favorites.exists?(user_id: current_user.id)
+      object.favorites.where(user_id: current_user.id).first
+    else
+      Favorite.new
+    end
   end
 
   def is_favorite
