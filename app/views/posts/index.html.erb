@@ -14,15 +14,10 @@
 
 
     <div data-ng-controller="FavCtrl as fav">
-      <!-- <form ng-submit="fav.addFavorite(post.id)">
-        <input type="submit" value="Favorite" class="">
-      </form> -->
+
 
       <a ng-click="updateFavorite(post)" class="btn btn-primary">Favorite/Unfavorite</a>
 
-      <!-- <a ng-click="fav.addFavorite(post.id)" class="btn btn-primary">Favorite</a>
-
-      <a ng-click="fav.destroyFavorite(post.post_favorite)" class="btn btn-danger">Unfavorite</a> -->
     </div>
     
     <img data-ng-src="{{post.post_pic}}">
@@ -39,9 +34,9 @@
         </a>
         <a href="#">{{ answer.username }}</a>
         <p class="answer-body">{{ answer.body }}</p>
-        <form ng-controller="VoteCtrl as vote" ng-submit="vote.addVote(answer.id)">
-          <input type="submit" value="Endorse" class="">
-        </form>
+        <div data-ng-controller="VoteCtrl as vote">
+          <a ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a>
+        </div>
         <span class="checkmark"></span>
       </div>
     </div> <!-- /.answer -->

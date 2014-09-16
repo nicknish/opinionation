@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @posts = Post.all
+    @posts = Post.take(20)
 
     respond_with @posts, each_serializer: PostSerializer
   end

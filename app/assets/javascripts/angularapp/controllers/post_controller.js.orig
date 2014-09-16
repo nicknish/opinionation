@@ -1,0 +1,27 @@
+opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post){
+  Post.query(function(json){
+    $scope.posts = json;
+<<<<<<< HEAD
+  });
+
+  // Flip checks if a post is flipped,
+  // which an ng-class will respond by adding or 
+  // removing the 'flipped' class
+  $scope.flip = function() {
+		var flipped = $scope.isFlipped;
+  	if (flipped == false || flipped == null) {
+  		$scope.isFlipped = true;
+  	} else { 
+  		$scope.isFlipped = false; 
+  	}
+  }
+}]);
+=======
+  })
+
+  $scope.destroy = function(post){
+    post.$delete();
+  }
+
+}])
+>>>>>>> 0450e4a6bcf88d63b8697cd3a5de309a3a00a11c
