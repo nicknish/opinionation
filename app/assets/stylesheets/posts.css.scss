@@ -42,10 +42,11 @@
 	text-transform: uppercase;
 	cursor: pointer;
 	h1 { font-weight: 800; }
+	color: white;
 
 	.full-image { 
 		transition: filter .7s linear;
-		filter: blur(1px);  
+		filter: blur(2px);  
 		background-size: cover;
 		width: 100%;
 		height: 100%;
@@ -124,7 +125,7 @@
 	font-size: 16px;
 	font-weight: 800;
 	color: #637BD1;
-	width: 20%;
+	width: 19%;
 }
 // Answer Thread Styles
 .answer {
@@ -154,4 +155,5 @@
 		.post { height: 300px; float: left; padding: 10px; }
 		.half { width: 50%; }
 	}
+	.answer-submit { width: 20%; }
 }

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @posts = Post.all
+    @posts = Post.take(20)
 
     respond_with @posts, each_serializer: PostSerializer
   end
@@ -20,6 +20,15 @@ class PostsController < ApplicationController
       redirect_to posts_path
     else
       render 'new'
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      render json: @post, status: :ok
+    else
+      render json: @post.errors, status: :internal_server_error
     end
   end
 

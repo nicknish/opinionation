@@ -13,4 +13,9 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   		post.flipState = false; 
   	}
   }
+
+  $scope.destroy = function(post){
+    post.$delete();
+  }
+
 }]);

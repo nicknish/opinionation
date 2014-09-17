@@ -11,6 +11,15 @@ class VotesController < ApplicationController
     end
   end
 
+  def destroy
+    @vote = Vote.find(params[:id])
+    if @vote.destroy
+      render json: @vote, status: :ok
+    else
+      render json: @vote.errors, status: :internal_server_error
+    end
+  end
+
   private
 
   def vote_params
