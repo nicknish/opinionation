@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :show, :create]
   resources :posts, only: [:index, :new, :create]
 
   scope '/api' do
