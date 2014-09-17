@@ -19,7 +19,7 @@ opinionationApp.controller('VoteCtrl', ['$scope', 'Vote', function($scope, Vote)
   	  var x = new Vote({id: answer.answer_vote.id, user_id: answer.answer_vote.user_id, answer_id: answer.id, created_at: answer.answer_vote.created_at, updated_at: answer.answer_vote.updated_at});
   	  x.$delete();
 
-  	  answer.answer_vote = new Vote({id: null, user_id: null, answer_id: null, created_at: null, updated_at: null});
+  	  answer.answer_vote = new Vote({id: null});
   	}
   }
 

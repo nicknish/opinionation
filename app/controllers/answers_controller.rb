@@ -2,6 +2,12 @@ class AnswersController < ApplicationController
 
   respond_to :json
 
+  def current_user_answers
+    @answers = Answer.where(user_id: current_user.id).all
+
+    respond_with @answers, each_serializer: AnswerSerializer
+  end
+
   def create
     @answer = Answer.new(answer_params)
     @answer.user = current_user

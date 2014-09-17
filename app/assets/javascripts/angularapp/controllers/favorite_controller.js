@@ -21,7 +21,7 @@ opinionationApp.controller('FavCtrl', ['$scope', 'Favorite', function($scope, Fa
       //delete the Favorite object
       x.$delete();
       //instantiate a new empty Favorite object
-      post.post_favorite = new Favorite({id: null, user_id: null, post_id: null, created_at: null, updated_at: null});
+      post.post_favorite = new Favorite({id: null});
     }
   }
 

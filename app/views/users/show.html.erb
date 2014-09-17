@@ -1,0 +1,21 @@
+<h1>Hi, I'm the User Show View!</h1>
+<div data-ng-controller="CurrentUserPostCtrl">
+  <h2>User's Questions</h2>
+  <div data-ng-repeat="post in current_user_posts">
+    <h3>{{ post.question }}</h3>
+  </div>
+</div>
+
+<div data-ng-controller="CurrentUserAnswerCtrl">
+  <h2>User's Answers</h2>
+  <div data-ng-repeat="answer in current_user_answers">
+    <h3>{{ answer.body }}</h3>
+  </div>
+</div>
+
+<div data-ng-controller="CurrentUserFavoriteCtrl">
+  <h2>User's Favorite Questions</h2>
+  <div data-ng-repeat="favorite in current_user_favorites">
+    <h3>{{ favorite.question }}</h3>
+  </div>
+</div>
