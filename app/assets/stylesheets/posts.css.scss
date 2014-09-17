@@ -41,6 +41,7 @@
 .front {
 	text-transform: uppercase;
 	cursor: pointer;
+	h1 { font-weight: 800; }
 
 	.full-image { 
 		transition: filter .7s linear;
@@ -61,7 +62,8 @@
 	transform: rotateY( 180deg ); 
 	margin-left: .5rem;
 	background-color: #ECF0F1;
-	overflow: hidden;
+	overflow: scroll;
+	padding: 5px;
 
 	.close-button { 
 		cursor: pointer; 
@@ -94,32 +96,36 @@
 		float: right;
 	}
 	.lightbox-photo { 
-		margin: 0 auto; 
+		margin: 10px auto; 
 		width: 100%;
 		display: block;
+		text-align: center;
+		height: 100px;
+		overflow: hidden;
 	}
 	.post-photo {
-		width: 95%;
+		width: 100%;
 	}
 }
 
 // Back Post Form Styles
-.form {
-	.answer-input {
-		border: 1px solid rgba(0,0,0,.33);
-		border-radius: 5px;
-		height: 30px;
-		padding-left: 5px;
-	}
-	.answer-submit {
-		border: 0;
-		background-color: inherit;
-		font-size: 16px;
-		font-weight: 800;
-		color: #637BD1;
-	}
+.answers { padding: 10px 0; }
+.answer-input {
+	border: 1px solid rgba(0,0,0,.33);
+	background-color: rgba(255,255,255,.47);
+	border-radius: 5px;
+	height: 30px;
+	padding-left: 5px;
+	width: 79%;
 }
-
+.answer-submit {
+	border: 0;
+	background-color: inherit;
+	font-size: 16px;
+	font-weight: 800;
+	color: #637BD1;
+	width: 20%;
+}
 // Answer Thread Styles
 .answer {
 	border: 1px solid gray;
@@ -141,6 +147,7 @@
 		float: left;
 	}
 }
+
 
 @media (min-width: 40rem) {
 	.posts {

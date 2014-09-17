@@ -9,7 +9,7 @@
       </div>
       
       <div class="back clearfix">
-        <span class="close-button" ng-click="flip()">x</span>
+        <span class="close-button" ng-click="flip(post)">x</span>
         <form ng-controller="FavCtrl as fav" ng-submit="fav.addFavorite(post.id)">
           <input type="submit" value="Favorite" class="">
         </form>
@@ -25,11 +25,15 @@
 
         <div class="answers">
           <div class="answer clearfix" data-ng-repeat="answer in post.answers">
-            <a href="#">
-              <img data-ng-src="{{answer.user_pic}}" class="profile-pic">
-            </a>
-            <a href="#">{{ answer.username }}</a>
-            <p class="answer-body">{{ answer.body }}</p>
+            <div class="clearfix">
+              <a href="#" class="col third">
+                <img data-ng-src="{{answer.user_pic}}" class="profile-pic">
+              </a>
+              <div class="">
+                <a href="#" class="answer-username">{{ answer.username }}</a><br />
+                <p class="answer-body">{{ answer.body }}</p>
+              </div>
+            </div>
             <span class="checkmark"></span>
           </div>
         </div> <!-- /.answers -->

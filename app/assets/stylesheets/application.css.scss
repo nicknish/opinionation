@@ -15,10 +15,12 @@
  */
 
 @import 'bootstrap';
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,800);
 
 /* Global Variables and Properties 
 =============================== */
 body { 
+	font-family: 'Open Sans';
 	background-color: #497bad; 
 	padding-top: 50px;
 }
@@ -26,7 +28,7 @@ body {
 .container { 
   margin: 0 auto;
   max-width: 60rem;
-  width: 90%; 
+  // width: 90%; 
 }
 
 * { box-sizing: border-box; }
