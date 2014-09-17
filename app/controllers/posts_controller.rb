@@ -8,6 +8,22 @@ class PostsController < ApplicationController
     respond_with @posts, each_serializer: PostSerializer
   end
 
+  def current_user_posts
+    @posts = Post.where(user_id: current_user.id).all
+
+    respond_with @posts, each_serializer: PostSerializer
+  end
+
+  def current_user_favorites
+    @posts = []
+
+    current_user.favorites.each do |fav|
+      @posts << fav.post
+    end
+
+    respond_with @posts, each_serializer: PostSerializer
+  end
+
   def new
     @post = Post.new
   end 
