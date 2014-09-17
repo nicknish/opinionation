@@ -2,12 +2,15 @@
 ================ */
 .posts { 
 	position: relative; 
+	margin: 0 1rem;
 	
 	.flipped {
 		transform: scale(1.0) scaleZ(1.0) rotateY(180deg);
 		transform-origin: 50% 0%;
+		// backface-visibility: hidden;
 		perspective: 0;
 		perspective-origin: 50% 100%;
+		.front { display: none; z-index: -50; }
 	}
 	// General Post Styles
 	.post {
@@ -18,7 +21,7 @@
 		height: 70vh;
 		background-color: white;
 		border-radius: 4px;
-		transition: transform .65s linear;
+		transition: all .65s linear;
 	  transform-style: preserve-3d;
 		padding: 5px;
 		margin-bottom: 10px;
@@ -46,9 +49,11 @@
 	cursor: pointer;
 	h1 { font-weight: 800; }
 	color: white;
+	overflow: hidden;
+	transition: all .7s linear;
 
 	.full-image { 
-		transition: filter .7s linear;
+		// transition: filter .7s linear;
 		filter: blur(2px);  
 		background-size: cover;
 		width: 100%;
@@ -64,7 +69,7 @@
 // Back Post Styles
 .back {
 	transform: rotateY( 180deg ); 
-	margin-left: .5rem;
+	margin-left: 1px !important;
 	background-color: #ECF0F1;
 	overflow: scroll;
 	padding: 5px;
@@ -89,6 +94,8 @@
 		float: left;
 		margin-top: 5px;
 		width: 70%;
+		-webkit-user-select: none;
+		-moz-user-select: none;
 	}
 	h3 a { font-size: 15px; }
 	.poster-profile-pic {
@@ -136,6 +143,8 @@
 	border-radius: 1px;
 	padding-top: 10px;
 	background-color: #F3F3F3;
+	&:nth-child(n+2){ border-top:none; }
+	&:not(:last-child) { border-bottom: none; }
 	.profile-pic {
 		border: 1px solid gray;
 		border-radius: 5px;
@@ -151,15 +160,14 @@
 		padding-left: 15px;
 		float: left;
 	}
-	&:nth-child(n+2){ border-top:none; }
-	&:not(:last-child) { border-bottom: none; }
+	.best-answer {}
 }
 
 
 @media (min-width: 40rem) {
 	.posts {
-		.post { height: 300px; float: left; padding: 10px; }
-		.half { width: 50%; }
+		.post { height: 300px; float: left; padding: 10px; margin-right: 1%;}
+		.half { width: 48%; }
 	}
 	.answer-submit { width: 20%; }
 }

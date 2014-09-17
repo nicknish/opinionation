@@ -10,6 +10,8 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   $scope.flip = function(post) {
   	if (post.flipState == false || post.flipState == null) {
   		post.flipState = true;
+      // Prevent Chrome Flash
+      post.closest('.front').fadeOut();
   	} else { 
   		post.flipState = false; 
   	}

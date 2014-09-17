@@ -1,5 +1,5 @@
 <!-- Posts -->
-<div class="posts container" data-ng-controller="PostCtrl">  
+<div class="posts" data-ng-controller="PostCtrl">  
 
   <% if current_user %>
     <%= link_to "New Post", new_post_path, :id => "newz" %>
@@ -38,7 +38,7 @@
                 <a href="#" class="answer-username">{{ answer.username }}</a><br />
                 <p class="answer-body">{{ answer.body }}</p>
                 <div data-ng-controller="VoteCtrl as vote">
-                  <a ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a>
+                  <a ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a> <span>{{answer.vote_count}} votes</span>
                 </div>
               </div>
             </div>
