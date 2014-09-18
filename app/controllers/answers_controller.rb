@@ -2,6 +2,12 @@ class AnswersController < ApplicationController
 
   respond_to :json
 
+  def index
+    @answers = Answer.where(post_id: params[:post_id]).all
+
+    respond_with @answers, each_serializer: AnswerSerializer
+  end
+
   def current_user_answers
     @answers = Answer.where(user_id: current_user.id).all
 
