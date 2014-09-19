@@ -1,6 +1,5 @@
 <!-- User Profile -->
-<!-- <h1>Hi, I'm the User Show View!</h1> -->
-<div class="user-profile">
+<div class="user-profile" data-ng-controller="UserProfileCtrl">
   <!-- Pull from API -->
   <div class="container">
     <div class="imageWrapper">
@@ -8,30 +7,27 @@
     </div>
     <h2 class="user-profile-username"><%= current_user.username %></h2>
   </div>
-    
+
+  <!-- Profile Tabs -->
   <div class="profile-tabs clearfix">
-    <button class="profile-tab"><span id="question-icon"></span></button>
-    <button class="profile-tab"><span id="answer-icon"></span></button>
-    <button class="profile-tab"><span id="favorite-icon"></span></button>
+    <button class="profile-tab"><span id="question-icon" ng-click="changeProfileTab('questions')"></span></button>
+    <button class="profile-tab"><span id="answer-icon" ng-click="changeProfileTab('answers')"></span></button>
+    <button class="profile-tab"><span id="favorite-icon" ng-click="changeProfileTab('favorites')"></span></button>
   </div>
 
   <!-- Fill Container -->
   <div data-ng-controller="CurrentUserPostCtrl">
     <div data-ng-controller="CurrentUserAnswerCtrl">
       <div data-ng-controller="CurrentUserFavoriteCtrl">
-        <ul class="user-profile-fill-space" data-ng-repeat="post in current_user_posts">
+        <ul class="user-profile-fill-space" data-ng-repeat="post in current_user_posts" ng-show="selectedTab === 'questions'">
           <a href=""><li class="user-profile-row">{{ post.question }}</li></a>
         </ul>
 
-        <hr>
-
-        <ul class="user-profile-fill-space" data-ng-repeat="answer in current_user_answers">
+        <ul class="user-profile-fill-space" data-ng-repeat="answer in current_user_answers" ng-show="selectedTab === 'answers'">
           <a href="#"><li class="user-profile-row">{{ answer.body }}</li></a>
         </ul>
 
-        <hr>
-
-        <ul class="user-profile-fill-space" data-ng-repeat="favorite in current_user_favorites">
+        <ul class="user-profile-fill-space" data-ng-repeat="favorite in current_user_favorites" ng-show="selectedTab === 'favorites'">
           <a href="#"><li class="user-profile-row">{{ favorite.question }}</li>
           </a>
         </ul>

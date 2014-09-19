@@ -34,7 +34,7 @@ body {
 } .clearfix:after { clear: both; }
 
 // Media Queries
-@media(min-width: 60rem) { html { font-size: 112%; } }
+@media(min-width: 60rem) { html { font-size: 75%; } }
 
 
 /* ======== NAV STYLES ========= */
@@ -42,7 +42,6 @@ body {
 
 /* Overlay style 
 ====================== */
-.navbar { z-index: 0; }
 .overlay {
 	position: fixed;
 	width: 100%;
