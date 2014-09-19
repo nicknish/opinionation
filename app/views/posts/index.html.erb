@@ -35,8 +35,8 @@
           <input type="submit" value="Send" class="answer-submit">
         </form>
         <% else %>
-          <%= form_tag("/", method: "get") do %>
-            <input type="text" name="Answer" value="Answer" class="answer-input" />
+          <%= form_tag("/users/new", method: "get") do %>
+            <input type="text" placeholder="Answer" class="answer-input" />
             <input name="commit" type="submit" value="Send" class="answer-submit" />
           <% end %>
         <% end %>
@@ -59,7 +59,7 @@
                   <% else %>
                   <a href="/users/new" class="btn btn-primary">Vote/Unvote</a> 
                   <% end %>
-                  <span>{{answer.vote_count}} votes</span>
+                  
 
                 </div>
               </div>
