@@ -51,13 +51,16 @@
               <div class="">
                 <a href="#" class="answer-username">{{ answer.answerer.username }}</a><br />
                 <p class="answer-body">{{ answer.body }}</p>
+                <p class="text-muted text-left">Posted {{ answer.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
                 <div data-ng-controller="VoteCtrl as vote">
                   <% if current_user %>
                   <a ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a>
+                  <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
                   <% else %>
                   <a href="/users/new" class="btn btn-primary">Vote/Unvote</a> 
                   <% end %>
                   <span>{{answer.vote_count}} votes</span>
+
                 </div>
               </div>
             </div>

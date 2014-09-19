@@ -1,5 +1,5 @@
 class AnswerSerializer < ActiveModel::Serializer
-  attributes :id, :answerer, :body, :vote_count, :post_id, :user_vote
+  attributes :id, :answerer, :body, :vote_count, :post_id, :user_vote, :created_at
 
   delegate :current_user, to: :scope
 
