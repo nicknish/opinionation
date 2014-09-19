@@ -18,9 +18,13 @@
 //= require bootstrap
 //= require_tree .
 
-// $(document).ready(function(){
-// 	$('#trigger-overlay').on('click', function(e){
-// 			e.preventDefault();
-// 			$('body').addClass('overlay', 'overlay-open');
-// 	});
-// });
+$(document).ready(function(){
+	$('#trigger-overlay').on('click', function(e){
+		e.preventDefault();
+		$('.overlay').addClass('open');
+	});
+	$('.overlay-close').on('click', function(e) {
+		e.preventDefault();
+		$('.overlay').removeClass('open');
+	})
+});
