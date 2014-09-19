@@ -17,7 +17,11 @@
       <div class="back clearfix">
         <span class="close-button" ng-click="flip(post)">x</span>
         <div data-ng-controller="FavCtrl as fav">
+           <% if current_user %>
           <a ng-click="updateFavorite(post)" class="btn btn-primary">Favorite/Unfavorite</a>
+          <% else %>
+            <a href="/users/new" class="btn btn-primary">Favorite/Unfavorite</a> 
+          <% end %>
         </div>
         <h2 class="title">{{ post.question }}</h2>
         <a href="#"><img ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
@@ -48,7 +52,12 @@
                 <a href="#" class="answer-username">{{ answer.answerer.username }}</a><br />
                 <p class="answer-body">{{ answer.body }}</p>
                 <div data-ng-controller="VoteCtrl as vote">
-                  <a ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a> <span>{{answer.vote_count}} votes</span>
+                  <% if current_user %>
+                  <a ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a>
+                  <% else %>
+                  <a href="/users/new" class="btn btn-primary">Vote/Unvote</a> 
+                  <% end %>
+                  <span>{{answer.vote_count}} votes</span>
                 </div>
               </div>
             </div>
