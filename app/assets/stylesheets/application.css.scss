@@ -39,6 +39,8 @@ body {
 
 /* ======== NAV STYLES ========= */
 
+// Overlay Nav inspired by HugeInc,
+// rebuilt by tympanus/codrops.
 
 /* Overlay style 
 ====================== */
@@ -76,7 +78,6 @@ body {
 	top: 50%;
 	height: 60%;
 	font-size: 54px;
-	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
 
@@ -110,42 +111,35 @@ body {
 }
 
 /* Effects */
-.overlay-hugeinc {
+.overlay-fullscreen {
 	opacity: 0;
 	visibility: hidden;
-	-webkit-transition: opacity 0.5s, visibility 0s 0.5s;
 	transition: opacity 0.5s, visibility 0s 0.5s;
 }
 
-.overlay-hugeinc.open {
+.overlay-fullscreen.open {
 	opacity: 1;
 	visibility: visible;
-	-webkit-transition: opacity 0.5s;
 	transition: opacity 0.5s;
 	z-index: 10000;
 }
 
-.overlay-hugeinc nav {
-	-webkit-perspective: 1200px;
+.overlay-fullscreen nav {
 	perspective: 1200px;
 }
 
-.overlay-hugeinc nav ul {
+.overlay-fullscreen nav ul {
 	opacity: 0.4;
-	-webkit-transform: translateY(-25%) rotateX(35deg);
 	transform: translateY(-25%) rotateX(35deg);
-	-webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
 	transition: transform 0.5s, opacity 0.5s;
 }
 
-.overlay-hugeinc.open nav ul {
+.overlay-fullscreen.open nav ul {
 	opacity: 1;
-	-webkit-transform: rotateX(0deg);
 	transform: rotateX(0deg);
 }
 
-.overlay-hugeinc.close nav ul {
-	-webkit-transform: translateY(25%) rotateX(-35deg);
+.overlay-fullscreen.close nav ul {
 	transform: translateY(25%) rotateX(-35deg);
 }
 

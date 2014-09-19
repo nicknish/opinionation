@@ -7,6 +7,7 @@
 /* User Profile
 ================= */
 .user-profile {
+	.container { width: 100%; }
 	background-color: #ECF0F1;
 	border-radius: .2rem;
 	width: 100%;
@@ -122,29 +123,37 @@
 /* Media Queries for Larger Displays
 =============================== */
 @media (min-width: 40rem) {
+	.user-profile { 
+		padding: inherit 0;
+		position: relative;
+		min-height: 1px;
+		width: 50%;
+		margin-left: 25%;
+	}
 	.profile-tabs {
 		span { 
 			display: inline-block; 
 			width: 5.3rem;
-			height: 6.5rem;
+			height: 5rem;
 		}
-		#question-icon {
-			background: url('sprites.png') no-repeat;
-			background-size: 20.0rem;
-			background-position: -1.0rem -19.0rem;
-			&:hover { background-position: -1.0rem -12.7rem; }
-		}
-		#answer-icon {
-			background: url('sprites.png') no-repeat;
-			background-size: 20.0rem;
-			background-position: -7.0rem -19.0rem;
-			&:hover { background-position: -7.0rem -12.7rem; }
-		}
+		#question-icon,
+		#answer-icon,
 		#favorite-icon {
 			background: url('sprites.png') no-repeat;
-			background-size: 20.0rem;
-			background-position: -13.6rem -19.0rem;
-			&:hover { background-position: -13.6rem -12.7rem; }
+			background-size: 16rem;
+		}
+
+		#question-icon {
+			background-position: 0rem -15.7rem;
+			&:hover { background-position: 0rem -10.5rem; }
+		}
+		#answer-icon {
+			background-position: -5.3rem -15.5rem;
+			&:hover { background-position: -5.3rem -10.7rem; }
+		}
+		#favorite-icon {
+			background-position: -10.6rem -15.8rem;
+			&:hover { background-position: -10.6rem -10.7rem; }
 		}
 	}
 }
