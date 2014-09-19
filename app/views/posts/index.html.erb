@@ -1,46 +1,54 @@
 <!-- Posts -->
-<div class="posts container" data-ng-controller="PostCtrl">
+<div class="posts" data-ng-controller="PostCtrl"> 
+ <button ng-click="loadPage()" class="btn btn-danger">More questions!</button>
+
+  <% if current_user %>
+    <%= link_to "New Post", new_post_path, :id => "newz" %>
+  <% end %>
+    
   <h1>POSTS INDEX!</h1>
   
-  <div class="posts clearfix">
-    
-    <div class="post col half" ng-click="flip()" ng-class="{flipped: isFlipped}" data-ng-repeat="post in posts">
-      <div class="front">
+    <div class="post col half" ng-controller="AnswerCtrl as answer" ng-class="{flipped: post.flipState}" data-ng-repeat="post in posts">
+      <div class="front" ng-click="getAnswers(post.id); flip(post)" >
         <div class="full-image" style="background-image: url({{post.post_pic}})"></div>
         <h1 class="title">{{ post.question }}</h1>
-        <!-- <img data-ng-src="{{post.post_pic}}"> -->
       </div>
       
       <div class="back clearfix">
-        <span class="close-button" ng-click="flip()">x</span>
-        <span class="favorite-star" ng-click="favorite(post)"></span>
+        <span class="close-button" ng-click="flip(post)">x</span>
+        <div data-ng-controller="FavCtrl as fav">
+          <a ng-click="updateFavorite(post)" class="btn btn-primary">Favorite/Unfavorite</a>
+        </div>
         <h2 class="title">{{ post.question }}</h2>
+        <a href="#"><img ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
         <h3><a href="">{{ post.poster.username }}</a></h3>
-        <a href="#">
-          <img ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic">
-        </a>
-        <img ng-src="{{post.post_pic}}" class="post-photo">
-
-        <form ng-submit="addAnswer()">
-          <input type="text" placeholder="Answer" class="answer-input">
+        <div class="lightbox-photo">
+          <img ng-src="{{post.post_pic}}" class="post-photo">
+        </div>
+        <form ng-submit="answer.addAnswer(post.id)">
+          <input type="text" placeholder="Answer" class="answer-input" ng-model="body">
           <input type="submit" value="Send" class="answer-submit">
         </form>
 
         <div class="answers">
-          <div class="answer clearfix" data-ng-repeat="answer in post.answers">
-            <a href="#">
-              <img data-ng-src="{{answer.user_pic}}" class="profile-pic">
-            </a>
-            <a href="#">{{ answer.username }}</a>
-            <p class="answer-body">{{ answer.body }}</p>
-            <span class="checkmark"></span>
+          <div class="answer clearfix" data-ng-repeat="answer in answers">
+            <div class="clearfix">
+              <a href="#" class="col third">
+                <img data-ng-src="{{answer.answerer.user_pic}}" class="profile-pic">
+              </a>
+              <div class="">
+                <a href="#" class="answer-username">{{ answer.answerer.username }}</a><br />
+                <p class="answer-body">{{ answer.body }}</p>
+                <p class="text-muted text-left">Posted {{ answer.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
+                <div data-ng-controller="VoteCtrl as vote">
+                  <a ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a> <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
+                </div>
+              </div>
+            </div>
+<!--             <span class="checkmark"></span> -->
           </div>
-        </div> <!-- /.answer -->
+        </div> <!-- /.answers -->
       </div> <!-- /.back -->
     </div> <!-- /.post -->
-
   </div> <!-- /.posts -->
-
-
-
 </div>
