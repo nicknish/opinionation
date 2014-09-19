@@ -17,3 +17,10 @@
 //= require angular-rails-templates
 //= require bootstrap
 //= require_tree .
+
+// $(document).ready(function(){
+// 	$('#trigger-overlay').on('click', function(e){
+// 			e.preventDefault();
+// 			$('body').addClass('overlay', 'overlay-open');
+// 	});
+// });

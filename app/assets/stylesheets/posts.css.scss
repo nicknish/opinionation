@@ -43,7 +43,9 @@
 		}
 	}
 }
-// Front Post Styles
+
+/* Front Post Styles
+===================== */
 .front {
 	text-transform: uppercase;
 	cursor: pointer;
@@ -66,7 +68,9 @@
 	}
 }
 
-// Back Post Styles
+
+/* Back Post Styles
+=================== */
 .back {
 	transform: rotateY( 180deg ); 
 	margin-left: 1px !important;
@@ -120,7 +124,9 @@
 		width: 100%;
 	}
 }
-// Back Post Form Styles
+
+/* Back Post Form Styles
+======================= */
 .answers { padding: 10px 0; }
 .answer-input {
 	border: 1px solid rgba(0,0,0,.33);
@@ -138,7 +144,10 @@
 	color: #637BD1;
 	width: 19%;
 }
-// Answer Thread Styles
+
+
+/* Answer Thread Styles
+===================== */
 .answer {
 	border: 1px solid gray;
 	border-radius: 1px;
@@ -164,7 +173,7 @@
 	.best-answer {}
 }
 
-
+// Media Queries
 @media (min-width: 40rem) {
 	.posts {
 		.post { height: 300px; float: left; padding: 10px; margin-right: 1%;}
