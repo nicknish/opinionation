@@ -25,10 +25,18 @@
         <div class="lightbox-photo">
           <img ng-src="{{post.post_pic}}" class="post-photo">
         </div>
+        <% if current_user %>
         <form ng-submit="answer.addAnswer(post.id)">
           <input type="text" placeholder="Answer" class="answer-input" ng-model="body">
           <input type="submit" value="Send" class="answer-submit">
         </form>
+        <% else %>
+          <%= form_tag("/", method: "get") do %>
+            <input type="text" name="Answer" value="Answer" class="answer-input" />
+            <input name="commit" type="submit" value="Send" class="answer-submit" />
+          <% end %>
+        <% end %>
+
 
         <div class="answers">
           <div class="answer clearfix" data-ng-repeat="answer in answers">

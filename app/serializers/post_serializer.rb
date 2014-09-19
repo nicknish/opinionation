@@ -13,8 +13,12 @@ class PostSerializer < ActiveModel::Serializer
 
   #refactor to move to AnswerSerializer?
   def post_favorite
-    if object.favorites.exists?(user_id: current_user.id)
-      object.favorites.where(user_id: current_user.id).first
+    if current_user != nil
+      if object.favorites.exists?(user_id: current_user.id)
+        object.favorites.where(user_id: current_user.id).first
+      else
+        Favorite.new
+      end
     else
       Favorite.new
     end
