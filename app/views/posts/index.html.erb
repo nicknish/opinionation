@@ -1,6 +1,6 @@
 <!-- Posts -->
 <div class="posts" data-ng-controller="PostCtrl"> 
- <button ng-click="loadPage()">Next page</button>
+ <button ng-click="loadPage()" class="btn btn-danger">More questions!</button>
 
   <% if current_user %>
     <%= link_to "New Post", new_post_path, :id => "newz" %>
@@ -49,9 +49,5 @@
         </div> <!-- /.answers -->
       </div> <!-- /.back -->
     </div> <!-- /.post -->
-
   </div> <!-- /.posts -->
-
-
-
 </div>
