@@ -39,15 +39,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def destroy
-    @post = Post.find(params[:id])
-    if @post.destroy
-      render json: @post, status: :ok
-    else
-      render json: @post.errors, status: :internal_server_error
-    end
-  end
-
   private
 
   def post_params
