@@ -1,39 +1,42 @@
 <!-- User Profile -->
 <!-- <h1>Hi, I'm the User Show View!</h1> -->
 <div class="user-profile">
-  <!-- Add to Rails API -->
+  <!-- Pull from API -->
   <div class="container">
-    <%= image_tag (current_user.profile_pic(:medium)), class: "img-circle user-profile-pic" %>
+    <div class="imageWrapper">
+      <%= image_tag (current_user.profile_pic(:medium)), class: "img-circle user-profile-pic" %>
+    </div>
     <h2 class="user-profile-username"><%= current_user.username %></h2>
   </div>
-
-  <div data-ng-controller="CurrentUserPostCtrl">
-    <!-- <h2>User's Questions</h2> -->
+    
+  <div class="profile-tabs clearfix">
     <button class="profile-tab"><span id="question-icon"></span></button>
-    <ul class="user-profile-fill-space" data-ng-repeat="post in current_user_posts">
-      <li class="user-profile-row">{{ post.question }}</li>
-    </ul>
-  </div>
-  
-  <div data-ng-controller="CurrentUserAnswerCtrl">
-    <!-- <h2>User's Answers</h2> -->
     <button class="profile-tab"><span id="answer-icon"></span></button>
-    <ul class="user-profile-fill-space"data-ng-repeat="answer in current_user_answers">
-      <li class="user-profile-row">{{ answer.body }}</li>
-    </ul>
-  </div>
-  
-  <div data-ng-controller="CurrentUserFavoriteCtrl">
-    <!-- <h2>User's Favorite Questions</h2> -->
     <button class="profile-tab"><span id="favorite-icon"></span></button>
-    <ul data-ng-repeat="favorite in current_user_favorites">
-      <li>{{ favorite.question }}</li>
-    </ul>
   </div>
 
-  <!-- Fill Space ng-Model -->
-  <ul class="user-profile-fill-space">
-    <li></li>
-  </ul>
+  <!-- Fill Container -->
+  <div data-ng-controller="CurrentUserPostCtrl">
+    <div data-ng-controller="CurrentUserAnswerCtrl">
+      <div data-ng-controller="CurrentUserFavoriteCtrl">
+        <ul class="user-profile-fill-space" data-ng-repeat="post in current_user_posts">
+          <a href=""><li class="user-profile-row">{{ post.question }}</li></a>
+        </ul>
+
+        <hr>
+
+        <ul class="user-profile-fill-space" data-ng-repeat="answer in current_user_answers">
+          <a href="#"><li class="user-profile-row">{{ answer.body }}</li></a>
+        </ul>
+
+        <hr>
+
+        <ul class="user-profile-fill-space" data-ng-repeat="favorite in current_user_favorites">
+          <a href="#"><li class="user-profile-row">{{ favorite.question }}</li>
+          </a>
+        </ul>
+      </div>
+    </div>
+  </div>
 
 </div>

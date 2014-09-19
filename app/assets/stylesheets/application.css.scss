@@ -21,7 +21,7 @@
 =============================== */
 body { 
 	font-family: 'Open Sans';
-	background-color: #497bad; 
+	background-color: #2B3E51; 
 	padding-top: 50px;
 }
 
@@ -37,6 +37,7 @@ body {
 	font-size: 17px;
 }
 
+// Clearfix
 .clearfix:after,
 .clearfix:before {
 	content: "";
@@ -44,5 +45,4 @@ body {
 } .clearfix:after { clear: both; }
 
 // Media Queries
-
 @media(min-width: 60rem) { html { font-size: 112%; } }

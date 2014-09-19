@@ -2,34 +2,149 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// 1rem = 10px
+
+/* User Profile
+================= */
 .user-profile {
 	background-color: #ECF0F1;
-	border-radius: 2px;
-	// position: relative;
-	.user-profile-pic { 
-		width: 130px; 
-		height: 130px; 
-		overflow: hidden; 
+	border-radius: .2rem;
+	width: 100%;
+	position: absolute;
+	margin-top: 7.5rem;
+	.container { 
 		text-align: center; 
-		// position: absolute;
+		.imageWrapper { height: 10.5rem; }
 	}
-	.user-profile-username { color: #828282; font-size: 21px; text-align: center; margin-bottom: 1rem; }
+	.user-profile-pic { 
+		width: 14.5rem; 
+		height: 14.5rem; 
+		overflow: hidden; 
+		position: relative;
+		top:-7rem;
+	}
+	.user-profile-username { 
+		color: #828282; 
+		// font-size: 21px;
+		font-size: 2.1rem; 
+		margin-top: -2.5rem;
+		margin-bottom: 1.5rem; 
+	}
 	button { 
 		outline: 0; 
-		&:not(&:first-of-type) {
-			border-left: none;
-		}
 	}
+}
+
+
+/* Profile Tabs
+================= */
+.profile-tabs {
 	.profile-tab { 
 		width: 33.3333333%; 
 		border: 1px solid rgba(151,151,151,.40); 
-		min-height: 70px;
+		min-height: 7rem;
 		float: left;
+		background-color: #ECF0F1;
+		border-left: none;
 	}
 	.question-icon,
 	.answer-icon,
 	.favorite-icon {
-		box-shadow: inset 1px 1px black;
+		box-shadow: inset .1rem .1rem black;
 	}
-	li {margin:0;}
+	span { 
+		display: inline-block; 
+		width: 5.3rem;
+		height: 4.5rem;
+		cursor: pointer;
+	}
+	#question-icon {
+		background: url('sprites.png') no-repeat;
+		background-size: 170px;
+		background-position: -2px -170px;
+		&:hover { background-position: -2px -116px; }
+	}
+	#answer-icon {
+		background: url('sprites.png') no-repeat;
+		background-size: 170px;
+		background-position: -58px -169px;
+		&:hover { background-position: -58px -117px; }
+	}
+	#favorite-icon {
+		background: url('sprites.png') no-repeat;
+		background-size: 170px;
+		background-position: -114px -170px;
+		&:hover { background-position: -114px -116px; }
+	}
+
+	// Media Queries For Retina Display
+	@media screen and (-webkit-min-device-pixel-ratio: 2), 
+		screen and (min--moz-device-pixel-ratio: 2), 
+		screen and (-o-min-device-pixel-ratio: 2/1), 
+		screen and (min-device-pixel-ratio: 2), 
+		screen and (min-resolution: 192dpi), 
+		screen and (min-resolution: 2dppx) { 
+	
+			#question-icon {
+				background-image: url('sprites@2x.png');
+			}
+			#answer-icon {
+				background-image: url('sprites@2x.png');
+			}
+			#favorite-icon {
+				background-image: url('sprites@2x.png');
+			}
+	}
+}
+
+
+/* Fill Container
+=================== */
+.user-profile-fill-space {
+	padding: 0;
+	margin: 0;
+	background-color: white;
+	a { 
+		color: #0E1B18; 
+		&:hover { text-decoration: none; } 
+	}
+	li {
+		margin:0;
+		list-style:none;
+		padding: 3rem 2rem;
+		transition: color .7s ease;
+		border-bottom: .1rem solid #ECF0F1;
+		&:hover { color: #497bad; }
+		font-size: 1.4rem;
+	}
+}
+
+/* Media Queries for Larger Displays
+=============================== */
+@media (min-width: 40rem) {
+	.profile-tabs {
+		span { 
+			display: inline-block; 
+			width: 5.3rem;
+			height: 6.5rem;
+		}
+		#question-icon {
+			background: url('sprites.png') no-repeat;
+			background-size: 20.0rem;
+			background-position: -1.0rem -19.0rem;
+			&:hover { background-position: -1.0rem -12.7rem; }
+		}
+		#answer-icon {
+			background: url('sprites.png') no-repeat;
+			background-size: 20.0rem;
+			background-position: -7.0rem -19.0rem;
+			&:hover { background-position: -7.0rem -12.7rem; }
+		}
+		#favorite-icon {
+			background: url('sprites.png') no-repeat;
+			background-size: 20.0rem;
+			background-position: -13.6rem -19.0rem;
+			&:hover { background-position: -13.6rem -12.7rem; }
+		}
+	}
 }

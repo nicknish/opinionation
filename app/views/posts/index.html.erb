@@ -22,8 +22,9 @@
         <h2 class="title">{{ post.question }}</h2>
         <a href="#"><img ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
         <h3><a href="">{{ post.poster.username }}</a></h3>
-        <a href="#" class="lightbox-photo"><img ng-src="{{post.post_pic}}" class="post-photo"></a>
-
+        <div class="lightbox-photo">
+          <img ng-src="{{post.post_pic}}" class="post-photo">
+        </div>
         <form ng-submit="answer.addAnswer(post.id)">
           <input type="text" placeholder="Answer" class="answer-input" ng-model="body">
           <input type="submit" value="Send" class="answer-submit">
