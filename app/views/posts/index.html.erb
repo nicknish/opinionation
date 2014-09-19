@@ -1,5 +1,6 @@
 <!-- Posts -->
-<div class="posts" data-ng-controller="PostCtrl">  
+<div class="posts" data-ng-controller="PostCtrl"> 
+ <button ng-click="loadPage()">Next page</button>
 
   <% if current_user %>
     <%= link_to "New Post", new_post_path, :id => "newz" %>
@@ -7,8 +8,8 @@
     
   <h1>POSTS INDEX!</h1>
   
-    <div class="post col half" ng-class="{flipped: post.flipState}" data-ng-repeat="post in posts">
-      <div class="front" ng-click="flip(post)" >
+    <div class="post col half" ng-controller="AnswerCtrl as answer" ng-class="{flipped: post.flipState}" data-ng-repeat="post in posts">
+      <div class="front" ng-click="getAnswers(post.id); flip(post)" >
         <div class="full-image" style="background-image: url({{post.post_pic}})"></div>
         <h1 class="title">{{ post.question }}</h1>
       </div>
@@ -23,19 +24,19 @@
         <h3><a href="">{{ post.poster.username }}</a></h3>
         <a href="#" class="lightbox-photo"><img ng-src="{{post.post_pic}}" class="post-photo"></a>
 
-        <form ng-controller="AnswerCtrl as answer" ng-submit="answer.addAnswer(post.id)">
+        <form ng-submit="answer.addAnswer(post.id)">
           <input type="text" placeholder="Answer" class="answer-input" ng-model="body">
           <input type="submit" value="Send" class="answer-submit">
         </form>
 
         <div class="answers">
-          <div class="answer clearfix" data-ng-repeat="answer in post.answers">
+          <div class="answer clearfix" data-ng-repeat="answer in answers">
             <div class="clearfix">
               <a href="#" class="col third">
-                <img data-ng-src="{{answer.user_pic}}" class="profile-pic">
+                <img data-ng-src="{{answer.answerer.user_pic}}" class="profile-pic">
               </a>
               <div class="">
-                <a href="#" class="answer-username">{{ answer.username }}</a><br />
+                <a href="#" class="answer-username">{{ answer.answerer.username }}</a><br />
                 <p class="answer-body">{{ answer.body }}</p>
                 <div data-ng-controller="VoteCtrl as vote">
                   <a ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a> <span>{{answer.vote_count}} votes</span>

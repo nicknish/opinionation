@@ -1,5 +1,12 @@
 //used in the posts index view
 opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post){
+  var counter = 2;
+
+  $scope.loadPage = function() {
+    $scope.posts = Post.query({page: counter});
+    counter += 1;
+  }
+  
   Post.query(function(json){
     $scope.posts = json;
   });
@@ -15,10 +22,6 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   	} else { 
   		post.flipState = false; 
   	}
-  }
-
-  $scope.destroy = function(post){
-    post.$delete();
   }
 
 }]);
