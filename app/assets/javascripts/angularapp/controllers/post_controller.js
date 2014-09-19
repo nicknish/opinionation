@@ -24,8 +24,4 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   	}
   }
 
-  $scope.destroy = function(post){
-    post.$delete();
-  }
-
 }]);

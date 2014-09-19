@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 10)
+    @posts = Post.paginate(page: params[:page], per_page: 12)
 
     respond_with @posts, each_serializer: PostSerializer
   end

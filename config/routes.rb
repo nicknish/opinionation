@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :new, :create]
 
   scope '/api' do
-    resources :posts, only: [:index, :destroy], defaults: { format: :json }
+    resources :posts, only: [:index], defaults: { format: :json }
     get '/current_user_posts', to: 'posts#current_user_posts', defaults: { format: :json }
     get '/current_user_favorites', to: 'posts#current_user_favorites', defaults: { format: :json }
     resources :answers, only: [:index, :create], defaults: { format: :json }

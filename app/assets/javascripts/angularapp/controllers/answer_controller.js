@@ -4,10 +4,6 @@ opinionationApp.controller('AnswerCtrl', ['$scope', 'Answer', function($scope, A
     $scope.answers = Answer.query({post_id: postId});
   }
 
-  // Answer.query(function(json){
-  //   $scope.answers = Answer.query({post_id: })
-  // })
-
   $scope.newAnswer = new Answer();
 
   this.addAnswer = function(post_id){
