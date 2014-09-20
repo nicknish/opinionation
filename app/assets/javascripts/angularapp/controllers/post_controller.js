@@ -31,4 +31,8 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   	}
   }
 
+  $scope.toggleLightBox = function(image) {
+    
+  }
+
 }]);
