@@ -1,5 +1,5 @@
 class AnswerSerializer < ActiveModel::Serializer
-  attributes :id, :answerer, :body, :vote_count, :post_id, :user_vote
+  attributes :id, :answerer, :body, :vote_count, :post_id, :user_vote, :created_at
 
   delegate :current_user, to: :scope
 
@@ -16,8 +16,12 @@ class AnswerSerializer < ActiveModel::Serializer
   end
 
   def user_vote
-    x = object.votes.where(user_id: current_user.id).first
-    x != nil ? x : Vote.new
+    if current_user != nil
+      x = object.votes.where(user_id: current_user.id).first
+      x != nil ? x : Vote.new
+    else
+      Vote.new
+    end
   end
 
 end

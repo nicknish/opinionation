@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
   respond_to :json
 
   def index
-    @answers = Answer.where(post_id: params[:post_id]).all
+    @answers = Answer.where(post_id: params[:post_id]).all.order(created_at: :desc)
 
     respond_with @answers, each_serializer: AnswerSerializer
   end

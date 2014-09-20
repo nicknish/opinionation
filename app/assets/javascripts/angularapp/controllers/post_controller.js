@@ -17,6 +17,17 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
     });
     counter += 1;
   }
+
+  //move infinite scroll into a custom directive
+  var ready = true;
+
+  $(window).scroll(function(){
+    if ($(window).scrollTop() > $(document).height() - $(window).height() - 50 && ready){
+      ready = false;
+      $scope.loadPage();
+      setTimeout(function(){ready = true}, 3000);
+    }
+  });
   
   // Flip checks if a post is flipped,
   // which an ng-class will respond by adding or 
