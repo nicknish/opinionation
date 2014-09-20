@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140914180512) do
+ActiveRecord::Schema.define(version: 20140920211351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20140914180512) do
   add_index "favorites", ["post_id"], name: "index_favorites_on_post_id", using: :btree
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
+  create_table "post_tags", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "post_tags", ["post_id"], name: "index_post_tags_on_post_id", using: :btree
+  add_index "post_tags", ["tag_id"], name: "index_post_tags_on_tag_id", using: :btree
+
   create_table "posts", force: true do |t|
     t.text     "question"
     t.integer  "user_id"
@@ -57,6 +67,22 @@ ActiveRecord::Schema.define(version: 20140914180512) do
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_tag_scores", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_tag_scores", ["tag_id"], name: "index_user_tag_scores_on_tag_id", using: :btree
+  add_index "user_tag_scores", ["user_id"], name: "index_user_tag_scores_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email"
@@ -79,9 +105,11 @@ ActiveRecord::Schema.define(version: 20140914180512) do
     t.integer  "answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_tag_score_id"
   end
 
   add_index "votes", ["answer_id"], name: "index_votes_on_answer_id", using: :btree
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
+  add_index "votes", ["user_tag_score_id"], name: "index_votes_on_user_tag_score_id", using: :btree
 
 end
