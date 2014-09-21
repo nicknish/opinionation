@@ -1,3 +1,5 @@
+'use strict';
+
 //used in the posts index view
 opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post){
 
@@ -35,11 +37,27 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   $scope.flip = function(post) {
   	if (post.flipState == false || post.flipState == null) {
   		post.flipState = true;
-      // Prevent Chrome Flash
-      post.closest('.front').fadeOut();
   	} else { 
   		post.flipState = false; 
   	}
+  }
+
+  // Lightbox
+  var $lightbox = document.getElementById('lightbox'),
+      $fullImage = document.getElementById('lightbox-full');
+
+  $scope.toggleLightBox = function(url) {
+
+    // Set the lightbox's image with the url parameter
+    $fullImage.style.backgroundImage = 'url("' + url + '")';
+
+    // If the lightbox is displayed, turn it off.
+    // Otherwise, turn it on.
+    if ($lightbox.style.display === 'block') {
+      $lightbox.style.display = 'none';
+    } else {
+      $lightbox.style.display = 'block';
+    }
   }
 
 }]);

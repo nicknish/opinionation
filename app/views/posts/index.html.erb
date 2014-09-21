@@ -1,8 +1,13 @@
 <!-- Posts -->
 <div class="posts" data-ng-controller="PostCtrl"> 
 
+  <div id="lightbox" ng-click="toggleLightBox()">
+    <figure id="lightbox-full"></figure>
+  </div>
+
   <% if current_user %>
     <%= link_to "New Post", new_post_path, :id => "newz", class: "btn btn-primary" %>
+    <br />
   <% end %>
   
   <div class="post col half" ng-controller="AnswerCtrl as answer" ng-class="{flipped: post.flipState}" data-ng-repeat="post in posts">
@@ -10,12 +15,12 @@
       <div class="full-image" style="background-image: url({{post.post_pic}})"></div>
       <h1 class="title">{{ post.question }}</h1>
     </div>
-      
+    
     <div class="back clearfix">
       <span class="close-button" ng-click="flip(post)">x</span>
       <div data-ng-controller="FavCtrl as fav">
-         <% if current_user %>
-        <a ng-click="updateFavorite(post)" class="btn btn-primary">Favorite/Unfavorite</a>
+        <% if current_user %>
+          <a ng-click="updateFavorite(post)" class="btn btn-primary">Favorite/Unfavorite</a>
         <% else %>
           <a href="/users/new" class="btn btn-primary">Favorite/Unfavorite</a> 
         <% end %>
@@ -23,14 +28,14 @@
       <h2 class="title">{{ post.question }}</h2>
       <a href="#"><img ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
       <h3><a href="">{{ post.poster.username }}</a></h3>
-      <div class="lightbox-photo">
-        <img ng-src="{{post.post_pic}}" class="post-photo">
+      <div class="lightbox-preview">
+        <img ng-src="{{post.post_pic}}" class="lightbox-thumb" ng-click="toggleLightBox(post.post_pic)">
       </div>
       <% if current_user %>
-      <form ng-submit="answer.addAnswer(post.id)">
-        <input type="text" placeholder="Answer" class="answer-input" ng-model="body">
-        <input type="submit" value="Send" class="answer-submit">
-      </form>
+        <form ng-submit="answer.addAnswer(post.id)">
+          <input type="text" placeholder="Answer" class="answer-input" ng-model="body">
+          <input type="submit" value="Send" class="answer-submit">
+        </form>
       <% else %>
         <%= form_tag("/users/new", method: "get") do %>
           <input type="text" placeholder="Answer" class="answer-input" />
