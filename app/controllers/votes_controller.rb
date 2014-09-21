@@ -8,6 +8,7 @@ class VotesController < ApplicationController
 
     if @vote.save
       render json: @vote, status: :created
+      @vote.score_maker
     end
   end
 

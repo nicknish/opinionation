@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   belongs_to :category
   has_many :answers
   has_many :favorites
+  has_many :post_tags
   has_many :tags, :through => :post_tags
 
   validates :question, presence: true, length: { in: 5..100 }

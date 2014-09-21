@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920211351) do
+ActiveRecord::Schema.define(version: 20140920232543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,11 +74,22 @@ ActiveRecord::Schema.define(version: 20140920211351) do
     t.datetime "updated_at"
   end
 
+  create_table "user_tag_score_votes", force: true do |t|
+    t.integer  "user_tag_score_id"
+    t.integer  "vote_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_tag_score_votes", ["user_tag_score_id"], name: "index_user_tag_score_votes_on_user_tag_score_id", using: :btree
+  add_index "user_tag_score_votes", ["vote_id"], name: "index_user_tag_score_votes_on_vote_id", using: :btree
+
   create_table "user_tag_scores", force: true do |t|
     t.integer  "tag_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "score"
   end
 
   add_index "user_tag_scores", ["tag_id"], name: "index_user_tag_scores_on_tag_id", using: :btree
@@ -105,11 +116,9 @@ ActiveRecord::Schema.define(version: 20140920211351) do
     t.integer  "answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_tag_score_id"
   end
 
   add_index "votes", ["answer_id"], name: "index_votes_on_answer_id", using: :btree
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
-  add_index "votes", ["user_tag_score_id"], name: "index_votes_on_user_tag_score_id", using: :btree
 
 end
