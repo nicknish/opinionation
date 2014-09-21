@@ -17,9 +17,10 @@ class Vote < ActiveRecord::Base
 			  c = UserTagScore.create(user:z, tag:h, score:1)
 			  UserTagScoreVote.create(user_tag_score: c, vote: self)
 			else
-			  c = UserTagScoreVote.create(user_tag_score: b, vote: self, score:0)
-			  c.score += 1
-			  c.save
+			  c = UserTagScoreVote.create(user_tag_score: b, vote: self)
+			  d = c.user_tag_score
+			  d.score += 1
+			  d.save
 			end
 		end
   end
