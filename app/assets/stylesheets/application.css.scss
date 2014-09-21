@@ -8,6 +8,8 @@
 
 /* Global Variables and Properties 
 =============================== */
+* { box-sizing: border-box; }
+
 body { 
 	font-family: 'Open Sans';
 	background-color: #2B3E51; 
@@ -16,14 +18,21 @@ body {
 
 .container { 
   margin: 0 auto;
-  max-width: 60rem;
+  // max-width: 60rem;
   // width: 90%; 
 }
 
-* { box-sizing: border-box; }
-
 #at-symbol-glyph {
 	font-size: 17px;
+}
+
+// Spinner
+#spin-loader { 
+	display: none; 
+	background: url('loading.gif') no-repeat; 
+	width: 50px;
+	height: 50px;
+	margin: 20px auto;
 }
 
 // Clearfix
@@ -34,6 +43,13 @@ body {
 } .clearfix:after { clear: both; }
 
 // Media Queries
+@media (min-width: 768px) { 
+	.container { width: 100%; }
+	// Disable Bootstrap Right Nav
+	.navbar-header { float: none; }
+	.navbar-toggle { display: block; }
+	.navbar-right { display: none; }
+}
 @media(min-width: 60rem) { html { font-size: 75%; } }
 
 
@@ -41,6 +57,8 @@ body {
 
 // Overlay Nav inspired by HugeInc,
 // rebuilt by tympanus/codrops.
+.navbar-default { z-index: 5; }
+.navbar-default .navbar-toggle { border: none; }
 
 /* Overlay style 
 ====================== */
@@ -51,13 +69,13 @@ body {
 	top: 0;
 	left: 0;
 	background: rgba(61,89,122,0.9);
-	z-index: 1000;
+	z-index: 100;
 }
 
 /* Overlay closing cross */
 .overlay .overlay-close {
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	position: absolute;
 	right: 20px;
 	top: 20px;
@@ -65,7 +83,7 @@ body {
 	border: none;
 	background: url('sprites.png') no-repeat center center;
 	background-size: 150px;
-	background-position: -100px -10px;
+	background-position: -100px -15px;
 	text-indent: 200%;
 	color: transparent;
 	outline: none;
@@ -95,6 +113,7 @@ body {
 	height: 20%;
 	height: calc(100% / 5);
 	min-height: 54px;
+	padding: 25px 0;
 }
 
 .overlay ul li a {
@@ -121,7 +140,7 @@ body {
 	opacity: 1;
 	visibility: visible;
 	transition: opacity 0.5s;
-	z-index: 10000;
+	z-index: 100;
 }
 
 .overlay-fullscreen nav {

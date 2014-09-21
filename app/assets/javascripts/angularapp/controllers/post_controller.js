@@ -13,7 +13,7 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
     var newPosts = Post.query({page: counter});
     newPosts.$promise.then(function(fulfilledPromise){
       console.log(fulfilledPromise);
-      for(i = 0; i < fulfilledPromise.length; i++){
+      for(var i = 0; i < fulfilledPromise.length; i++){
         $scope.posts.push(fulfilledPromise[i]);
       }
     });
@@ -21,13 +21,17 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   }
 
   //move infinite scroll into a custom directive
-  var ready = true;
+  var ready = true,
+      spinner = document.getElementById('spin-loader');
 
   $(window).scroll(function(){
     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50 && ready){
       ready = false;
       $scope.loadPage();
       setTimeout(function(){ready = true}, 3000);
+      spinner.style.display = 'none';
+    } else if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) { 
+      spinner.style.display = 'block';
     }
   });
   
@@ -46,10 +50,10 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   var $lightbox = document.getElementById('lightbox'),
       $fullImage = document.getElementById('lightbox-full');
 
-  $scope.toggleLightBox = function(url) {
+  $scope.toggleLightBox = function(img) {
 
-    // Set the lightbox's image with the url parameter
-    $fullImage.style.backgroundImage = 'url("' + url + '")';
+    // Set the lightbox's image with the img parameter
+    $fullImage.style.backgroundImage = 'url("' + img + '")';
 
     // If the lightbox is displayed, turn it off.
     // Otherwise, turn it on.
