@@ -42,8 +42,24 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   	}
   }
 
-  $scope.toggleLightBox = function(image) {
-    
+  // Lightbox
+  var $lightbox = document.getElementById('lightbox'),
+      $fullImage = document.getElementById('lightbox-full');
+
+  $scope.toggleLightBox = function(url) {
+
+    console.log(url);
+
+    // Set background-image to the passed in URL
+    $fullImage.style.backgroundImage = 'url("' + url + '")';
+
+    // If lightbox 
+    if ($lightbox.style.display === 'block') {
+      $lightbox.style.display = 'none';
+    }
+    else {
+      $lightbox.style.display = 'block'
+    }
   }
 
 }]);
