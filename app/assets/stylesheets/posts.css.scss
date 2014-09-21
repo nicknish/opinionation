@@ -211,8 +211,8 @@
 		.col { float: left; }
 		.half { 
 			width: 50%; 
-			&:nth-child(even) { padding-right: 2.5%; }
-			&:nth-child(odd) { padding-left: 2.5%; }
+			&:nth-child(even) { padding-right: 1.5%; }
+			&:nth-child(odd) { padding-left: 1.5%; }
 		}
 	}
 	.answer-submit { width: 20%; }
