@@ -8,11 +8,13 @@ class VotesController < ApplicationController
 
     if @vote.save
       render json: @vote, status: :created
+      @vote.score_maker
     end
   end
 
   def destroy
     @vote = Vote.find(params[:id])
+    @vote.score_taker
     if @vote.destroy
       render json: @vote, status: :ok
     else

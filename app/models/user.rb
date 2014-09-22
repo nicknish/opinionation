@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :votes
   has_many :favorites
+  has_many :user_tag_scores
+  has_many :tags, :through => :user_tag_scores
   #has_attached_file must appear before it's validations
   has_attached_file :profile_pic, styles: { large: "900X900>", medium: "640x640>", small: "100x100>" }, default_url: "images/:style/missing.png"
 
