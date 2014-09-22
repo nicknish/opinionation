@@ -4,9 +4,8 @@
 	position: relative; 
 	margin: 0 1rem;
 	
-	.slideState {
-		.back { top: 0 !important; }
-	}
+	.slideState { .back { top: 0 !important; } }
+
 	// General Post Styles
 	.post {
 		float:left;
@@ -14,14 +13,10 @@
 		margin: 0 auto;
 		height: 70vh;
 		background-color: white;
-		// border-radius: 4px;
 		-webkit-transition: all .65s linear;
-		position: relative;
 		transition: all .65s linear;
+		position: relative;
 		overflow: hidden;
-		// -webkit-transform-style: preserve-3d;
-	 //  transform-style: preserve-3d;
-		// padding: 5px;
 		margin-bottom: 10px;
 		
 		.front,
@@ -80,11 +75,12 @@
 
 	h1 { 
 		color: white; 
-		padding-left: 5px; 
+		padding-top: 10px; 
 		font-weight: 800; 
 		-webkit-user-select: none;
 		-moz-user-select: none;
 		position: absolute;
+		text-align: center;
 	}
 	.full-image { 
 		// transition: filter .7s linear;
@@ -92,12 +88,9 @@
 		background-size: cover;
 		width: 100%;
 		height: 100%;
-		// position: relative;
 		padding: 0;
 		margin: 0;
 		z-index: -10;
-		// -webkit-backface-visibility: hidden;
-		// backface-visibility: hidden;
 	}
 }
 
@@ -105,9 +98,6 @@
 /* Back Post Styles
 =================== */
 .back {
-	// -webkit-transform: rotateY( 180deg );
-	// transform: rotateY( 180deg ); 
-	// margin-left: 1px !important;
 	background-color: #ECF0F1;
 	overflow: scroll;
 	padding: 5px;
@@ -223,31 +213,3 @@
 	}
 	.answer-submit { width: 20%; }
 }
-
-/* ================ */
-/*    ANIMATIONS    */
-/* ================ */
-
-// .moveToTop { animation: moveToTop .6s ease both; }
-
-// .moveFromTop { animation: moveFromTop .6s ease both; }
-
-// .moveToBottom { animation: moveToBottom .6s ease both; }
-
-// .moveFromBottom { animation: moveFromBottom .6s ease both; }
-
-
-// @keyframes moveToTop {
-// 	from { }
-// 	to { transform: translateY(-100%); }
-// }
-
-// @keyframes moveFromTop { from { transform: translateY(-100%); } }
-
-// @keyframes moveToBottom {
-// 	from { }
-// 	to { transform: translateY(100%); }
-// }
-
-// @keyframes moveFromBottom { from { transform: translateY(100%); } }
-
