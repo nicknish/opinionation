@@ -1,12 +1,10 @@
 <!-- Posts -->
-<div class="posts" data-ng-controller="PostCtrl"> 
+<div class="posts" data-ng-controller="PostShowCtrl"> 
 
   <div id="lightbox" ng-click="toggleLightBox()">
     <figure id="lightbox-full"></figure>
   </div>
 
-  <div data-ng-repeat="post in posts">
-    <%= render 'partials/post' %>
-  </div>
+  <%= render 'partials/post' %>
     
 </div> <!-- /posts -->

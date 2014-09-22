@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :show, :create]
-  resources :posts, only: [:index, :new, :create]
+  resources :posts, only: [:index, :show, :new, :create]
 
   scope '/api' do
-    resources :posts, only: [:index], defaults: { format: :json }
+    resources :posts, only: [:index, :show], defaults: { format: :json }
     resources :users, only: [:show], defaults: { format: :json }
     get '/user_posts/:id', to: 'posts#user_posts', defaults: { format: :json }
     get '/user_favorites/:id', to: 'posts#user_favorites', defaults: { format: :json }
