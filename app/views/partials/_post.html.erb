@@ -1,11 +1,11 @@
-<div class="post col half clearfix" ng-controller="AnswerCtrl as answer" ng-class="{slideState: post.flipState}">
-  <div class="front" ng-click="getAnswers(post.id); flip(post)" id="post_{{$index}}">
+<div class="post" ng-controller="AnswerCtrl as answer" ng-class="{slideState: post.slideState}">
+  <div class="front" ng-click="getAnswers(post.id); slide(post)" id="post_{{$index}}">
     <h1>{{ post.question }}</h1>
     <div class="full-image" data-bg-image="{{post.post_pic}}"></div>
   </div>
   
   <div class="back clearfix">
-    <span class="close-button" data-ng-click="flip(post)">x</span>
+    <span class="close-button" data-ng-click="slide(post)">x</span>
     <div data-ng-controller="FavCtrl as fav">
       <% if current_user %>
         <a class="btn btn-primary" data-ng-click="updateFavorite(post)">Favorite/Unfavorite</a>

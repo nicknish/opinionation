@@ -73,15 +73,15 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
     }
   });
 
-  // Flip checks if a post is flipped,
+  // Slide checks if a post has slid up,
   // which an ng-class will respond by adding or 
-  // removing the 'flipped' class
-  $scope.flip = function(post) {
-  	if (post.flipState == false || post.flipState == null) {
-  		post.flipState = true;
-  	} else { 
-  		post.flipState = false; 
-  	}
+  // removing the 'slideState' class
+  $scope.slide = function(post) {
+    if (post.slideState == false || post.slideState == null) {
+      post.slideState = true;
+    } else { 
+      post.slideState = false; 
+    }
   }
 
   // Lightbox

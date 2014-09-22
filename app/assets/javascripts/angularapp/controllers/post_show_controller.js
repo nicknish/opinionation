@@ -4,16 +4,14 @@ opinionationApp.controller('PostShowCtrl', ['$scope', 'Post', '$location', funct
   var post_id = url[url.length - 1];
   $scope.post = Post.get({id: post_id});
 
-  // Flip checks if a post is flipped,
+  // Slide checks if a post has slid up,
   // which an ng-class will respond by adding or 
-  // removing the 'flipped' class
-  $scope.flip = function(post) {
-    if (post.flipState == false || post.flipState == null) {
-      post.flipState = true;
-      // Prevent Chrome Flash
-      post.closest('.front').fadeOut();
+  // removing the 'slideState' class
+  $scope.slide = function(post) {
+    if (post.slideState == false || post.slideState == null) {
+      post.slideState = true;
     } else { 
-      post.flipState = false; 
+      post.slideState = false; 
     }
   }
 
