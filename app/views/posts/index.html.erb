@@ -12,7 +12,7 @@
   
   <div class="half col clearfix" data-ng-repeat="post in posts">
     <div class="post" data-ng-controller="AnswerCtrl as answer" data-ng-class="{flipped: post.flipState}">
-      <div class="front" ng-click="getAnswers(post.id); flip(post)" >
+      <div class="front" ng-click="getAnswers(post.id); flip(post)" id="post_{{$index}}">
         <div class="full-image" data-bg-image="{{post.post_pic}}"></div>
         <h1 class="title">{{ post.question }}</h1>
       </div>
