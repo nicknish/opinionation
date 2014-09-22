@@ -1,8 +1,8 @@
-  <div class="post col half clearfix" ng-controller="AnswerCtrl as answer" ng-class="{slideState: post.flipState}" data-ng-repeat="post in posts">
-    <div class="front" ng-click="getAnswers(post.id); flip(post)" id="post_{{$index}}">
-      <div class="full-image" data-bg-image="{{post.post_pic}}"></div>
-      <h1 class="title">{{ post.question }}</h1>
-    </div>
+<div class="post col half clearfix" ng-controller="AnswerCtrl as answer" ng-class="{slideState: post.flipState}">
+  <div class="front" ng-click="getAnswers(post.id); flip(post)" id="post_{{$index}}">
+    <h1>{{ post.question }}</h1>
+    <div class="full-image" data-bg-image="{{post.post_pic}}"></div>
+  </div>
   
   <div class="back clearfix">
     <span class="close-button" data-ng-click="flip(post)">x</span>
