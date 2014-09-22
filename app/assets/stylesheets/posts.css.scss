@@ -5,10 +5,14 @@
 	margin: 0 1rem;
 	
 	.flipped {
+		-webkit-transform: scale(1.0) scaleZ(1.0) rotateY(180deg);
 		transform: scale(1.0) scaleZ(1.0) rotateY(180deg);
+		-webkit-transform-origin: 50% 0%;
 		transform-origin: 50% 0%;
 		// backface-visibility: hidden;
+		-webkit-perspective: 0;
 		perspective: 0;
+		-webkit-perspective-origin: 50% 100%;
 		perspective-origin: 50% 100%;
 		.front { display: none; z-index: -10; }
 	}
@@ -17,11 +21,13 @@
 		float:left;
 		width: 100%;
 		margin: 0 auto;
-		width: 100%;
 		height: 70vh;
+		max-width: 600px;
 		background-color: white;
 		border-radius: 4px;
+		-webkit-transition: all .65s linear;
 		transition: all .65s linear;
+		-webkit-transform-style: preserve-3d;
 	  transform-style: preserve-3d;
 		padding: 5px;
 		margin-bottom: 10px;
@@ -34,7 +40,6 @@
 		  height: 100%;
 		  -webkit-backface-visibility: hidden;
 		  -moz-backface-visibility: hidden;
-		  -ms-backface-visibility: hidden;
 		  backface-visibility: hidden;
 		  left: 0;
 			top: 0;
@@ -77,11 +82,11 @@
 .front {
 	text-transform: uppercase;
 	cursor: pointer;
-	h1 { padding-left: 5px; font-weight: 800; }
 	color: white;
 	overflow: hidden;
 	transition: all .7s linear;
 
+	h1 { padding-left: 5px; font-weight: 800; }
 	.full-image { 
 		// transition: filter .7s linear;
 		// filter: blur(2px);  
@@ -92,6 +97,7 @@
 		padding: 0;
 		margin: 0;
 		z-index: -10;
+		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
 	}
 }
@@ -100,16 +106,17 @@
 /* Back Post Styles
 =================== */
 .back {
+	-webkit-transform: rotateY( 180deg );
 	transform: rotateY( 180deg ); 
 	margin-left: 1px !important;
 	background-color: #ECF0F1;
 	overflow: scroll;
 	padding: 5px;
 
+	h3 a { font-size: 15px; }
 	.close-button { 
 		cursor: pointer; 
 		font-size: 20px;
-		// float: left;
 	}
 	.favorite-star {
 		position: relative;
@@ -129,7 +136,6 @@
 		-webkit-user-select: none;
 		-moz-user-select: none;
 	}
-	h3 a { font-size: 15px; }
 	.poster-profile-pic {
 		img { width: 100%; height: 100%; }
 		width: 50px;
@@ -148,9 +154,7 @@
 		box-shadow: inset 0 1px 10px black;
 		cursor: pointer;
 	}
-	.lightbox-thumb {
-		width: 100%;
-	}
+	.lightbox-thumb { width: 100%; }
 }
 
 /* Back Post Form Styles
@@ -177,15 +181,14 @@
 /* Answer Thread Styles
 ===================== */
 .answer {
-	border: 1px solid gray;
+	border: 1px solid #979797;
 	border-radius: 1px;
 	padding-top: 10px;
 	background-color: #F3F3F3;
-	&:nth-child(n+2){ border-top:none; }
+	&:nth-child(n+2){ border-radius: 0; }
 	&:not(:last-child) { border-bottom: none; }
 	
 	.profile-pic {
-		border: 1px solid gray;
 		border-radius: 5px;
 		width: 38px;
 		height: 38px;
@@ -206,11 +209,11 @@
 // Media Queries
 @media (min-width: 45rem) {
 	.posts {
+		.col { float: left; }
 		.post { 
 			height: 400px; 
 			padding: 10px; 
 		}
-		.col { float: left; }
 		.half { 
 			width: 50%; 
 			&:nth-child(even) { padding-right: 1.5%; }
