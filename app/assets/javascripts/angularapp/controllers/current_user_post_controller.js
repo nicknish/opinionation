@@ -5,4 +5,4 @@ opinionationApp.controller('UserPostCtrl', ['$scope', 'UserPost','$location', fu
   var user_id = url[url.length - 1];
   $scope.user_posts = UserPost.query({id: user_id});
 
-}])
+}]);

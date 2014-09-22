@@ -14,10 +14,12 @@ class PostsController < ApplicationController
     respond_with @posts, each_serializer: PostSerializer
   end
 
-  def current_user_favorites
+  def user_favorites
+    @user = User.where(id: params[:id]).first
+
     @posts = []
 
-    current_user.favorites.each do |fav|
+    @user.favorites.each do |fav|
       @posts << fav.post
     end
 

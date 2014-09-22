@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     resources :posts, only: [:index], defaults: { format: :json }
     resources :users, only: [:show], defaults: { format: :json }
     get '/user_posts/:id', to: 'posts#user_posts', defaults: { format: :json }
-    get '/current_user_favorites', to: 'posts#current_user_favorites', defaults: { format: :json }
+    get '/user_favorites/:id', to: 'posts#user_favorites', defaults: { format: :json }
     resources :answers, only: [:index, :create], defaults: { format: :json }
-    get '/current_user_answers', to: 'answers#current_user_answers', defaults: { format: :json }
+    get '/user_answers/:id', to: 'answers#user_answers', defaults: { format: :json }
     resources :favorites, only: [:show, :create, :destroy], defaults: { format: :json }
     resources :votes, only: [:create, :destroy], defaults: {format: :json }
   end
