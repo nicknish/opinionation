@@ -1,16 +1,9 @@
 <!-- Posts -->
-<!-- Won't display correctly on Chrome
-if there's ANY container on the posts -->
 <div class="posts" data-ng-controller="PostCtrl"> 
 
   <div id="lightbox" ng-click="toggleLightBox()">
     <figure id="lightbox-full"></figure>
   </div>
-
-  <% if current_user %>
-    <%= link_to "New Post", new_post_path, :id => "newz", class: "btn btn-primary" %>
-    <br />
-  <% end %>
   
   <div class="post col half clearfix" ng-controller="AnswerCtrl as answer" ng-class="{flipped: post.flipState}" data-ng-repeat="post in posts">
     <div class="front" ng-click="getAnswers(post.id); flip(post)" id="post_{{$index}}">
@@ -28,8 +21,8 @@ if there's ANY container on the posts -->
         <% end %>
       </div>
       <h2 class="title">{{ post.question }}</h2>
-      <a href="#"><img data-ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
-      <h3><a href="">{{ post.poster.username }}</a></h3>
+      <a href="/users/{{post.poster.id}}"><img data-ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
+      <h3><a href="/users/{{post.poster.id}}">{{ post.poster.username }}</a></h3>
       <div class="lightbox-preview">
         <img data-ng-src="{{post.post_pic}}" class="lightbox-thumb" data-ng-click="toggleLightBox(post.post_pic)">
       </div>
@@ -48,19 +41,19 @@ if there's ANY container on the posts -->
   
       <div class="answers">
         <div class="answer clearfix" data-ng-repeat="answer in answers">
-          <a href="#" class="col third">
+          <a href="/users/{{answer.answerer.id}}" class="col third">
             <img data-ng-src="{{answer.answerer.user_pic}}" class="profile-pic">
           </a>
           <div class="answer-body">
-            <a href="#" class="answer-username">{{ answer.answerer.username }}</a><br />
+            <a href="/users/{{answer.answerer.id}}" class="answer-username">{{ answer.answerer.username }}</a><br />
             <p class="answer-text">{{ answer.body }}</p>
             <p class="text-muted text-left">Posted {{ answer.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
             <div class="votes" data-ng-controller="VoteCtrl as vote">
               <% if current_user %>
-              <a ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a>
-              <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
+                <a data-ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a>
+                <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
               <% else %>
-              <a href="/users/new" class="btn btn-primary">Vote/Unvote</a> 
+                <a href="/users/new" class="btn btn-primary">Vote/Unvote</a> 
               <% end %>
               
   

@@ -4,7 +4,7 @@ class AnswerSerializer < ActiveModel::Serializer
   delegate :current_user, to: :scope
 
   def answerer
-    a = {username: object.user.username, user_pic: object.user.profile_pic(:small)}
+    a = {username: object.user.username, user_pic: object.user.profile_pic(:small), id: object.user.id}
   end
 
   def vote_count

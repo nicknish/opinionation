@@ -1,9 +1,16 @@
 class UsersController < ApplicationController
-
+  respond_to :html, :json
+  
   def new
     @user = User.new
     @is_signup = true
     # redirect_to posts_path if current_user
+  end
+
+  def show
+    @user = User.where(id: params[:id]).first
+
+    respond_with @user, each_serializer: UserSerializer
   end
 
   def create

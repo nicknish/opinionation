@@ -8,8 +8,8 @@ class AnswersController < ApplicationController
     respond_with @answers, each_serializer: AnswerSerializer
   end
 
-  def current_user_answers
-    @answers = Answer.where(user_id: current_user.id).all
+  def user_answers
+    @answers = Answer.where(user_id: params[:id]).all
 
     respond_with @answers, each_serializer: AnswerSerializer
   end

@@ -3,9 +3,9 @@
   <!-- Pull from API -->
   <div class="container">
     <div class="imageWrapper">
-      <%= image_tag (current_user.profile_pic(:medium)), class: "img-circle user-profile-pic" %>
+      <img src="{{user.profile_pic_medium}}" class="img-circle user-profile-pic">
     </div>
-    <h2 class="user-profile-username"><%= current_user.username %></h2>
+    <h2 class="user-profile-username">{{user.username}}</h2>
   </div>
 
   <!-- Profile Tabs -->
@@ -16,18 +16,18 @@
   </div>
 
   <!-- Fill Container -->
-  <div data-ng-controller="CurrentUserPostCtrl">
-    <div data-ng-controller="CurrentUserAnswerCtrl">
-      <div data-ng-controller="CurrentUserFavoriteCtrl">
-        <ul class="user-profile-fill-space" data-ng-repeat="post in current_user_posts" ng-show="selectedTab === 'questions'">
+  <div data-ng-controller="UserPostCtrl">
+    <div data-ng-controller="UserAnswerCtrl">
+      <div data-ng-controller="UserFavoriteCtrl">
+        <ul class="user-profile-fill-space" data-ng-repeat="post in user_posts" ng-show="selectedTab === 'questions'">
           <a href=""><li class="user-profile-row">{{ post.question }}</li></a>
         </ul>
 
-        <ul class="user-profile-fill-space" data-ng-repeat="answer in current_user_answers" ng-show="selectedTab === 'answers'">
+        <ul class="user-profile-fill-space" data-ng-repeat="answer in user_answers" ng-show="selectedTab === 'answers'">
           <a href="#"><li class="user-profile-row">{{ answer.body }}</li></a>
         </ul>
 
-        <ul class="user-profile-fill-space" data-ng-repeat="favorite in current_user_favorites" ng-show="selectedTab === 'favorites'">
+        <ul class="user-profile-fill-space" data-ng-repeat="favorite in user_favorites" ng-show="selectedTab === 'favorites'">
           <a href="#"><li class="user-profile-row">{{ favorite.question }}</li>
           </a>
         </ul>
