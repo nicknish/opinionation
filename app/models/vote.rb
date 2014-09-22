@@ -1,7 +1,7 @@
 class Vote < ActiveRecord::Base
   belongs_to :user
   belongs_to :answer
-  has_many :user_tag_score_votes
+  has_many :user_tag_score_votes, dependent: :destroy 
   has_many :user_tag_scores, :through => :user_tag_score_votes
   validates :user_id, uniqueness: {scope: [:user_id, :answer_id]}
 
@@ -24,4 +24,13 @@ class Vote < ActiveRecord::Base
 			end
 		end
   end
+
+  def score_taker
+    y = self.user_tag_scores
+
+    y.all.each do |h|
+      h.score -= 1
+      h.save
+    end
+  end 
 end

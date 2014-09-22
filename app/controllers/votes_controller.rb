@@ -14,6 +14,7 @@ class VotesController < ApplicationController
 
   def destroy
     @vote = Vote.find(params[:id])
+    @vote.score_taker
     if @vote.destroy
       render json: @vote, status: :ok
     else
