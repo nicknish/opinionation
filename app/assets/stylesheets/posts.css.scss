@@ -1,20 +1,21 @@
 /* Posts Styles
 ================ */
 .posts { 
-	position: relative; 
+	// position: relative; 
 	margin: 0 1rem;
 	
-	.flipped {
-		-webkit-transform: scale(1.0) scaleZ(1.0) rotateY(180deg);
-		transform: scale(1.0) scaleZ(1.0) rotateY(180deg);
-		-webkit-transform-origin: 50% 0%;
-		transform-origin: 50% 0%;
-		// backface-visibility: hidden;
-		-webkit-perspective: 0;
-		perspective: 0;
-		-webkit-perspective-origin: 50% 100%;
-		perspective-origin: 50% 100%;
-		.front { display: none; z-index: -10; }
+	.slideState {
+		// -webkit-transform: scale(1.0) scaleZ(1.0) rotateY(180deg);
+		// transform: scale(1.0) scaleZ(1.0) rotateY(180deg);
+		// -webkit-transform-origin: 50% 0%;
+		// transform-origin: 50% 0%;
+		// // backface-visibility: hidden;
+		// -webkit-perspective: 0;
+		// perspective: 0;
+		// -webkit-perspective-origin: 50% 100%;
+		// perspective-origin: 50% 100%;
+		// .front { display: none; z-index: -10; }
+		.back { top:0 !important; }
 	}
 	// General Post Styles
 	.post {
@@ -23,12 +24,14 @@
 		margin: 0 auto;
 		height: 70vh;
 		background-color: white;
-		border-radius: 4px;
+		// border-radius: 4px;
 		-webkit-transition: all .65s linear;
+		position: relative;
 		transition: all .65s linear;
-		-webkit-transform-style: preserve-3d;
-	  transform-style: preserve-3d;
-		padding: 5px;
+		overflow: hidden;
+		// -webkit-transform-style: preserve-3d;
+	 //  transform-style: preserve-3d;
+		// padding: 5px;
 		margin-bottom: 10px;
 		
 		.front,
@@ -41,8 +44,7 @@
 		  -moz-backface-visibility: hidden;
 		  backface-visibility: hidden;
 		  left: 0;
-			top: 0;
-			border-radius: 3px;
+			// border-radius: 3px;
 			margin: 0;
 		}
 	}
@@ -81,11 +83,12 @@
 .front {
 	text-transform: uppercase;
 	cursor: pointer;
-	color: white;
 	overflow: hidden;
 	transition: all .7s linear;
+	top: 0;
 
-	h1 { padding-left: 5px; font-weight: 800; }
+
+	h1 { color: white; padding-left: 5px; font-weight: 800; z-index: 500; }
 	.full-image { 
 		// transition: filter .7s linear;
 		// filter: blur(2px);  
@@ -95,9 +98,9 @@
 		position: absolute;
 		padding: 0;
 		margin: 0;
-		z-index: -10;
-		-webkit-backface-visibility: hidden;
-		backface-visibility: hidden;
+		// z-index: -10;
+		// -webkit-backface-visibility: hidden;
+		// backface-visibility: hidden;
 	}
 }
 
@@ -105,12 +108,14 @@
 /* Back Post Styles
 =================== */
 .back {
-	-webkit-transform: rotateY( 180deg );
-	transform: rotateY( 180deg ); 
-	margin-left: 1px !important;
+	// -webkit-transform: rotateY( 180deg );
+	// transform: rotateY( 180deg ); 
+	// margin-left: 1px !important;
 	background-color: #ECF0F1;
 	overflow: scroll;
 	padding: 5px;
+	top: 100%;
+	transition: top .6s ease;
 
 	h3 a { font-size: 15px; }
 	.close-button { 
@@ -221,3 +226,31 @@
 	}
 	.answer-submit { width: 20%; }
 }
+
+/* ================ */
+/*    ANIMATIONS    */
+/* ================ */
+
+// .moveToTop { animation: moveToTop .6s ease both; }
+
+// .moveFromTop { animation: moveFromTop .6s ease both; }
+
+// .moveToBottom { animation: moveToBottom .6s ease both; }
+
+// .moveFromBottom { animation: moveFromBottom .6s ease both; }
+
+
+// @keyframes moveToTop {
+// 	from { }
+// 	to { transform: translateY(-100%); }
+// }
+
+// @keyframes moveFromTop { from { transform: translateY(-100%); } }
+
+// @keyframes moveToBottom {
+// 	from { }
+// 	to { transform: translateY(100%); }
+// }
+
+// @keyframes moveFromBottom { from { transform: translateY(100%); } }
+
