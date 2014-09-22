@@ -26,6 +26,22 @@ body {
 	font-size: 17px;
 }
 
+#trigger-add-post {
+	background-color: #428bca;
+	padding: 8px 10px;
+	&:hover { background-color: #3071a9; }
+}
+
+#plus-sign-glyph {
+	background: url('plus.svg') no-repeat;
+	width: 21px;
+	background-size: 18px;
+	background-position: 1px -1px;
+	display: block;
+	border-radius: 4px;
+	height: 17px;
+}
+
 // Spinner
 #spin-loader { 
 	display: none; 

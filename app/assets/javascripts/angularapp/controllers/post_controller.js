@@ -68,7 +68,7 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
         setTimeout(function(){readyTop = true}, 2000);
       } 
       else if($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-        spinner.style.display = 'none';
+        spinner.style.display = 'block';
       }
     }
   });
