@@ -1,0 +1,13 @@
+<!-- Posts -->
+<div class="posts" data-ng-controller="PostShowCtrl"> 
+
+  <% if current_user %>
+    <%= link_to "New Post", new_post_path, :id => "newz" %>
+  <% end %>
+    
+  <h1>POST SHOW!</h1>
+    
+    <%= render 'partials/post' %>
+    
+  </div> <!-- /.posts -->
+</div>

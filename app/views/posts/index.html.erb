@@ -6,67 +6,8 @@
   <% end %>
     
   <h1>POSTS INDEX!</h1>
-  
-    <div class="post col half" ng-controller="AnswerCtrl as answer" ng-class="{flipped: post.flipState}" data-ng-repeat="post in posts">
-      <div class="front" ng-click="getAnswers(post.id); flip(post)" id="post_{{$index}}">
-        <div class="full-image" style="background-image: url({{post.post_pic}})"></div>
-        <h1 class="title">{{ post.question }}</h1>
-      </div>
-      
-      <div class="back clearfix">
-        <span class="close-button" ng-click="flip(post)">x</span>
-        <div data-ng-controller="FavCtrl as fav">
-           <% if current_user %>
-          <a ng-click="updateFavorite(post)" class="btn btn-primary">Favorite/Unfavorite</a>
-          <% else %>
-            <a href="/users/new" class="btn btn-primary">Favorite/Unfavorite</a> 
-          <% end %>
-        </div>
-        <h2 class="title">{{ post.question }}</h2>
-        <a href="/users/{{post.poster.id}}"><img ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
-        <h3><a href="/users/{{post.poster.id}}">{{ post.poster.username }}</a></h3>
-        <div class="lightbox-photo">
-          <img ng-src="{{post.post_pic}}" class="post-photo">
-        </div>
-        <% if current_user %>
-        <form ng-submit="answer.addAnswer(post.id)">
-          <input type="text" placeholder="Answer" class="answer-input" ng-model="body">
-          <input type="submit" value="Send" class="answer-submit">
-        </form>
-        <% else %>
-          <%= form_tag("/users/new", method: "get") do %>
-            <input type="text" placeholder="Answer" class="answer-input" />
-            <input name="commit" type="submit" value="Send" class="answer-submit" />
-          <% end %>
-        <% end %>
-
-
-        <div class="answers">
-          <div class="answer clearfix" data-ng-repeat="answer in answers">
-            <div class="clearfix">
-              <a href="/users/{{answer.answerer.id}}" class="col third">
-                <img data-ng-src="{{answer.answerer.user_pic}}" class="profile-pic">
-              </a>
-              <div class="">
-                <a href="/users/{{answer.answerer.id}}" class="answer-username">{{ answer.answerer.username }}</a><br />
-                <p class="answer-body">{{ answer.body }}</p>
-                <p class="text-muted text-left">Posted {{ answer.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
-                <div data-ng-controller="VoteCtrl as vote">
-                  <% if current_user %>
-                  <a ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a>
-                  <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
-                  <% else %>
-                  <a href="/users/new" class="btn btn-primary">Vote/Unvote</a> 
-                  <% end %>
-                  
-
-                </div>
-              </div>
-            </div>
-<!--             <span class="checkmark"></span> -->
-          </div>
-        </div> <!-- /.answers -->
-      </div> <!-- /.back -->
-    </div> <!-- /.post -->
+    <div data-ng-repeat="post in posts">
+      <%= render 'partials/post' %>
+    </div>
   </div> <!-- /.posts -->
 </div>

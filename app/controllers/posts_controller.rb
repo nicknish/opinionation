@@ -8,6 +8,12 @@ class PostsController < ApplicationController
     respond_with @posts, each_serializer: PostSerializer
   end
 
+  def show
+    @post = Post.where(id: params[:id]).first
+
+    respond_with @post, each_serializer: PostSerializer
+  end
+
   def user_posts
     @posts = Post.where(user_id: params[:id]).all
 
