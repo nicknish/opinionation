@@ -1,5 +1,7 @@
-<%= form_for @post, html: { id: 'formo' } do |f| %>
-  <%= f.text_field :question, placeholder: "What's your question?", id: 'queztion' %><br />
-  <%= f.file_field :post_pic, id: 'poztpic' %><br />
-  <%= f.submit "Ask the world!", id: 'poztzubmit' %>
-<% end %>
+<div class="col-sm-4 col-sm-offset-4 form_styles">
+	<%= form_for @post, html: { id: 'formo', class: 'new-post container' } do |f| %>
+	  <%= f.text_field :question, placeholder: "What's your question?", id: 'queztion', class: 'form-control' %><br />
+	  <%= f.file_field :post_pic, id: 'poztpic' %><br />
+	  <%= f.submit "Ask the world!", id: 'poztzubmit', class: 'btn btn-primary' %>
+	<% end %>
+</div>

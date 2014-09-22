@@ -42,6 +42,8 @@ body {
 	height: 17px;
 }
 
+.form_styles { color: white; }
+
 // Spinner
 #spin-loader { 
 	display: none; 
@@ -71,13 +73,28 @@ body {
 
 /* ======== NAV STYLES ========= */
 
-// Overlay Nav inspired by HugeInc,
-// rebuilt by tympanus/codrops.
-.navbar-default { z-index: 5; }
+.navbar-default { 
+	z-index: 5; 
+
+	// Hide Nav
+  transition: transform 0.7s .3s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
+}
+.hide-navbar {
+	transform: translate(0, -100%);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
 .navbar-default .navbar-toggle { border: none; }
 
 /* Overlay style 
 ====================== */
+// Overlay Nav inspired by HugeInc,
+// rebuilt by tympanus/codrops.
+
 .overlay {
 	position: fixed;
 	width: 100%;

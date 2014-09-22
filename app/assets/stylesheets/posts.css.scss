@@ -198,8 +198,10 @@
 		padding-left: 15px;
 		float: left;
 	}
-	.best-answer {}
+	.best-answer { background-color: white; }
 }
+
+.new-post { color: white; }
 
 // Media Queries
 @media (min-width: 45rem) {

@@ -1,5 +1,9 @@
-<%= form_for @user, url: session_path do |f| %>
-  <%= f.email_field :email, placeholder: "Email address" %><br />
-  <%= f.password_field :password, placeholder: "Password" %>
-  <%= f.submit "Sign in" %>
-<% end %>
+<div class="col-sm-4 col-sm-offset-4 form_styles">
+	<%= form_for @user, url: session_path, html: { class: 'container' } do |f| %>
+	  <%= f.email_field :email, placeholder: "Email address", class: 'form-control' %><br />
+	  <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
+	  <span>Not a member? <%= link_to "Sign Up", new_user_path %></span>
+	  <br />
+	  <%= f.submit "Sign In", class: 'btn btn-primary' %>
+	<% end %>
+</div>

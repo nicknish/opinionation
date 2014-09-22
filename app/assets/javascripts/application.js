@@ -26,5 +26,17 @@ $(document).ready(function(){
 	$('.overlay-close').on('click', function(e) {
 		e.preventDefault();
 		$('.overlay').removeClass('open');
-	})
+	});
+
+	// Show/Hide on Mouse Scroll
+	$('html').on('DOMMouseScroll mousewheel', function (e) {
+	  if(e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) {
+	    // Scroll down
+	    $(".navbar-default").addClass("hide-navbar");
+	  } else {
+	    // Scroll up
+	    $(".navbar-default").removeClass("hide-navbar");
+	  }
+	});
+
 });
