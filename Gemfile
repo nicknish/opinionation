@@ -54,6 +54,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem "jasmine", github: "pivotal/jasmine-gem" #js testing
+  gem 'pry-rails'
+  gem 'pry-doc'
 end
 
 
