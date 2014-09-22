@@ -5,22 +5,29 @@ opinionationApp.factory('Post', ['$resource', function($resource){
   );
 }]);
 
-opinionationApp.factory('CurrentUserPost', ['$resource', function($resource){
-  return $resource('/api/current_user_posts/:id',
+opinionationApp.factory('User', ['$resource', function($resource){
+  return $resource('/api/users/:id',
     { id: '@id' },
     { update: { method: 'PATCH' } }
   );
 }]);
 
-opinionationApp.factory('CurrentUserAnswer', ['$resource', function($resource){
-  return $resource('/api/current_user_answers/:id',
+opinionationApp.factory('UserPost', ['$resource', function($resource){
+  return $resource('/api/user_posts/:id',
     { id: '@id' },
     { update: { method: 'PATCH' } }
   );
 }]);
 
-opinionationApp.factory('CurrentUserFavorite', ['$resource', function($resource){
-  return $resource('/api/current_user_favorites/:id',
+opinionationApp.factory('UserAnswer', ['$resource', function($resource){
+  return $resource('/api/user_answers/:id',
+    { id: '@user_id' },
+    { update: { method: 'PATCH' } }
+  );
+}]);
+
+opinionationApp.factory('UserFavorite', ['$resource', function($resource){
+  return $resource('/api/user_favorites/:id',
     { id: '@id' },
     { update: { method: 'PATCH' } }
   );
