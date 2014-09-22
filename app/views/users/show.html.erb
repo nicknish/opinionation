@@ -1,11 +1,11 @@
 <!-- User Profile -->
 <div class="user-profile" data-ng-controller="UserProfileCtrl">
-  <!-- Pull from API -->
+  
   <div class="container">
     <div class="imageWrapper">
-      <img ng-src="{{user.profile_pic_medium}}" class="img-circle user-profile-pic">
+      <%= image_tag @user.profile_pic(:medium), class: "img-circle user-profile-pic" %>
     </div>
-    <h2 class="user-profile-username">{{user.username}}</h2>
+    <h2 class="user-profile-username"><%= @user.username %></h2>
   </div>
 
   <!-- Profile Tabs -->
