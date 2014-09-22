@@ -3,9 +3,9 @@
   <!-- Pull from API -->
   <div class="container">
     <div class="imageWrapper">
-      <img src="{{user.profile_pic_medium}}" class="img-circle user-profile-pic">
+      <%= image_tag @user.profile_pic(:medium), class: "img-circle user-profile-pic" %>
     </div>
-    <h2 class="user-profile-username">{{user.username}}</h2>
+    <h2 class="user-profile-username"><%= @user.username %></h2>
   </div>
 
   <!-- Profile Tabs -->
@@ -20,15 +20,15 @@
     <div data-ng-controller="UserAnswerCtrl">
       <div data-ng-controller="UserFavoriteCtrl">
         <ul class="user-profile-fill-space" data-ng-repeat="post in user_posts" ng-show="selectedTab === 'questions'">
-          <a href=""><li class="user-profile-row">{{ post.question }}</li></a>
+          <a href="/posts/{{post.id}}"><li class="user-profile-row">{{ post.question }}</li></a>
         </ul>
 
         <ul class="user-profile-fill-space" data-ng-repeat="answer in user_answers" ng-show="selectedTab === 'answers'">
-          <a href="#"><li class="user-profile-row">{{ answer.body }}</li></a>
+          <a href="/posts/{{answer.post_id}}"><li class="user-profile-row">{{ answer.body }}</li></a>
         </ul>
 
         <ul class="user-profile-fill-space" data-ng-repeat="favorite in user_favorites" ng-show="selectedTab === 'favorites'">
-          <a href="#"><li class="user-profile-row">{{ favorite.question }}</li>
+          <a href="/posts/{{favorite.id}}"><li class="user-profile-row">{{ favorite.question }}</li>
           </a>
         </ul>
       </div>
