@@ -23,8 +23,8 @@
           <% end %>
         </div>
         <h2 class="title">{{ post.question }}</h2>
-        <a href="#"><img ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
-        <h3><a href="">{{ post.poster.username }}</a></h3>
+        <a href="/users/{{post.poster.id}}"><img ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
+        <h3><a href="/users/{{post.poster.id}}">{{ post.poster.username }}</a></h3>
         <div class="lightbox-photo">
           <img ng-src="{{post.post_pic}}" class="post-photo">
         </div>
@@ -44,11 +44,11 @@
         <div class="answers">
           <div class="answer clearfix" data-ng-repeat="answer in answers">
             <div class="clearfix">
-              <a href="#" class="col third">
+              <a href="/users/{{answer.answerer.id}}" class="col third">
                 <img data-ng-src="{{answer.answerer.user_pic}}" class="profile-pic">
               </a>
               <div class="">
-                <a href="#" class="answer-username">{{ answer.answerer.username }}</a><br />
+                <a href="/users/{{answer.answerer.id}}" class="answer-username">{{ answer.answerer.username }}</a><br />
                 <p class="answer-body">{{ answer.body }}</p>
                 <p class="text-muted text-left">Posted {{ answer.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
                 <div data-ng-controller="VoteCtrl as vote">

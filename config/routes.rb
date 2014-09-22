@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   scope '/api' do
     resources :posts, only: [:index], defaults: { format: :json }
-    get '/current_user_posts', to: 'posts#current_user_posts', defaults: { format: :json }
+    resources :users, only: [:show], defaults: { format: :json }
+    get '/user_posts/:id', to: 'posts#user_posts', defaults: { format: :json }
     get '/current_user_favorites', to: 'posts#current_user_favorites', defaults: { format: :json }
     resources :answers, only: [:index, :create], defaults: { format: :json }
     get '/current_user_answers', to: 'answers#current_user_answers', defaults: { format: :json }
