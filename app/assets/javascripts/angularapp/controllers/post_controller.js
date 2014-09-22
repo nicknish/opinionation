@@ -24,8 +24,8 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   var readyBottom = true,
       readyTop = true,
       pageCounter = 2,
-      postsPerQuery = 12,
-      spinner = document.getElementById('spin-loader');
+      postsPerQuery = 12;
+      // spinner = document.getElementById('spin-loader');
 
   //move infinite scroll into a custom directive?
   var infiniteScroll = $(window).scroll(function(){
@@ -36,7 +36,7 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
         readyBottom = false;
         $scope.loadMore(pageCounter, "bottom");
         pageCounter++;
-        spinner.style.display = 'none';
+        // spinner.style.display = 'none';
         if($scope.posts.length >= 48){
           //keeps $scope.posts array to a maximum of 48 elements
           $scope.posts.splice(0, postsPerQuery);
@@ -67,9 +67,9 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
         //throttle to prevent function from being called in quick succession
         setTimeout(function(){readyTop = true}, 2000);
       } 
-      else if($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-        spinner.style.display = 'block';
-      }
+      // else if($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+      //   spinner.style.display = 'block';
+      // }
     }
   });
 
