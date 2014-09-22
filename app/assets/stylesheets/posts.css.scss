@@ -214,9 +214,9 @@
 			padding: 10px; 
 		}
 		.half { 
-			width: 50%; 
-			&:nth-child(even) { padding-right: 1.5%; }
-			&:nth-child(odd) { padding-left: 1.5%; }
+			width: 48.5%; 
+			&:nth-child(even) { margin-right: 1.5%; }
+			&:nth-child(odd) { margin-left: 1.5%; }
 		}
 	}
 	.answer-submit { width: 20%; }

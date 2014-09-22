@@ -13,15 +13,15 @@
 <%= render 'partials/nav' %>
 
   <% if current_user %>
-    <span style="display: block;"><%= "Hello, #{current_user.fname}!" %></span>
-    <%= link_to "Sign out", session_path, method: :delete, id: "signzout" %>
+    <span style="display: block; color: white;"><%= "Hello, #{current_user.fname}!" %> <%= link_to "Sign out", session_path, method: :delete, id: "signzout" %></span>
+
   <% else %>
-    <span style="display: block;"><%= link_to "Sign in", new_session_path %></span>
+    <span style="display: block; color: white;"><%= link_to "Sign in", new_session_path %></span>
   <% end %>
 
 <%= yield %>
 
-  <span id="spin-loader"></span>
+  <!-- <span id="spin-loader"></span> -->
 
 </body>
 </html>
