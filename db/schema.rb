@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920232543) do
+ActiveRecord::Schema.define(version: 20140922225015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140920232543) do
     t.string   "post_pic_content_type"
     t.integer  "post_pic_file_size"
     t.datetime "post_pic_updated_at"
+    t.string   "temptags"
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree

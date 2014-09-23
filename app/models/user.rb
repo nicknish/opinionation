@@ -25,6 +25,9 @@ class User < ActiveRecord::Base
     self.username = x[0][0]
   end
 
+
+
+
   #formatting user inputs before save
   before_save {[
     self.prep_username,
