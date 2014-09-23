@@ -9,7 +9,6 @@ opinionationApp.controller('UserProfileCtrl', ['$scope', 'User', '$location', fu
   // to fill the Fill Container – Questions is the default.
   $scope.changeProfileTab = function(tab) {
 		$scope.selectedTab = tab;
-		var selected = $scope.selectedTab;
   };
   	// if there is no tab selected (falsy value)
 		// default to the question tab
