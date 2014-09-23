@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :question, :poster, :post_pic, :post_favorite
+  attributes :id, :question, :poster, :post_pic, :post_favorite, :num_favs, :created_at
 
   delegate :current_user, to: :scope
 
@@ -9,6 +9,10 @@ class PostSerializer < ActiveModel::Serializer
 
   def post_pic
     object.post_pic ? object.post_pic(:large) : object.user.profile_pic(:large)
+  end
+
+  def num_favs
+    object.favorites.count
   end
 
   #refactor to move to AnswerSerializer?
