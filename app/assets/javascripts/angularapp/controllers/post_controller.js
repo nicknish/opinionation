@@ -76,12 +76,12 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   // Slide checks if a post has slid up,
   // which an ng-class will respond by adding or 
   // removing the 'slideState' class
+  var lastPostClicked;
+
   $scope.slide = function(post) {
-    if (post.slideState == false || post.slideState == null) {
-      post.slideState = true;
-    } else { 
-      post.slideState = false; 
-    }
+    post.slideState ? post.slideState = false : post.slideState = true;
+    if(lastPostClicked){lastPostClicked.slideState = false;}
+    lastPostClicked = post;
   }
 
   // Lightbox
