@@ -52,10 +52,10 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
         //returns scroll position to the most recently viewed post
         (function(){
           if($(window).width() > 639){
-            $('html,body').animate({scrollTop: $("#post_0").height() * 6}, 600);
+            $('html,body').animate({scrollTop: $("#post_0").height() * 6}, 200);
           }
           else {
-           $('html,body').animate({scrollTop: $("#post_0").height() * 12}, 600); 
+           $('html,body').animate({scrollTop: $("#post_0").height() * 12}, 200); 
           }
         })();
 
@@ -76,12 +76,12 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   // Slide checks if a post has slid up,
   // which an ng-class will respond by adding or 
   // removing the 'slideState' class
+  var lastPostClicked = {slideState: false, id: null};
+
   $scope.slide = function(post) {
-    if (post.slideState == false || post.slideState == null) {
-      post.slideState = true;
-    } else { 
-      post.slideState = false; 
-    }
+    post.slideState ? post.slideState = false : post.slideState = true;
+    if(lastPostClicked.id != post.id){lastPostClicked.slideState = false;}
+    lastPostClicked = post;
   }
 
   // Lightbox

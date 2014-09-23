@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.where(id: params[:id]).first
+    @user = User.where(username: params[:id]).first
 
     respond_with @user, each_serializer: UserSerializer
   end

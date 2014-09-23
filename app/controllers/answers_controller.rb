@@ -9,7 +9,8 @@ class AnswersController < ApplicationController
   end
 
   def user_answers
-    @answers = Answer.where(user_id: params[:id]).all
+    user = User.where(username: params[:id]).first
+    @answers = Answer.where(user_id: user.id).all
 
     respond_with @answers, each_serializer: AnswerSerializer
   end

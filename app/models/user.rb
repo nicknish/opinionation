@@ -36,4 +36,8 @@ class User < ActiveRecord::Base
     self.lname = lname.titleize 
   ]}
   
+  def to_param
+    "#{username}"
+  end
+
 end
