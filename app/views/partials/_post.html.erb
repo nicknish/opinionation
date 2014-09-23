@@ -13,12 +13,20 @@
         <a href="/users/new" class="btn btn-primary">Favorite/Unfavorite</a> 
       <% end %>
     </div>
-    <h2 class="title">{{ post.question }}</h2>
-    <a href="/users/{{post.poster.username}}"><img data-ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
-    <h3><a href="/users/{{post.poster.username}}">@{{ post.poster.username }}</a></h3>
     <div class="lightbox-preview">
       <img data-ng-src="{{post.post_pic}}" class="lightbox-thumb" data-ng-click="toggleLightBox(post.post_pic)">
     </div>
+    <div class="post-info">
+      <div class="picture-column">
+        <a href="/users/{{post.poster.username}}"><img data-ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
+      </div>
+      <div class="content">
+        <h3 class="user-handle"><a href="/users/{{post.poster.username}}">@{{ post.poster.username }}</a></h3>
+        <h2 class="title">{{ post.question }}</h2>
+        <div class="tags"></div>
+      </div>
+    </div>
+
     <% if current_user %>
       <form data-ng-submit="answer.addAnswer(post.id)">
         <input type="text" placeholder="Answer" class="answer-input" data-ng-model="body">
