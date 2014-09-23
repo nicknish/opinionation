@@ -42,6 +42,7 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
+      @post.associate_tags
       redirect_to posts_path
     else
       render 'new'
@@ -51,7 +52,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:question, :user_id, :category_id, :post_pic)
+    params.require(:post).permit(:question, :user_id, :category_id, :post_pic, :temptags)
   end
 
 end

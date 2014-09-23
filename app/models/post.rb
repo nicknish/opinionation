@@ -14,4 +14,19 @@ class Post < ActiveRecord::Base
 
   validates_attachment :post_pic, content_type: {content_type: ["image/jpeg", "image/jpg", "image/gif", "image/png"]}
 
+  def associate_tags
+    x = self.temptags.tr('#','').tr(',','')
+    y = x.split(" ")
+
+    y.each do |z|
+      if Tag.exists?(:name => z)
+        a = Tag.where(:name => z).first
+        PostTag.create(tag:a, post:self)
+      else
+        a = Tag.create(name:z)
+        PostTag.create(tag:a, post:self)
+      end
+    end
+  end
+
 end
