@@ -6,8 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Answer.destroy_all
-Vote.destroy_all
+# Answer.destroy_all
+# Vote.destroy_all
+# Favorite.destroy_all
+# UserTagScore.destroy_all
+# UserTagScoreVote.destroy_all
+
 
 twerds = [
   {
@@ -455,6 +459,9 @@ twerds = [
     question: "Charles II opposed the conversion, ordering that James's daughters, Mary and Anne, be raised as Protestants."
   }
 ]
+postcount = Post.count
+usercount = User.count
+
 
 newarray = Array.new
 twerds.each do |t|
@@ -463,18 +470,33 @@ twerds.each do |t|
   end
 end
 
-Post.all.each do |x|
+# Post.all.each do |x|
 
-  bb = rand(3..20)
-  for i in 0..bb
-    aa = rand(0..(Post.count-1))
-    cc = rand(0..(User.count-1))
-    dd = rand(0..(newarray.length-1))
-    createdanswer = Answer.create(post:Post.all[aa],user:User.all[cc],body:newarray[dd])
-    ee = rand(1..20)
-      for f in 0..ee
-        ff = rand(0..(User.count-1))
-        Vote.create(user:User.all[ff], answer:createdanswer)
-      end
+#   bb = rand(3..10)
+#   for i in 0..bb
+#     aa = rand(0..(postcount-1))
+#     cc = rand(0..(usercount-1))
+#     dd = rand(0..(newarray.length-1))
+#     createdanswer = Answer.create(post:Post.all[aa],user:User.all[cc],body:newarray[dd])
+#     ee = rand(1..20)
+#       for f in 0..ee
+#         ff = rand(0..(usercount-1))
+#         uu = Vote.create(user:User.all[ff], answer:createdanswer)
+#         uu.score_maker
+#       end
+#   end
+# end
+
+  User.all.each do |f|
+    oo = Random.rand(0..8)
+    for i in 0..oo
+      gg = Random.rand(0..postcount-1)
+      Favorite.create(post:Post.all[gg], user:f)
+    end
   end
-end
+
+
+
+
+
+
