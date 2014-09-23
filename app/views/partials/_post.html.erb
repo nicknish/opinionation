@@ -14,8 +14,8 @@
       <% end %>
     </div>
     <h2 class="title">{{ post.question }}</h2>
-    <a href="/users/{{post.poster.id}}"><img data-ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
-    <h3><a href="/users/{{post.poster.id}}">{{ post.poster.username }}</a></h3>
+    <a href="/users/{{post.poster.username}}"><img data-ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
+    <h3><a href="/users/{{post.poster.username}}">{{ post.poster.username }}</a></h3>
     <div class="lightbox-preview">
       <img data-ng-src="{{post.post_pic}}" class="lightbox-thumb" data-ng-click="toggleLightBox(post.post_pic)">
     </div>
@@ -34,11 +34,11 @@
 
     <div class="answers">
       <div class="answer clearfix" data-ng-repeat="answer in answers">
-        <a href="/users/{{answer.answerer.id}}" class="col third">
+        <a href="/users/{{answer.answerer.username}}" class="col third">
           <img data-ng-src="{{answer.answerer.user_pic}}" class="profile-pic">
         </a>
         <div class="answer-body">
-          <a href="/users/{{answer.answerer.id}}" class="answer-username">{{ answer.answerer.username }}</a><br />
+          <a href="/users/{{answer.answerer.username}}" class="answer-username">{{ answer.answerer.username }}</a><br />
           <p class="answer-text">{{ answer.body }}</p>
           <p class="text-muted text-left">Posted {{ answer.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
           <div class="votes" data-ng-controller="VoteCtrl as vote">

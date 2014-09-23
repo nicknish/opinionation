@@ -15,17 +15,18 @@ class PostsController < ApplicationController
   end
 
   def user_posts
-    @posts = Post.where(user_id: params[:id]).all
+    user = User.where(username: params[:id]).first
+    @posts = Post.where(user_id: user.id).all
 
     respond_with @posts, each_serializer: PostSerializer
   end
 
   def user_favorites
-    @user = User.where(id: params[:id]).first
+    user = User.where(username: params[:id]).first
 
     @posts = []
 
-    @user.favorites.each do |fav|
+    user.favorites.each do |fav|
       @posts << fav.post
     end
 

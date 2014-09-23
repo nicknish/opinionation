@@ -6,7 +6,7 @@
     <ul>
       <li><%= link_to "Posts", root_path %></li>
       <% if current_user %>
-      <li><%= link_to "Profile", user_path(current_user.id) %></li>
+      <li><%= link_to "Profile", user_path(current_user.username) %></li>
       <li><%= link_to "Sign Out", session_path, method: :delete, id: "signzout" %></li>
       <% else %>
       <li><%= link_to "Login", new_session_path %></li>
