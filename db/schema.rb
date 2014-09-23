@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140923010144) do
     t.string   "post_pic_content_type"
     t.integer  "post_pic_file_size"
     t.datetime "post_pic_updated_at"
+    t.string   "temptags"
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
