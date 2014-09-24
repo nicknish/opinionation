@@ -1,5 +1,9 @@
 <div class="col-sm-4 col-sm-offset-4 form_styles">
-	<%= form_for @user, url: session_path, html: { class: 'container' } do |f| %>
+  
+  <h1 class="text-center logo-fontface">OpinioNation</h1>
+  <h4 class="text-center">Ask a question. Give an answer. Get involved.</h4>
+	
+  <%= form_for @user, url: session_path, html: { class: 'container' } do |f| %>
 	  <%= f.email_field :email, placeholder: "Email address", class: 'form-control' %><br />
 	  <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
 	  <span>Not a member? <%= link_to "Sign Up", new_user_path %></span>
