@@ -6,8 +6,8 @@
   </div>
   
   <div class="back clearfix">
-    <span data-ng-click="slide(post)"><%= render "partials/xicon" %></span>
-    <div class="fav navbar-static-top" data-ng-controller="FavCtrl as fav">
+    <span class="close-post" data-ng-click="slide(post)"><%= render "partials/xicon" %></span>
+    <div class="fav" data-ng-controller="FavCtrl as fav">
       <% if current_user %>
         <a href="#" class="love-button" data-ng-click="updateFavorite(post)">Love It!</a>
       <% else %>
