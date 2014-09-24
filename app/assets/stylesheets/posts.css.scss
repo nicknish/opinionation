@@ -1,5 +1,13 @@
+// $color1: #FFFFFB;
+$color1: #FFFFFC;
+$color2: #30323E;
+// $color4: #BD313C;
+// $color4: #D13642;
+$color4: #D13658;
+
 /* Posts Styles
 ================ */
+
 .posts { 
 	position: relative; 
 	margin: 0 1rem;
@@ -76,8 +84,8 @@
 
 
 	h1 { 
-		color: white; 
-		padding-top: 10px; 
+		color: $color1; 
+		padding-top: 10px;
 		font-weight: 800; 
 		-webkit-user-select: none;
 		-moz-user-select: none;
@@ -106,7 +114,8 @@
 /* Back Post Styles
 =================== */
 .back {
-	background-color: #fff;
+	// background-color: #fff;
+	background-color: $color1;
 	overflow: scroll;
 	// padding: 5px;
 	top: 100%;
@@ -114,11 +123,16 @@
 	transition: top .6s ease;
 	h3 { 
 		a { 
-			color: #7CA6B0; 
+			// color: #7CA6B0;
+			color: $color2;
 		}
 		font-size: 12.5px; 
 		display: inline-block; 
 		margin: 0;
+	}
+
+	p {
+		color: $color2
 	}
 	.close-button { 
 		cursor: pointer; 
@@ -144,13 +158,13 @@
 	  margin: 5px 0;
     
     &:hover { 
-		  color: red; 
-		  border-color: red;
+		  color: $color4; 
+		  border-color: $color4;
 		}
 	}
 	.love-button.selected {
-		color: red;
-		border-color: red;
+		color: $color4;
+		border-color: $color4;
 	}
 	// .favorite-star {
 		// background: url('sprites.png') no-repeat;
@@ -305,4 +319,9 @@
 	  width: 90%;  
 	}
 }
+
+.greyz {
+	background-color: grey;
+}
+
 

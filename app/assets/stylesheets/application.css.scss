@@ -10,9 +10,14 @@
 =============================== */
 * { box-sizing: border-box; }
 
+$color1: #FFFFFC;
+$color2: #30323E;
+$color3: #8A2F2C;
+$color4: #D13658;
+
 body { 
 	font-family: 'Open Sans';
-	background-color: #2B3E51; 
+	background-color: $color2; 
 	padding-top: 50px;
 }
 
@@ -27,9 +32,9 @@ body {
 }
 
 .trigger-add-post {
-	background-color: #428bca;
+	background-color: darken($color4, 5%);
 	padding: 8px 10px;
-	&:hover { background-color: #3071a9; }
+	&:hover { background-color: $color4; }
 }
 
 #plus-sign-glyph {
@@ -203,4 +208,9 @@ body {
 	.overlay ul li {
 		min-height: 34px;
 	}
+}
+
+.my-btn {
+  //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  @include button-variant($color1, $color4, $color1);
 }
