@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :check_security, only: [:new, :create, :update, :destroy]
 
   respond_to :html, :json
 
@@ -53,6 +54,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:question, :user_id, :category_id, :post_pic, :temptags)
+  end
+
+  def check_security
+    if !current_user
+      redirect_to new_user_path
+    end
   end
 
 end

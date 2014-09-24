@@ -2,12 +2,13 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
-  has_many :answers
-  has_many :favorites
-  has_many :post_tags
+  has_many :answers, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :post_tags, dependent: :destroy
   has_many :tags, :through => :post_tags
 
   validates :question, presence: true, length: { in: 5..100 }
+  # validates :user_id, presence: true 
 
    # user profile picture upload using paperclip gem
   has_attached_file :post_pic, styles: { large: "900X900>", medium: "640x640>", small: "100x100>" }, default_url: "images/:style/missing.png"
