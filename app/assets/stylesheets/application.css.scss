@@ -6,6 +6,15 @@
 @import 'bootstrap';
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,800);
 
+/* Z-Index List 
+=============== */
+//  -10 - .full-image
+//	10	-	.back
+//	50	-	.navbar-default
+//	100	-	#lightbox
+//	500	-	.overlay
+//	500	-	.overlay-fullscreen.open
+
 /* Global Variables and Properties 
 =============================== */
 * { box-sizing: border-box; }
@@ -74,7 +83,7 @@ body {
 /* ======== NAV STYLES ========= */
 
 .navbar-default { 
-	z-index: 5; 
+	z-index: 50; 
 
 	// Hide Nav
   transition: transform 0.7s .3s ease;
@@ -102,7 +111,7 @@ body {
 	top: 0;
 	left: 0;
 	background: rgba(61,89,122,0.9);
-	z-index: 100;
+	z-index: 500;
 }
 
 /* Overlay closing cross */
@@ -173,7 +182,7 @@ body {
 	opacity: 1;
 	visibility: visible;
 	transition: opacity 0.5s;
-	z-index: 100;
+	z-index: 500;
 }
 
 .overlay-fullscreen nav {

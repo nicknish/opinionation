@@ -50,7 +50,7 @@
   text-align: center;
   cursor: pointer;
   display: none;
-  z-index: 10;
+  z-index: 100;
   
   #lightbox-full {
 
@@ -112,6 +112,8 @@
 	top: 100%;
 	width: 100.1%;;
 	transition: top .6s ease;
+	z-index: 10;
+
 	h3 { 
 		a { 
 			color: #7CA6B0; 
@@ -310,7 +312,7 @@
 }
 
 // Media Queries
-@media (min-width: 45rem) {
+@media (min-width: 49rem) {
 	.posts {
 		margin: 2rem 8rem;
 		.col { float: left; }
@@ -335,7 +337,8 @@
 	.post-container {  
 		margin: 0 auto;
 	  max-width: 60rem;
-	  width: 90%;  
+	  width: 46%;  
+		.post { height: 85vh; }
 	}
 }
 
