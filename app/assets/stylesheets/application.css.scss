@@ -89,9 +89,13 @@ body {
 
 /* ======== NAV STYLES ========= */
 
+#menu-logo {
+	color: white;
+	font-size: 60px;
+}
+
 .navbar-default { 
 	z-index: 50; 
-
 	// Hide Nav
   transition: transform 0.7s .3s ease;
   -webkit-backface-visibility: hidden;

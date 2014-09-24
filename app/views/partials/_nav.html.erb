@@ -3,10 +3,11 @@
 <div class="overlay overlay-fullscreen">
   <button type="button" class="overlay-close">Close</button>
   <nav>
+    <h1 class="logo-fontface" id="menu-logo">OpinioNation</h1>
     <ul>
-      <li><%= link_to "Posts", root_path %></li>
+      <li><%= link_to "Questions", root_path %></li>
       <% if current_user %>
-      <li><%= link_to "Profile", user_path(current_user.username) %></li>
+      <li><%= link_to "Your Profile", user_path(current_user.username) %></li>
       <li><%= link_to "Sign Out", session_path, method: :delete, id: "signzout" %></li>
       <% else %>
       <li><%= link_to "Login", new_session_path %></li>
