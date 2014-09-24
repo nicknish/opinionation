@@ -1,7 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" fill="#fff" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-<g id="Captions">
-</g>
-<g id="Your_Icon">
-	<polygon points="100,48 52,48 52,0 48,0 48,48 0,48 0,52 48,52 48,100 52,100 52,52 100,52  "/>
-</g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="101px" height="86px" viewBox="0 0 101 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8053) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <path d="M32.103,64.431 L42.145,64.656 L42.256,64.659 L45.812,61.33 L35.997,51.262 L32.384,54.646 L32.103,64.431 Z M76.829,70.955 C76.829,73.348 74.844,75.292 72.402,75.292 L14.03,75.292 C11.588,75.292 9.603,73.348 9.603,70.955 L9.603,13.676 C9.603,11.283 11.588,9.411 14.03,9.411 L69.176,9.411 L81.03,0.146 C80.912,0.14 80.852,0 80.73,0 L5.702,0 C2.562,0 0,2.438 0,5.514 L0,79.116 C0,82.192 2.562,84.705 5.702,84.705 L80.73,84.705 C83.87,84.705 86.433,82.192 86.433,79.116 L86.433,37.793 L76.829,45.293 L76.829,70.955 Z M90.148,1.189 L85.848,5.216 L95.699,15.32 L100,11.293 L90.148,1.189 Z M41.027,46.776 L50.827,56.825 L91.648,18.601 L81.849,8.551 L41.027,46.776 Z" id="Shape" fill="#fff" sketch:type="MSShapeGroup"></path>
+    </g>
 </svg>

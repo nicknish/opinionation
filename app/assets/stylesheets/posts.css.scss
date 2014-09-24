@@ -10,7 +10,7 @@
 	.post {
 
 		float:left;
-		width: 100%;
+		width: 100.1%;
 		margin: 0 auto;
 		height: 70vh;
 		background-color: white;
@@ -108,17 +108,15 @@
 .back {
 	background-color: #fff;
 	overflow: scroll;
-	// padding: 5px;
+	overflow-x: hidden;
 	top: 100%;
 	width: 100.1%;;
 	transition: top .6s ease;
 	z-index: 10;
 
 	h3 { 
-		a { 
-			color: #7CA6B0; 
-		}
-		font-size: 12.5px; 
+		a { color: #7CA6B0; }
+		font-size: 11.5px; 
 		display: inline-block; 
 		margin: 0;
 	}
@@ -149,34 +147,24 @@
 	  font-weight: 800;
 	  display: inline-block;
 	  margin: 5px 0;
+	  cursor: pointer;
     
     &:hover { 
 		  color: red; 
 		  border-color: red;
 		}
+
+		&.selected {
+			color: red;
+			border-color: red;
+		}
 	}
-	.love-button.selected {
-		color: red;
-		border-color: red;
-	}
-	// .favorite-star {
-		// background: url('sprites.png') no-repeat;
-		// background-size: 16rem;
-		// background-position: 0 -5rem;
-		// position: relative;
-		// right: 0;
-		// top: 0;
-		// width: 10px;
-		// height: 10px;
-		// border-radius: 50%;
-		// background-color: white;
-	// }
 
 	// Post Info
 	.post-info {
 		position: relative;
 		width: 100%;
-		margin: 20px inherit 15px 5px;
+		margin: 10px inherit 15px 5px;
 		padding-bottom: 7.5px;
 		border-bottom: 1px solid #E6E6E6;
 		box-shadow: 0px 1px 2px rgba(0,0,0,.1);
@@ -190,17 +178,15 @@
 		}
 		.content {
 			position: relative;
-			left: 20%;
-			width: 80%;
+			padding-left: 20%;
+			width: 100%;
 			height: 100%;
 		}
 		.title { 
-			font-size: 14.5px;
+			font-size: 13.5px;
 			margin-top: 5px;
 			line-height: 135%;
 			width: 80%;
-			-webkit-user-select: none;
-			-moz-user-select: none;
 		}
 		.poster-profile-pic {
 			img { width: 100%; height: 100%; }
@@ -222,7 +208,7 @@
 
 	.lightbox-preview { 
 		margin: 0 auto; 
-		width: 100.1%;
+		width: 100.02%;
 		display: block;
 		text-align: center;
 		height: 150px;
@@ -234,7 +220,7 @@
 		width: 100%;
 		position: relative;
 		margin-bottom: 1%;
-		bottom: 85%;
+		bottom: 65%;
 	}
 }
 
@@ -246,7 +232,7 @@
 }
 .answer-form { padding: 6px; padding-bottom: 15px;}
 .answer-input {
-	border: 1px solid rgba(0,0,0,.30);
+	border: 1px solid rgba(0,0,0,0.15);
 	background-color: rgba(255,255,255,.47);
 	border-radius: 5px;
 	height: 34px;
@@ -276,7 +262,9 @@
 	
 	.post-info { border-bottom: none; box-shadow: none; }
 	.answer-date { 
-		font-size: 12px; 
+		font-size: 11px; 
+		font-weight: 300;
+		vertical-align: bottom;
 		color: #a3a3a3; 
 		margin: 0; 
 		display: inline;
@@ -291,8 +279,8 @@
 	.answer-username { padding-left: 15px; }
 	.answer-text {
 		width: 75%;
-		// padding-left: 15px;
-		// float: left;
+		font-weight: 300;
+		font-size: 13px;
 	}
 	.best-answer { background-color: white; }
 	.votes {
@@ -300,14 +288,28 @@
 		float: right;
 		margin-right: 3%;
 	}
-	a.add-favorite {
+	.add-favorite {
 		padding-bottom: 5px;
+		cursor: pointer;
 		display: inline-block;
+		&.selected {
+			#checkmark {
+				fill: #CAA5A5;
+			}
+		}
 	}
 	.checkmark {
-		width: 20px;
+		width: 21px;
+		padding: 1px;
 		height: 99%;
-		#checkmark-svg {  }
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		#checkmark-svg { 
+			stroke-width: 5; 
+			stroke: #CAA5A5; 
+			fill: transparent; 
+			// &.selected { fill: #CAA5A5; }
+		}
 	}
 }
 
@@ -327,6 +329,10 @@
 		}
 	}
 	.answer-submit { width: 20%; }
+}
+
+@media (min-width: 49rem) and (max-width: 55rem) { 
+	.front { h1 { font-size: 31px; } } 
 }
 
 .new-post { color: white; }

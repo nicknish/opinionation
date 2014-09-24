@@ -9,9 +9,9 @@
     <span class="close-post" data-ng-click="slide(post)"><%= render "partials/xicon" %></span>
     <div class="fav" data-ng-controller="FavCtrl as fav">
       <% if current_user %>
-        <a href="#" class="love-button" ng-class="{selected: post.post_favorite.id}" data-ng-click="updateFavorite(post)">Love It!</a>
+        <div class="love-button" ng-class="{selected: post.post_favorite.id}" data-ng-click="updateFavorite(post)">Love It!</div>
       <% else %>
-        <a href="/users/new" class="btn btn-primary">Favorite/Unfavorite</a> 
+        <a href="/users/new" class="love-button">Love It!</a> 
       <% end %>
     </div>
     <div class="lightbox-preview">
@@ -35,13 +35,13 @@
 
       <% if current_user %>
         <form class="answer-form" data-ng-submit="answer.addAnswer(post.id)">
-          <input type="text" placeholder="Add an answer" class="answer-input" data-ng-model="body">
+          <input type="text" placeholder="Add an answer" class="answer-input form-control" data-ng-model="body">
           <!-- <input type="submit" value="Send" class="answer-submit"> -->
         </form>
       <% else %>
-        <%= form_tag("/users/new", method: "get") do %>
+        <%= form_tag("/users/new", class: 'answer-form', method: "get") do %>
           <input type="text" placeholder="Answer" class="answer-input" />
-          <input name="commit" type="submit" value="Send" class="answer-submit" />
+          <!-- <input name="commit" type="submit" value="Send" class="answer-submit" /> -->
         <% end %>
       <% end %>
 
@@ -58,9 +58,10 @@
             <div class="votes" data-ng-controller="VoteCtrl as vote">
               <% if current_user %>
                 <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
-                <a href class="add-favorite" data-ng-click="updateVote(answer)"><%= render "partials/checkicon" %></a>
+                <div class="add-favorite" data-ng-click="updateVote(answer)"><%= render "partials/checkicon" %></div>
               <% else %>
-                <a href="/users/new" class="add-favorite" class="btn btn-primary"><%= render "partials/checkicon" %></a> 
+                <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
+                <a href="/users/new" class="add-favorite"><%= render "partials/checkicon" %></a> 
               <% end %>
               
 
