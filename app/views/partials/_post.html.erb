@@ -9,7 +9,7 @@
     <span class="close-post" data-ng-click="slide(post)"><%= render "partials/xicon" %></span>
     <div class="fav" data-ng-controller="FavCtrl as fav">
       <% if current_user %>
-        <a href="#" class="love-button" data-ng-click="updateFavorite(post)">Love It!</a>
+        <a href="#" class="love-button" ng-class="{selected: post.post_favorite.id}" data-ng-click="updateFavorite(post)">Love It!</a>
       <% else %>
         <a href="/users/new" class="btn btn-primary">Favorite/Unfavorite</a> 
       <% end %>
@@ -24,6 +24,9 @@
       <div class="content">
         <h3 class="user-handle"><a href="/users/{{post.poster.username}}">@{{ post.poster.username }}</a></h3>
         <h2 class="title">{{ post.question }}</h2>
+        <div ng-repeat="tag in post.post_tags">
+          <div class="btn btn-info btn-xs">#{{ tag }}</div>
+        </div>
         <div class="tags"></div>
       </div>
     </div>
