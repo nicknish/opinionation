@@ -24,10 +24,9 @@
       <div class="content">
         <h3 class="user-handle"><a href="/users/{{post.poster.username}}">@{{ post.poster.username }}</a></h3>
         <h2 class="title">{{ post.question }}</h2>
-        <div ng-repeat="tag in post.post_tags">
-          <div class="btn btn-info btn-xs">#{{ tag }}</div>
+        <div ng-repeat="tag in post.post_tags" class="tags">
+          <div class="btn btn-info btn-xs tag">#{{ tag }}</div>
         </div>
-        <div class="tags"></div>
       </div>
     </div>
 

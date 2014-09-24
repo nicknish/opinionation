@@ -15,36 +15,52 @@
     <button class="profile-tab favorite-tab"><span id="favorite-icon" ng-click="changeProfileTab('favorites')"></span></button>
   </div>
 
-  <!-- Fill Container -->
   <div data-ng-controller="UserPostCtrl">
     <div data-ng-controller="UserAnswerCtrl">
       <div data-ng-controller="UserFavoriteCtrl">
-        <ul class="user-profile-fill-space" data-ng-repeat="post in user_posts" ng-show="selectedTab === 'questions'">
-          <img data-ng-src="{{post.post_pic}}" class="user-profile-pic">
-          <a href="/posts/{{post.id}}"><li class="user-profile-row">{{ post.question }}</li></a>
-          <p class="text-muted text-left">Posted {{ post.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
-          <li><ng-pluralize count="post.num_favs" when="{'0': '', '1': '1 person loves this!', 'other': '{} people love this!'}"></ng-pluralize></li>
-        </ul>
 
-        <ul class="user-profile-fill-space" data-ng-repeat="answer in user_answers" ng-show="selectedTab === 'answers'">
-          <a href="/posts/{{answer.post_id}}" class="col third">
-            <img data-ng-src="{{answer.question.post_pic}}" class="user-profile-pic">
-          </a>
-          <a href="/posts/{{answer.post_id}}"><li class="user-profile-row">Q. {{ answer.question.question }}</li></a>
-          <li class="user-profile-row"><a href="/users/{{answer.question.poster}}">asked by @{{ answer.question.poster }}</a></li>
-          <a href="/posts/{{answer.post_id}}"><li class="user-profile-row">A. {{ answer.body }}</li></a>
-          <li class="user-profile-row">Received <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize></li>
-        </ul>
+        <ul class="user-profile-fill-space" ng-show="selectedTab === 'questions'">
+          <li class="post-info" data-ng-repeat="post in user_posts">
+            <div class="picture-column">
+              <a href="/posts/{{post.id}}"><img data-ng-src="{{post.post_pic}}" class="poster-profile-pic"></a>
+            </div>
+            <div class="content">
+              <a href="/posts/{{post.id}}"><p class="title">{{ post.question }}</p></a>
+              <p class="answer-date text-muted text-left">Posted {{ post.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
+            </div> <!-- /content -->
+          </li> <!-- /post-info -->
+        </ul> <!-- /user-profile-fill-space -->
 
-        <ul class="user-profile-fill-space" data-ng-repeat="favorite in user_favorites" ng-show="selectedTab === 'favorites'">
-          <img data-ng-src="{{favorite.post_pic}}" class="user-profile-pic">
-          <a href="/posts/{{favorite.id}}"><li class="user-profile-row">{{ favorite.question }}</li>
-          <li class="user-profile-row"><a href="/users/{{favorite.poster.username}}">asked by @{{ favorite.poster.username }}</a></li>
-          <p class="text-muted text-left">Posted {{ favorite.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
-          </a>
-        </ul>
+        <ul class="user-profile-fill-space" ng-show="selectedTab === 'answers'">
+          <li class="post-info" data-ng-repeat="answer in user_answers">
+            <div class="picture-column">
+              <a href="/posts/{{answer.post_id}}"><img data-ng-src="{{answer.question.post_pic}}" class="poster-profile-pic"></a>
+            </div>
+            <div class="content">
+              <a href="/posts/{{answer.post_id}}"><p class="user-answers">{{ answer.body }}</p></a>
+              <a href="/posts/{{answer.post_id}}"><p class="answer-text">Q. {{ answer.question.question }}</p></a>
+              <a href="/users/{{answer.question.poster}}"><p class="answer-text">asked by @{{ answer.question.poster }}</p></a>
+              <p class="answer-date text-muted"> Received <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize></p>
+            </div> <!-- /content -->
+          </li> <!-- /post-info -->
+        </ul> <!-- /user-profile-fill-space -->
+
+        <ul class="user-profile-fill-space" ng-show="selectedTab === 'favorites'">
+          <li class="post-info" data-ng-repeat="favorite in user_favorites">
+            <div class="picture-column">
+              <a href="/posts/{{favorite.post_id}}"><img data-ng-src="{{favorite.post_pic}}" class="poster-profile-pic"></a>
+            </div>
+            <div class="content">
+              <a href="/posts/{{favorite.id}}"><p class="user-answers">{{favorite.question}}</p></a>
+              <a href="/users/{{favorite.poster.username}}"><p class="answer-text">asked by @{{ favorite.poster.username }}</p></a>
+              <a href="/posts/{{answer.post_id}}"><p class="answer-text">{{ answer.body }}</p></a>
+              <p class="answer-date text-muted text-left">Posted {{ favorite.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
+            </div> <!-- /content -->
+          </li> <!-- /post-info -->
+        </ul> <!-- /user-profile-fill-space -->
+
       </div>
     </div>
-  </div> <!-- /fill-container -->
+  </div>
 
 </div> <!-- /user-profile -->

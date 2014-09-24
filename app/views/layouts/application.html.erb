@@ -12,13 +12,6 @@
 
 <%= render 'partials/nav' %>
 
-  <% if current_user %>
-    <span style="display: block; color: white;"><%= "Hello, #{current_user.fname}!" %> <%= link_to "Sign out", session_path, method: :delete, id: "signzout" %></span>
-
-  <% else %>
-    <span style="display: block; color: white;"><%= link_to "Sign in", new_session_path %></span>
-  <% end %>
-
 <%= yield %>
 
   <!-- <span id="spin-loader"></span> -->

@@ -2,7 +2,7 @@
 ================ */
 .posts { 
 	position: relative; 
-	margin: 0 1rem;
+	margin: 1rem 1rem;
 	
 	.slideState { .back { top: 0 !important; } }
 
@@ -165,8 +165,10 @@
 	.post-info {
 		position: relative;
 		width: 100%;
-		margin: 10px inherit 15px 5px;
-		padding-bottom: 7.5px;
+		// margin: 10px inherit 15px 5px;
+		margin: 0;
+		padding-right: 0;
+		padding-bottom: 15px;
 		border-bottom: 1px solid #E6E6E6;
 		box-shadow: 0px 1px 2px rgba(0,0,0,.1);
 
@@ -199,13 +201,15 @@
 			background-color: white;
 			margin: 0 auto;
 		}
+		.tags { display: inline; }
 		.tag {
-		  font-size: .8125rem;
-		  text-align: center;
-		  display: inline;
-		  padding: .4375rem;
-		  background-color: #D8D8D8;
-		  border-radius: .1875rem;
+		  // font-size: .8125rem;
+		  // text-align: center;
+		  // display: inline;
+		  // padding: .4375rem;
+		  // background-color: #D8D8D8;
+		  // border-radius: .1875rem;
+		  display: inline-block;
 		}
 	}
 

@@ -34,7 +34,7 @@ body {
 }
 
 #at-symbol-glyph {
-	font-size: 17px;
+	font-size: 15px;
 }
 
 .trigger-add-post {
@@ -76,7 +76,7 @@ body {
 	.container { width: 100%; }
 	// Disable Bootstrap Right Nav
 	.navbar-header { float: none; }
-	.navbar-toggle { display: block; }
+	.navbar-toggle { display: block; margin-top: 9px; }
 	.navbar-right { display: none; }
 }
 @media(min-width: 60rem) { html { font-size: 75%; } }
@@ -98,6 +98,16 @@ body {
 	transform: translate(0, -100%);
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+}
+.nav-right { 
+	display: none; 
+	margin-right:8px;
+	margin-bottom: 0;
+	float: right; 
+	.nav-link { display: inline-block; }
+}
+@media (min-width: 40rem) {
+	.nav-right { display: block; }
 }
 .navbar-default .navbar-toggle { border: none; }
 
