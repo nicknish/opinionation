@@ -49,6 +49,26 @@
         <img data-ng-src="{{post.post_pic}}" class="lightbox-thumb" data-ng-click="toggleLightBox(post.post_pic)">
       </div>
 
+<<<<<<< HEAD
+        <div class="post-info">
+          <div class="picture-column">
+            <a href="/users/{{answer.answerer.username}}"><img data-ng-src="{{answer.answerer.user_pic}}" class="poster-profile-pic"></a>
+          </div>
+          <div class="content">
+            <h3 class="user-handle"><a href="/users/{{answer.answerer.username}}">@{{ answer.answerer.username }}</a></h3>
+            <p class="answer-text">{{ answer.body }}</p>
+            <p class="answer-date text-muted text-left">Posted {{ answer.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
+            <div class="votes" data-ng-controller="VoteCtrl as vote">
+              <% if current_user %>
+                <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
+                <div ng-hide="answer.user_vote.id" class="add-favorite" data-ng-click="updateVote(answer)"><%= render "partials/checkicon" %></div>
+                <div ng-show="answer.user_vote.id" class="add-favorite" data-ng-click="updateVote(answer)"><%= render "partials/checkiconfilled" %></div>
+              <% else %>
+                <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
+                <a href="/users/new" class="add-favorite"><%= render "partials/checkicon" %></a> 
+              <% end %>
+              
+=======
       <div class="answers">
 
         <div class="answer clearfix" data-ng-repeat="answer in answers">
@@ -61,15 +81,14 @@
               <h3 class="user-handle"><a href="/users/{{answer.answerer.username}}">@{{ answer.answerer.username }}</a></h3>
               <p class="answer-text">{{ answer.body }}</p>
               <p class="answer-date text-muted text-left">Posted {{ answer.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
-            <div class="votes" data-ng-controller="VoteCtrl as vote">
-              <% if current_user %>
-                <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
-                <div ng-hide="answer.user_vote.id" class="add-favorite" data-ng-click="updateVote(answer)"><%= render "partials/checkicon" %></div>
-                <div ng-show="answer.user_vote.id" class="add-favorite" data-ng-click="updateVote(answer)"><%= render "partials/checkiconfilled" %></div>
-              <% else %>
-                <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
-                <a href="/users/new" class="add-favorite"><%= render "partials/checkicon" %></a> 
-              <% end %>
+              <div class="votes" data-ng-controller="VoteCtrl as vote">
+                <% if current_user %>
+                  <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
+                  <div class="add-favorite" data-ng-click="updateVote(answer)"><%= render "partials/checkicon" %></div>
+                <% else %>
+                  <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
+                  <a href="/users/new" class="add-favorite"><%= render "partials/checkicon" %></a> 
+                <% end %>
                 
 
               </div> <!-- /votes -->
@@ -78,6 +97,7 @@
         </div> <!-- /answer -->
       </div> <!-- /answers -->
     </div>
+>>>>>>> post_card_nav
 
   </div> <!-- /back -->
 </div> <!-- /post -->
