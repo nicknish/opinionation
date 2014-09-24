@@ -6,8 +6,8 @@
   </div>
   
   <div class="back clearfix">
-    <span class="close-button" data-ng-click="slide(post)">x</span>
-    <div class="fav" data-ng-controller="FavCtrl as fav">
+    <span data-ng-click="slide(post)"><%= render "partials/xicon" %></span>
+    <div class="fav navbar-static-top" data-ng-controller="FavCtrl as fav">
       <% if current_user %>
         <a href="#" class="love-button" data-ng-click="updateFavorite(post)">Love It!</a>
       <% else %>
@@ -27,23 +27,6 @@
         <div class="tags"></div>
       </div>
     </div>
-
-<%
-=begin %>
-    <% if current_user %>
-      <form class="answer-form" data-ng-submit="answer.addAnswer(post.id)">
-        <input type="text" placeholder="Add an answer" class="answer-input" data-ng-model="body">
-        <!-- <input type="submit" value="Send" class="answer-submit"> -->
-      </form>
-    <% else %>
-      <%= form_tag("/users/new", method: "get") do %>
-        <input type="text" placeholder="Answer" class="answer-input" />
-        <input name="commit" type="submit" value="Send" class="answer-submit" />
-      <% end %>
-    <% end %>
-<%
-=end%>
-
 
     <div class="answers">
 
@@ -71,41 +54,16 @@
             <p class="answer-date text-muted text-left">Posted {{ answer.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
             <div class="votes" data-ng-controller="VoteCtrl as vote">
               <% if current_user %>
-                <a data-ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a>
                 <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
+                <a href class="add-favorite" data-ng-click="updateVote(answer)"><%= render "partials/checkicon" %></a>
               <% else %>
-                <a href="/users/new" class="btn btn-primary">Vote/Unvote</a> 
+                <a href="/users/new" class="add-favorite" class="btn btn-primary"><%= render "partials/checkicon" %></a> 
               <% end %>
               
 
             </div> <!-- /votes -->
-          </div>
-        </div>
-
-
-
-<%
-=begin %>
-        <a href="/users/{{answer.answerer.username}}" class="col third">
-          <img data-ng-src="{{answer.answerer.user_pic}}" class="profile-pic">
-        </a>
-        <div class="answer-body">
-          <a href="/users/{{answer.answerer.username}}" class="answer-username">@{{ answer.answerer.username }}</a><br />
-          <p class="answer-text">{{ answer.body }}</p>
-          <p class="text-muted text-left">Posted {{ answer.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
-          <div class="votes" data-ng-controller="VoteCtrl as vote">
-            <% if current_user %>
-              <a data-ng-click="updateVote(answer)" class="btn btn-primary">Vote/Unvote</a>
-              <ng-pluralize count="answer.vote_count" when="{'1': '1 vote', 'other': '{} votes'}"></ng-pluralize>
-            <% else %>
-              <a href="/users/new" class="btn btn-primary">Vote/Unvote</a> 
-            <% end %>
-            
-
-          </div> <!-- /votes -->
-<%
-=end %>
-        <!-- </div> --> <!-- /answer-body -->
+          </div> <!-- /content -->
+        </div> <!-- post-info -->
       </div> <!-- /answer -->
     </div> <!-- /answers -->
   </div> <!-- /back -->
