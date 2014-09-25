@@ -159,13 +159,13 @@
 	  cursor: pointer;
     
     &:hover { 
-		  color: red; 
-		  border-color: red;
+		  color: #D12943; 
+		  border-color: #D12943;
 		}
 
 		&.selected {
-			color: red;
-			border-color: red;
+			color: #D12943;
+			border-color: #D12943;
 		}
 	}
 
@@ -212,12 +212,14 @@
 		.tags { display: inline; }
 		.tag {
 		  // font-size: .8125rem;
-		  // text-align: center;
-		  // display: inline;
-		  // padding: .4375rem;
-		  // background-color: #D8D8D8;
-		  // border-radius: .1875rem;
+		  border: 0;
+		  text-align: center;
+		  display: inline;
+		  padding: .4375rem;
+		  background-color: #D12943;
+		  border-radius: .1875rem;
 		  display: inline-block;
+		  cursor: default;
 		}
 	}
 
@@ -324,13 +326,13 @@
 		-moz-user-select: none;
 		#checkmark-svg { 
 			stroke-width: 5; 
-			stroke: #CAA5A5; 
+			stroke: #D12943; 
 			fill: transparent; 
 			// &.selected { fill: #CAA5A5; }
 		}
 		#checkmarksolid-svg { 
 			stroke-width: 5; 
-			stroke: #CAA5A5; 
+			stroke: #D12943; 
 		}
 	}
 }

@@ -43,10 +43,14 @@ body {
 }
 
 .trigger-add-post {
-	background-color: #428bca;
+	background-color: #D12943;
 	padding: 8px 10px;
-	&:hover { background-color: #3071a9 !important; }
+	&:hover { background-color: #921c2d !important; }
 }
+
+.btn-primary { background-color: #D12943; 
+	border: 0; 
+	&:hover { background-color: #921c2d; }}
 
 #plus-sign-glyph {
 	background: url('plus.svg') no-repeat;
@@ -111,6 +115,10 @@ body {
 	transform: translate(0, -100%);
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+}
+.navbar-brand { 
+	color: #D12943 !important; 
+	&:hover { color: #921c2d !important; }
 }
 .nav-right { 
 	display: none; 
