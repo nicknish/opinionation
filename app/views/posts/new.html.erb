@@ -1,5 +1,15 @@
 <div class="col-sm-4 col-sm-offset-4 form_styles">
 	<%= form_for @post, html: { id: 'formo', class: 'new-post container' } do |f| %>
+	    <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <ul class="list-group">
+            <% @post.errors.full_messages.each do |msg| %>
+              <li class="list-group-item list-group-item-danger"><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      	<% end %>
+
 	  <%= f.text_field :question, placeholder: "Your Question", id: 'queztion', class: 'form-control' %><br />
 	  <%= f.text_field :temptags, placeholder: "Add up to three tags", id: 'temptagz', class: 'form-control' %><br />
 	  <%= f.file_field :post_pic, id: 'poztpic' %><br />
