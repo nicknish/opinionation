@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
    # user profile picture upload using paperclip gem
   has_attached_file :post_pic, styles: { large: "900X900>", medium: "640x640>", small: "100x100>" }, default_url: "images/:style/missing.png"
 
-  validates_attachment :post_pic, content_type: {content_type: ["image/jpeg", "image/jpg", "image/gif", "image/png"]}
+  validates_attachment :post_pic, presence: true, content_type: {content_type: ["image/jpeg", "image/jpg", "image/gif", "image/png"]}
 
   def associate_tags
     x = self.temptags.tr('#','').tr(',','')

@@ -1,7 +1,19 @@
 <div class="col-sm-4 col-sm-offset-4 form_styles">
 	<%= form_for @post, html: { id: 'formo', class: 'new-post container' } do |f| %>
-	  <%= f.text_field :question, placeholder: "What's your question?", id: 'queztion', class: 'form-control' %><br />
-	  <%= f.text_field :temptags, placeholder: "Add any tags to it?", id: 'temptagz', class: 'form-control' %><br />
+	    <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <ul class="list-group">
+            <% @post.errors.full_messages.each do |msg| %>
+              <li class="list-group-item list-group-item-danger"><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      	<% end %>
+
+    <h2 style="text-align: center;">What's on your mind?</h2>
+
+	  <%= f.text_field :question, placeholder: "Your Question", id: 'queztion', class: 'form-control' %><br />
+	  <%= f.text_field :temptags, placeholder: "Add up to three tags", id: 'temptagz', class: 'form-control' %><br />
 	  <%= f.file_field :post_pic, id: 'poztpic' %><br />
 	  <%= f.submit "Ask the world!", id: 'poztzubmit', class: 'btn btn-primary' %>
 	<% end %>

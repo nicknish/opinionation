@@ -48,7 +48,7 @@
         <ul class="user-profile-fill-space" ng-show="selectedTab === 'favorites'">
           <li class="post-info" data-ng-repeat="favorite in user_favorites">
             <div class="picture-column">
-              <a href="/posts/{{favorite.post_id}}"><img data-ng-src="{{favorite.post_pic}}" class="poster-profile-pic"></a>
+              <a href="/posts/{{favorite.id}}"><img data-ng-src="{{favorite.post_pic}}" class="poster-profile-pic"></a>
             </div>
             <div class="content">
               <a href="/posts/{{favorite.id}}"><p class="user-answers">{{favorite.question}}</p></a>

@@ -78,7 +78,9 @@
 	h1 { 
 		color: white; 
 		z-index: 10;
-		padding-top: 10px; 
+		padding-top: 10px;
+		padding-left: 6px;
+		padding-right: 6px;
 		font-weight: 800; 
 		-webkit-user-select: none;
 		-moz-user-select: none;
@@ -108,6 +110,10 @@
 
 /* Back Post Styles
 =================== */
+.postnav {
+	height: 20px;
+}
+
 .back {
 	background-color: #fff;
 	overflow: scroll;
@@ -193,7 +199,7 @@
 			font-size: 13.5px;
 			margin-top: 5px;
 			line-height: 135%;
-			width: 80%;
+			width: 95%;
 		}
 		.poster-profile-pic {
 			img { width: 100%; height: 100%; }
@@ -239,7 +245,10 @@
 	padding: 5px 0 10px; 
 	// background-color: #ECF0F1;
 }
-.answer-form { padding: 6px; padding-bottom: 15px;}
+.answer-form { 
+	padding: 6px; 
+	padding-bottom: 15px;
+}
 .answer-input {
 	border: 1px solid rgba(0,0,0,0.15);
 	background-color: rgba(255,255,255,.47);
@@ -319,6 +328,10 @@
 			fill: transparent; 
 			// &.selected { fill: #CAA5A5; }
 		}
+		#checkmarksolid-svg { 
+			stroke-width: 5; 
+			stroke: #CAA5A5; 
+		}
 	}
 }
 
@@ -352,7 +365,7 @@
 ==================== */
 @media (min-width: 45rem) {
 	.post-container {  
-		margin: 0 auto;
+		margin: 3rem auto;
 	  max-width: 60rem;
 	  width: 46%;  
 		.post { height: 85vh; }

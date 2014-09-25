@@ -102,4 +102,8 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
     }
   }
 
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) { $lightbox.style.display = 'none'; }
+  });
+
 }]);

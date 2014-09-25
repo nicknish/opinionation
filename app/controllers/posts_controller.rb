@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 12)
+    @posts = Post.order('created_at DESC').paginate(page: params[:page], per_page: 12)
 
     respond_with @posts, each_serializer: PostSerializer
   end

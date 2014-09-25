@@ -5,6 +5,7 @@
 
 @import 'bootstrap';
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,800);
+@import url(http://fonts.googleapis.com/css?family=Bevan);
 
 /* Z-Index List 
 =============== */
@@ -25,6 +26,10 @@ body {
 	font-family: 'Open Sans';
 	background-color: #2B3E51; 
 	padding-top: 50px;
+}
+
+.logo-fontface {
+	font-family: 'Bevan';
 }
 
 .container { 
@@ -95,7 +100,6 @@ body {
 
 .navbar-default { 
 	z-index: 50; 
-
 	// Hide Nav
   transition: transform 0.7s .3s ease;
   -webkit-backface-visibility: hidden;
