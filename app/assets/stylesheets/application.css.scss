@@ -84,6 +84,15 @@ body {
 
 /* ======== NAV STYLES ========= */
 
+#menu-logo {
+	color: white;
+	font-size: 3.5rem;
+}
+
+@media (min-width: 44rem) {
+	#menu-logo { font-size: 60px; }
+}
+
 .navbar-default { 
 	z-index: 50; 
 

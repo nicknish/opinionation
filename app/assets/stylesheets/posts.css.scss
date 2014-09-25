@@ -84,6 +84,8 @@
 		-moz-user-select: none;
 		position: absolute;
 		text-align: center;
+		font-size: 2rem;
+		word-wrap: break-word;
 	}
 	.post-overlay { 
 		width: 100%; 
@@ -227,7 +229,7 @@
 		width: 100%;
 		position: relative;
 		margin-bottom: 1%;
-		bottom: 65%;
+		bottom: 25%;
 	}
 }
 
@@ -336,6 +338,7 @@
 			&:nth-child(odd) { margin-left: 1%; }
 		}
 	}
+	.front h1 { font-size: 28px; }
 	.answer-submit { width: 20%; }
 }
 
@@ -354,5 +357,6 @@
 	  width: 46%;  
 		.post { height: 85vh; }
 	}
+	.front h1 { font-size: 36px; }
 }
 
