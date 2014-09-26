@@ -4,8 +4,6 @@ opinionationApp.controller('AnswerCtrl', ['$scope', 'Answer', function($scope, A
     $scope.answers = Answer.query({post_id: postId});
   }
 
-  
-
   this.addAnswer = function(post_id){
     if($scope.body != undefined && $scope.body != ""){
       $scope.newAnswer = new Answer();
@@ -18,4 +16,11 @@ opinionationApp.controller('AnswerCtrl', ['$scope', 'Answer', function($scope, A
     }
   }
 
+  //to set proper height of answers container on back of card
+  function containerHeight(){
+    $scope.answerContainerHeight = $("#cardcontainer").height() - $("#cardheader").height();
+  }
+  
+  window.onload = containerHeight();
+  window.onresize = containerHeight();
 }]);
