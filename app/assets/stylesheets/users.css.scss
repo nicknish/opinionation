@@ -1,13 +1,4 @@
-/* Global Variables
-============================== */
-// 1rem = 10px (@ html font-size 65%)
-
-$bg-color: #2B3E51;
-$primary-color: #D12943;
-$primary-color-hover: #921c2d;
-
-$post-contrast-color: #fff; // bg, front, profile
-$user-profile-gray: #ECF0F1;
+@import "base";
 
 /* User Profile
 ================= */
@@ -29,7 +20,7 @@ $user-profile-gray: #ECF0F1;
 		height: 14.5rem; 
 		overflow: hidden; 
 		position: relative;
-		top:-7rem;
+		top: -7rem;
 	}
 	.user-profile-username { 
 		color: #828282; 

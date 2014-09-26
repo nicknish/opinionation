@@ -1,13 +1,4 @@
-/* Global Variables
-============================== */
-// 1rem = 10px (@ html font-size 65%)
-
-$bg-color: #2B3E51;
-$primary-color: #D12943;
-$primary-color-hover: #921c2d;
-
-$post-contrast-color: #fff; // bg and front color
-
+@import "base";
 
 /* Posts Styles
 ================ */
@@ -170,13 +161,13 @@ $post-contrast-color: #fff; // bg and front color
 	  cursor: pointer;
     
     &:hover { 
-		  color: $primary-color; 
-		  border-color: $primary-color;
+		  color: $brand-color; 
+		  border-color: $brand-color;
 		}
 
 		&.selected {
-			color: $primary-color;
-			border-color: $primary-color;
+			color: $brand-color;
+			border-color: $brand-color;
 		}
 	}
 
@@ -227,7 +218,7 @@ $post-contrast-color: #fff; // bg and front color
 		  text-align: center;
 		  display: inline;
 		  padding: .4375rem;
-		  background-color: $primary-color;
+		  background-color: $brand-color;
 		  border-radius: .1875rem;
 		  display: inline-block;
 		  cursor: default;
@@ -329,13 +320,13 @@ $post-contrast-color: #fff; // bg and front color
 		-moz-user-select: none;
 		#checkmark-svg { 
 			stroke-width: 5; 
-			stroke: $primary-color; 
+			stroke: $brand-color; 
 			fill: transparent; 
 			// &.selected { fill: #CAA5A5; }
 		}
 		#checkmarksolid-svg { 
 			stroke-width: 5; 
-			stroke: $primary-color; 
+			stroke: $brand-color; 
 		}
 	}
 }
