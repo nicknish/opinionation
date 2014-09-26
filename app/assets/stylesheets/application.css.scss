@@ -18,13 +18,23 @@
 //	500	-	.overlay
 //	500	-	.overlay-fullscreen.open
 
-/* Global Variables and Properties 
+/* Global Variables
+============================== */
+$bg-color: #2B3E51;
+$primary-color: #D12943;
+$primary-color-hover: #921c2d;
+$nav-overlay-color: rgba(61,89,122,0.9);
+$nav-overlay-links-color: #fff;
+$nav-overlay-links-hover-color: #fff;
+
+
+/* Global Properties 
 =============================== */
 * { box-sizing: border-box; }
 
 body { 
 	font-family: 'Open Sans';
-	background-color: #2B3E51; 
+	background-color: $bg-color; 
 	padding-top: 50px;
 }
 
@@ -43,14 +53,15 @@ body {
 }
 
 .trigger-add-post {
-	background-color: #D12943;
+	background-color: $primary-color;
 	padding: 8px 10px;
-	&:hover { background-color: #921c2d !important; }
+	&:hover { background-color: $primary-color-hover !important; }
 }
 
-.btn-primary { background-color: #D12943; 
+.btn-primary { 
+	background-color: $primary-color; 
 	border: 0; 
-	&:hover { background-color: #921c2d; }}
+	&:hover { background-color: $primary-color-hover; }}
 
 #plus-sign-glyph {
 	background: url('plus.svg') no-repeat;
@@ -117,8 +128,8 @@ body {
 	backface-visibility: hidden;
 }
 .navbar-brand { 
-	color: #D12943 !important; 
-	&:hover { color: #921c2d !important; }
+	color: $primary-color !important; 
+	&:hover { color: $primary-color-hover !important; }
 }
 .nav-right { 
 	display: none; 
@@ -143,7 +154,7 @@ body {
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(61,89,122,0.9);
+	background: $nav-overlay-color;
 	z-index: 500;
 }
 
@@ -194,14 +205,14 @@ body {
 .overlay ul li a {
 	font-weight: 300;
 	display: block;
-	color: #fff;
+	color: $nav-overlay-links-color;
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
 }
 
 .overlay ul li a:hover,
 .overlay ul li a:focus {
-	// color: rgba(61,89,122,0.9);
+	color: $nav-overlay-links-color;
 }
 
 /* Effects */

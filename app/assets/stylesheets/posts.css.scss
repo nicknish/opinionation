@@ -1,3 +1,14 @@
+/* Global Variables
+============================== */
+// 1rem = 10px (@ html font-size 65%)
+
+$bg-color: #2B3E51;
+$primary-color: #D12943;
+$primary-color-hover: #921c2d;
+
+$post-contrast-color: #fff; // bg and front color
+
+
 /* Posts Styles
 ================ */
 .posts { 
@@ -13,7 +24,7 @@
 		width: 100%;
 		margin: 0 auto;
 		height: 400px;
-		background-color: white;
+		background-color: $post-contrast-color;
 		-webkit-transition: all .65s linear;
 		transition: all .65s linear;
 		position: relative;
@@ -76,7 +87,7 @@
 
 
 	h1 { 
-		color: white; 
+		color: $post-contrast-color; 
 		z-index: 10;
 		padding-top: 10px;
 		padding-left: 6px;
@@ -115,7 +126,7 @@
 }
 
 .back {
-	background-color: #fff;
+	background-color: $post-contrast-color;
 	overflow: scroll;
 	overflow-x: hidden;
 	top: 100%;
@@ -159,13 +170,13 @@
 	  cursor: pointer;
     
     &:hover { 
-		  color: #D12943; 
-		  border-color: #D12943;
+		  color: $primary-color; 
+		  border-color: $primary-color;
 		}
 
 		&.selected {
-			color: #D12943;
-			border-color: #D12943;
+			color: $primary-color;
+			border-color: $primary-color;
 		}
 	}
 
@@ -206,7 +217,7 @@
 			width: 50px;
 			height: 50px;
 			border-radius: 2px;
-			background-color: white;
+			background-color: $post-contrast-color;
 			margin: 0 auto;
 		}
 		.tags { display: inline; }
@@ -216,7 +227,7 @@
 		  text-align: center;
 		  display: inline;
 		  padding: .4375rem;
-		  background-color: #D12943;
+		  background-color: $primary-color;
 		  border-radius: .1875rem;
 		  display: inline-block;
 		  cursor: default;
@@ -230,7 +241,7 @@
 		text-align: center;
 		height: 150px;
 		overflow: hidden;
-		box-shadow: inset 0 1px 10px black;
+		// box-shadow: inset 0 1px 10px black;
 		cursor: pointer;
 	}
 	.lightbox-thumb { 
@@ -258,14 +269,6 @@
 	height: 34px;
 	padding-left: 9px;
 	width: 100%;
-}
-.answer-submit {
-	border: 0;
-	background-color: inherit;
-	font-size: 16px;
-	font-weight: 800;
-	color: #637BD1;
-	// width: 19%;
 }
 
 
@@ -302,7 +305,7 @@
 		font-weight: 300;
 		font-size: 13px;
 	}
-	.best-answer { background-color: white; }
+	.best-answer { background-color: $post-contrast-color; }
 	.votes {
 		display: inline;
 		float: right;
@@ -326,13 +329,13 @@
 		-moz-user-select: none;
 		#checkmark-svg { 
 			stroke-width: 5; 
-			stroke: #D12943; 
+			stroke: $primary-color; 
 			fill: transparent; 
 			// &.selected { fill: #CAA5A5; }
 		}
 		#checkmarksolid-svg { 
 			stroke-width: 5; 
-			stroke: #D12943; 
+			stroke: $primary-color; 
 		}
 	}
 }
@@ -361,7 +364,7 @@
 	.front { h1 { font-size: 31px; } } 
 }
 
-.new-post { color: white; }
+.new-post { color: $post-contrast-color; }
 
 /* Post Show
 ==================== */
