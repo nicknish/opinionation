@@ -1,20 +1,17 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-// 1rem = 10px @ html font-size 65%
+@import "base";
 
 /* User Profile
 ================= */
 .user-profile {
-	.container { width: 100%; }
-	background-color: #ECF0F1;
+	background-color: $user-profile-gray;
 	border-radius: .2rem;
 	width: 100%;
 	position: absolute;
 	margin-top: 7.5rem;
 	margin-bottom: 1rem;
+
 	.container { 
+		width: 100%;
 		text-align: center; 
 		.imageWrapper { height: 10.5rem; }
 	}
@@ -23,7 +20,7 @@
 		height: 14.5rem; 
 		overflow: hidden; 
 		position: relative;
-		top:-7rem;
+		top: -7rem;
 	}
 	.user-profile-username { 
 		color: #828282; 
@@ -46,7 +43,7 @@
 		border: 1px solid rgba(151,151,151,.40); 
 		min-height: 7rem;
 		float: left;
-		background-color: #ECF0F1;
+		background-color: $user-profile-gray;
 		border-left: none;
 	}
 	.question-icon,
@@ -105,8 +102,8 @@
 .user-profile-fill-space {
 	padding: 0;
 	margin: 0;
-	background-color: white;
-	border-bottom: .1rem solid #ECF0F1;
+	background-color: $post-contrast-color;
+	border-bottom: .1rem solid $user-profile-gray;
 	a { 
 		color: #0E1B18; 
 		&:hover { text-decoration: none; } 
@@ -199,19 +196,11 @@
 		width: 50px;
 		height: 50px;
 		border-radius: 2px;
-		background-color: white;
+		background-color: $post-contrast-color;
 		margin: 0 auto;
 	}
 	.tags { display: inline; }
-	.tag {
-	  // font-size: .8125rem;
-	  // text-align: center;
-	  // display: inline;
-	  // padding: .4375rem;
-	  // background-color: #D8D8D8;
-	  // border-radius: .1875rem;
-	  display: inline-block;
-	}
+	.tag { display: inline-block; }
 }
 
 .answer-text {

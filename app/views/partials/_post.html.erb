@@ -14,8 +14,8 @@
         <a href="/users/new" class="love-button">Love It!</a> 
       <% end %>
     </div>
-    <div class="lightbox-preview">
-      <img data-ng-src="{{post.post_pic}}" class="lightbox-thumb" data-ng-click="toggleLightBox(post.post_pic)">
+    <div class="lightbox-preview" data-ng-click="toggleLightBox(post.post_pic)">
+      <img data-ng-src="{{post.post_pic}}" class="lightbox-thumb">
     </div>
     <div class="post-info">
       <div class="picture-column">
