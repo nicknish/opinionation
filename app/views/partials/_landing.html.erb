@@ -1,0 +1,14 @@
+<!-- Landing -->
+<% if !current_user %>
+<div class="landing">
+	<div class="image-overlay"></div>
+	<div class="full-image">
+			<div class="header">
+				<div class="header-inner">
+					<h2>Ask a question. Give an answer. Get involved.</h2>
+					<%= link_to "Sign Up", new_user_path, id: "guest-signup-btn" %>
+				</div>
+			</div>
+	</div>
+</div>
+<% end %>
