@@ -17,9 +17,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      MyMailer.welcome_email(@user).deliver
       session[:user_id] = @user.id.to_s
       redirect_to posts_path
+      MyMailer.welcome_email(@user).deliver
     else
       render new_user_path
     end
