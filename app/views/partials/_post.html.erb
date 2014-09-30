@@ -26,8 +26,8 @@
           <div class="content">
             <h3 class="user-handle"><a href="/users/{{post.poster.username}}">@{{ post.poster.username }}</a></h3>
             <h2 class="title">{{ post.question }}</h2>
-            <div ng-repeat="tag in post.post_tags">
-              <div class="btn btn-info btn-xs">#{{ tag }}</div>
+            <div ng-repeat="tag in post.post_tags" class="tags">
+              <div class="btn btn-info btn-xs tag">#{{ tag }}</div>
             </div>
           </div>
         </div>
@@ -52,9 +52,8 @@
       </div>
 
       <div class="answers">
-
+        <h1 ng-show="answers.length < 1" class="answer-text text-center"><strong>Be the first to answer this question. Share your thoughts!</strong></h1>
         <div class="answer clearfix" data-ng-repeat="answer in answers">
-
           <div class="post-info">
             <div class="picture-column">
               <a href="/users/{{answer.answerer.username}}"><img data-ng-src="{{answer.answerer.user_pic}}" class="poster-profile-pic"></a>
