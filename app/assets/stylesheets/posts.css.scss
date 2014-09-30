@@ -12,7 +12,7 @@
 		float:left;
 		width: 100%;
 		margin: 0 auto;
-		height: 70vh;
+		height: 400px;
 		background-color: white;
 		-webkit-transition: all .65s linear;
 		transition: all .65s linear;
@@ -240,8 +240,7 @@
 	// background-color: #ECF0F1;
 }
 .answer-form { 
-	padding: 6px; 
-	padding-bottom: 15px;
+	padding: 0 6px 6px 6px;
 }
 .answer-input {
 	border: 1px solid rgba(0,0,0,0.15);
@@ -259,7 +258,6 @@
 	color: #637BD1;
 	// width: 19%;
 }
-
 
 /* Answer Thread Styles
 ===================== */
