@@ -1,4 +1,6 @@
-<%= render 'partials/landing' %>
+<% if !current_user %>
+	<%= render 'partials/landing' %>
+<% end %>
 
 <!-- Posts -->
 <div class="posts clearfix" data-ng-controller="PostCtrl"> 
