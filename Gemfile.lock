@@ -260,6 +260,7 @@ DEPENDENCIES
   meta_request
   paperclip (~> 4.2)
   pg
+  pry
   pry-doc
   pry-rails
   rails (= 4.1.1)
