@@ -39,14 +39,18 @@ body {
 }
 
 #at-symbol-glyph {
-	font-size: 17px;
+	font-size: 15px;
 }
 
 .trigger-add-post {
-	background-color: #428bca;
+	background-color: #D12943;
 	padding: 8px 10px;
-	&:hover { background-color: #3071a9 !important; }
+	&:hover { background-color: #921c2d !important; }
 }
+
+.btn-primary { background-color: #D12943; 
+	border: 0; 
+	&:hover { background-color: #921c2d; }}
 
 #plus-sign-glyph {
 	background: url('plus.svg') no-repeat;
@@ -81,7 +85,7 @@ body {
 	.container { width: 100%; }
 	// Disable Bootstrap Right Nav
 	.navbar-header { float: none; }
-	.navbar-toggle { display: block; }
+	.navbar-toggle { display: block; margin-top: 9px; }
 	.navbar-right { display: none; }
 }
 @media(min-width: 60rem) { html { font-size: 75%; } }
@@ -91,7 +95,11 @@ body {
 
 #menu-logo {
 	color: white;
-	font-size: 60px;
+	font-size: 3.5rem;
+}
+
+@media (min-width: 44rem) {
+	#menu-logo { font-size: 60px; }
 }
 
 .navbar-default { 
@@ -107,6 +115,20 @@ body {
 	transform: translate(0, -100%);
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+}
+.navbar-brand { 
+	color: #D12943 !important; 
+	&:hover { color: #921c2d !important; }
+}
+.nav-right { 
+	display: none; 
+	margin-right:8px;
+	margin-bottom: 0;
+	float: right; 
+	.nav-link { display: inline-block; }
+}
+@media (min-width: 40rem) {
+	.nav-right { display: block; }
 }
 .navbar-default .navbar-toggle { border: none; }
 

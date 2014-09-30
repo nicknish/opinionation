@@ -6,7 +6,7 @@
   <%= form_for @user, url: session_path, html: { class: 'container' } do |f| %>
 	  <%= f.email_field :email, placeholder: "Email address", class: 'form-control' %><br />
 	  <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
-	  <span>Not a member? <%= link_to "Sign Up", new_user_path %></span>
+	  <span>Not a member? <%= link_to "Sign Up", new_user_path, style: "color: #D12943" %></span>
 	  <br />
 	  <%= f.submit "Sign In", class: 'btn btn-primary' %>
 	<% end %>

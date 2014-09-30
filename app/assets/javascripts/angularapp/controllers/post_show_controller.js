@@ -33,4 +33,8 @@ opinionationApp.controller('PostShowCtrl', ['$scope', 'Post', '$location', funct
     }
   }
 
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) { $lightbox.style.display = 'none'; }
+  });
+
 }]);
