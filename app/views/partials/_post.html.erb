@@ -27,7 +27,7 @@
             <h3 class="user-handle"><a href="/users/{{post.poster.username}}">@{{ post.poster.username }}</a></h3>
             <h2 class="title">{{ post.question }}</h2>
             <div ng-repeat="tag in post.post_tags" class="tags">
-              <div class="btn btn-info btn-xs tag">#{{ tag }}</div>
+              <a href="/tags/{{tag}}"><div class="btn btn-info btn-xs tag">#{{ tag }}</div></a>
             </div>
           </div>
         </div>
