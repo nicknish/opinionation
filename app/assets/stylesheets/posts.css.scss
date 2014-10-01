@@ -114,6 +114,10 @@
 	height: 20px;
 }
 
+#no-answer {
+	font-size: 20px;
+}
+
 .back {
 	background-color: #fff;
 	overflow: scroll;
@@ -247,8 +251,7 @@
 	// background-color: #ECF0F1;
 }
 .answer-form { 
-	padding: 6px; 
-	padding-bottom: 15px;
+	padding: 0 6px 6px 6px;
 }
 .answer-input {
 	border: 1px solid rgba(0,0,0,0.15);
@@ -266,7 +269,6 @@
 	color: #637BD1;
 	// width: 19%;
 }
-
 
 /* Answer Thread Styles
 ===================== */
