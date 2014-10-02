@@ -1,0 +1,12 @@
+<!-- Posts -->
+<div class="posts clearfix" data-ng-controller="PostCtrl"> 
+  <div data-ng-controller="TagCtrl">
+    <div id="lightbox" ng-click="toggleLightBox()">
+      <figure id="lightbox-full"></figure>
+    </div>
+
+    <div class="col half clearfix" data-ng-repeat="post in posts">
+      <%= render 'partials/post' %>
+    </div>
+  </div>
+</div> <!-- /posts -->
