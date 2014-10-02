@@ -21,7 +21,7 @@
       <div>
         <div class="post-info">
           <div class="picture-column">
-            <a href="/users/{{post.poster.username}}"><img data-ng-src="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
+            <a href="/users/{{post.poster.username}}" bg-image="{{post.poster.profile_pic}}" class="poster-profile-pic"></a>
           </div>
           <div class="content">
             <h3 class="user-handle"><a href="/users/{{post.poster.username}}">@{{ post.poster.username }}</a></h3>
@@ -55,7 +55,7 @@
         <div class="answer clearfix" data-ng-repeat="answer in answers">
           <div class="post-info">
             <div class="picture-column">
-              <a href="/users/{{answer.answerer.username}}"><img data-ng-src="{{answer.answerer.user_pic}}" class="poster-profile-pic"></a>
+              <a href="/users/{{answer.answerer.username}}" bg-image="{{answer.answerer.user_pic}}" class="poster-profile-pic"></a>
             </div>
             <div class="content">
               <h3 class="user-handle"><a href="/users/{{answer.answerer.username}}">@{{ answer.answerer.username }}</a></h3>

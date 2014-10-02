@@ -198,6 +198,10 @@
 		border-radius: 2px;
 		background-color: $post-contrast-color;
 		margin: 0 auto;
+		display: inline-block;
+		background: url() no-repeat center center;
+		-webkit-background-size: cover;
+		background-size: cover;
 	}
 	.tags { display: inline; }
 	.tag { display: inline-block; }
