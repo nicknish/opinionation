@@ -21,12 +21,10 @@ class AnswersController < ApplicationController
     if @answer.save
       render json: @answer, status: :created
     end
+    
     mentioned = @answer.mentioned_users
-    if mentioned != nil
-      mentioned.each do |user|
-        MyMailer.mention_email(user, @answer).deliver
-      end
-    end
+
+    MentionEmailWorker.perform_async(mentioned, @answer.id)
   end
 
   private

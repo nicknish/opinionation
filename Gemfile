@@ -33,6 +33,9 @@ gem "aws-sdk"
 
 gem "unicorn"
 
+#for background email jobs
+gem "sidekiq"
+
 gem 'rails_12factor', group: :production
 
 #for angularjs to work nicely on rails
