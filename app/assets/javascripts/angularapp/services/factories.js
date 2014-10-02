@@ -5,6 +5,13 @@ opinionationApp.factory('Post', ['$resource', function($resource){
   );
 }]);
 
+opinionationApp.factory('Tag', ['$resource', function($resource){
+  return $resource('/api/tags/:id',
+    { id: '@id' },
+    { update: { method: 'PATCH' } }
+  );
+}]);
+
 opinionationApp.factory('User', ['$resource', function($resource){
   return $resource('/api/users/:id',
     { id: '@id' },
