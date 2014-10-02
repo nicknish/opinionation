@@ -20,11 +20,11 @@ class AnswersController < ApplicationController
     @answer.user = current_user
     if @answer.save
       render json: @answer, status: :created
-      mentioned = @answer.mentioned_users
-      if mentioned != nil
-        mentioned.each do |user|
-          MyMailer.mention_email(user, @answer).deliver
-        end
+    end
+    mentioned = @answer.mentioned_users
+    if mentioned != nil
+      mentioned.each do |user|
+        MyMailer.mention_email(user, @answer).deliver
       end
     end
   end
