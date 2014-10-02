@@ -160,6 +160,7 @@
 
 
 // Post Info
+.user-profile .post-info { border-bottom: 1px solid rgba(0,0,0,.3); }
 .post-info {
 	position: relative;
 	width: 100%;
@@ -168,7 +169,6 @@
 	box-shadow: none; 
 	overflow: hidden;
 	padding: 1rem 2rem 3rem;
-	border-bottom: 1px solid rgba(0,0,0,.3);
 
 	.picture-column {
 		position: absolute;
@@ -198,6 +198,10 @@
 		border-radius: 2px;
 		background-color: $post-contrast-color;
 		margin: 0 auto;
+		display: inline-block;
+		background: url() no-repeat center center;
+		-webkit-background-size: cover;
+		background-size: cover;
 	}
 	.tags { display: inline; }
 	.tag { display: inline-block; }

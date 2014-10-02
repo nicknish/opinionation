@@ -22,7 +22,7 @@
         <ul class="user-profile-fill-space" ng-show="selectedTab === 'questions'">
           <li class="post-info" data-ng-repeat="post in user_posts">
             <div class="picture-column">
-              <a href="/posts/{{post.id}}"><img data-ng-src="{{post.post_pic}}" class="poster-profile-pic"></a>
+              <a href="/posts/{{post.id}}" bg-image="{{post.post_pic}}" class="poster-profile-pic"></a>
             </div>
             <div class="content">
               <a href="/posts/{{post.id}}"><p class="title">{{ post.question }}</p></a>
