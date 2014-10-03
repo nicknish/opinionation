@@ -60,7 +60,7 @@
             </div>
             <div class="content">
               <h3 class="user-handle"><a href="/users/{{answer.answerer.username}}">@{{ answer.answerer.username }}</a></h3>
-              <p class="answer-text">{{ answer.body }}</p>
+              <p class="answer-text" ng-bind-html="answer.body | mentionLinks"></p>
               <p class="answer-date text-muted text-left">Posted {{ answer.created_at | date : 'h:mm a - MMM d, yyyy' }}</p>
             <div class="votes" data-ng-controller="VoteCtrl as vote">
               <% if current_user %>
