@@ -4,7 +4,7 @@ class PostSerializer < ActiveModel::Serializer
   delegate :current_user, to: :scope
 
   def poster
-    user = {username: object.user.  username, profile_pic: object.user.profile_pic(:small), id: object.user.id}
+    user = {username: object.user.username, profile_pic: object.user.profile_pic(:small), id: object.user.id}
   end
 
   def post_pic

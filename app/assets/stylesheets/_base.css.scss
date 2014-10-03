@@ -1,0 +1,38 @@
+/* Z-Index List 
+=============== */
+//  -10 - .full-image
+//	10	-	.back
+//	10	-	h1
+//	10	-	.picture-column
+//	50	-	.navbar-default
+//	100	-	#lightbox
+//	500	-	.overlay
+//	500	-	.overlay-fullscreen.open
+
+// Font-Size: 1rem = 10px (@ html font-size 65%)
+
+/* Global Variables
+============================== */
+$bg-color: #2B3E51;
+$brand-color: #D12943;
+$brand-color-hover: #921c2d;
+$nav-overlay-color: rgba(61,89,122,0.9);
+$nav-overlay-links-color: #fff;
+$nav-overlay-links-hover-color: #fff;
+
+// Post
+$post-contrast-color: #fff; // bg, front, profile
+
+// User
+$user-profile-gray: #ECF0F1;
+
+// Typography
+$bold: 800;
+$regular: 400;
+$light: 300;
+
+// Base Font
+$base-font-family: 'Open Sans';
+$base-font-weight: $regular;
+$base-font-size: 10px;
+$brand-font: 'Bevan';

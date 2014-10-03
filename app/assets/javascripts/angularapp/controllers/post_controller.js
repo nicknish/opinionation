@@ -95,7 +95,7 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
 
     // If the lightbox is displayed, turn it off.
     // Otherwise, turn it on.
-    if ($lightbox.style.display === 'block') {
+    if ($lightbox.style.display == 'block') {
       $lightbox.style.display = 'none';
     } else {
       $lightbox.style.display = 'block';
@@ -103,7 +103,9 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
   }
 
   $(document).keyup(function(e) {
-    if (e.keyCode == 27) { $lightbox.style.display = 'none'; }
+    if (e.keyCode == 27 && $lightbox.style.display == 'block') { 
+      $scope.toggleLightBox(); 
+    }
   });
 
 }]);

@@ -29,6 +29,10 @@ $(document).ready(function(){
 		$('.overlay').removeClass('open');
 	});
 
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) { $('.overlay').removeClass('open'); }
+  });
+
 	// Show/Hide on Mouse Scroll
 	$('html').on('DOMMouseScroll mousewheel', function (e) {
 	  if(e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) {
