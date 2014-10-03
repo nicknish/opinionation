@@ -18,3 +18,4 @@
 /public/system/users/profile_pics
 /public/system/posts/post_pics
 .env
+dump.rdb
