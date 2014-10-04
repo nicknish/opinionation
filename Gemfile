@@ -34,7 +34,7 @@ gem "aws-sdk"
 gem "unicorn"
 
 #for background email jobs
-gem "sidekiq"
+gem "sidekiq", "~> 3.2.5"
 
 gem 'rails_12factor', group: :production
 
