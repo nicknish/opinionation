@@ -86,7 +86,9 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
 
   // Lightbox
   var $lightbox = document.getElementById('lightbox'),
-      $fullImage = document.getElementById('lightbox-full');
+      $fullImage = document.getElementById('lightbox-full'),
+      $htmlBody = $('html, body');
+
 
   $scope.toggleLightBox = function(img) {
 
@@ -97,8 +99,10 @@ opinionationApp.controller('PostCtrl', ['$scope', 'Post', function($scope, Post)
     // Otherwise, turn it on.
     if ($lightbox.style.display == 'block') {
       $lightbox.style.display = 'none';
+      $htmlBody.css("overflow", "auto");
     } else {
       $lightbox.style.display = 'block';
+      $htmlBody.css("overflow", "hidden");
     }
   }
 
