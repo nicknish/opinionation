@@ -18,10 +18,13 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     @answer.user = current_user
-
     if @answer.save
       render json: @answer, status: :created
     end
+    
+    mentioned = @answer.mentioned_users
+
+    MentionEmailWorker.perform_async(mentioned, @answer.id)
   end
 
   private

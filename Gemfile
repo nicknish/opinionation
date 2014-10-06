@@ -33,6 +33,9 @@ gem "aws-sdk"
 
 gem "unicorn"
 
+#for background email jobs
+gem "sidekiq"
+
 gem 'rails_12factor', group: :production
 
 #for angularjs to work nicely on rails
@@ -54,6 +57,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem "jasmine", github: "pivotal/jasmine-gem" #js testing
+  gem 'pry'
   gem 'pry-rails'
   gem 'pry-doc'
 end
