@@ -23,8 +23,8 @@ class AnswersController < ApplicationController
     end
     
     mentioned = @answer.mentioned_users
-
     MentionEmailWorker.perform_async(mentioned, @answer.id)
+    QuestionReplyEmailWorker.perform_async(@answer.id, @answer.post.id, @answer.post.user.id)
   end
 
   private
