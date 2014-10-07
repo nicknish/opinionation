@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>What it do, <%= @user.fname %></h1>
+    <p>
+      <%= @answer.user.username %> just mentioned you on OpinioNation:<br>
+    </p>
+    <h2> "<%= @answer.body %>" </h2>
+    <p>
+      To read the whole conversation, follow this link: <%= link_to "CLICK HERE", "http://opinionation.herokuapp.com/" %>.
+    </p>
+  </body>
+</html>
