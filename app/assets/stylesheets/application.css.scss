@@ -80,7 +80,7 @@ body {
 	.navbar-toggle { display: block; margin-top: 9px; }
 	.navbar-right { display: none; }
 }
-@media(min-width: 60rem) { html { font-size: 75%; } }
+@media (min-width: 60rem) { html { font-size: 75%; } }
 
 
 /* ======== NAV STYLES ========= */
@@ -94,7 +94,6 @@ body {
 
 	// Hide Nav
   transition: transform 0.7s .3s ease;
-  -webkit-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px);
 }
 .hide-navbar { transform: translate(0, -100%); }
@@ -152,7 +151,7 @@ body {
 	position: relative;
 	top: 50%;
 	height: 60%;
-	font-size: 54px;
+	font-size: 40px;
 	transform: translateY(-50%);
 }
 
@@ -177,7 +176,6 @@ body {
 	font-weight: $light;
 	display: block;
 	color: $nav-overlay-links-color;
-	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
 }
 
@@ -201,7 +199,8 @@ body {
 		nav ul { opacity: 1; transform: rotateX(0deg); }
 	}
 	nav { 
-		perspective: 1200px; 
+		perspective: 1200px;
+
 		ul {
 			opacity: 0.4;
 			transform: translateY(-25%) rotateX(35deg);

@@ -5,18 +5,19 @@
 .posts { 
 	position: relative; 
 	margin: 1rem 1rem;
+	-webkit-overflow-scrolling: touch;
 	
 	.slideState { .back { top: 0 !important; } }
 
 	// General Post Styles
 	.post {
 
+		-webkit-overflow-scrolling: touch;
 		float:left;
 		width: 100%;
 		margin: 0 auto;
 		height: 400px;
 		background-color: $post-contrast-color;
-		-webkit-transition: all .65s linear;
 		transition: all .65s linear;
 		position: relative;
 		overflow: hidden;
@@ -29,7 +30,6 @@
 		  position: absolute;
 		  width: 100%;
 		  height: 100%;
-		  -webkit-backface-visibility: hidden;
 		  -moz-backface-visibility: hidden;
 		  backface-visibility: hidden;
 		  left: 0;
@@ -218,13 +218,10 @@
 			width: 95%;
 		}
 		.poster-profile-pic {
-			img { width: 100%; height: 100%; }
 			width: 50px;
 			height: 50px;
 			display: inline-block;
-			background: url() no-repeat center center;
-			-webkit-background-size: cover;
-			background-size: cover;
+			background: url() no-repeat center center / cover;
 			border-radius: 2px;
 			background-color: $post-contrast-color;
 			margin: 0 auto;
@@ -252,7 +249,6 @@
 		// box-shadow: inset 0 1px 10px black;
 		cursor: pointer;
 		background: center center no-repeat; 
-		-webkit-background-size: cover;
 		background-size: cover;
 	}
 }
@@ -444,16 +440,16 @@
 }
 
 .navbar-default {
-	// background-color: transparent;
 	border: 0;
 }
 
 .landing-buffer { 
 	background-color: $post-contrast-color; 
+
 	h4 { 
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 		color: #333; 
-		padding: 35px 0; 
+		padding: 25px 0; 
 		margin: 0; 
 		text-align: center; 
 	}

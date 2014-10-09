@@ -19,24 +19,13 @@
 //= require bootstrap
 //= require_tree .
 
-$(document).ready(function(){
-	$('#trigger-overlay').on('click', function(e){
-		e.preventDefault();
-		$('.overlay').addClass('open');
-		$('html, body').css("overflow", "hidden");
-	});
-	$('.overlay-close').on('click', function(e) {
-		e.preventDefault();
-		$('.overlay').removeClass('open');
-		$('html, body').css("overflow", "auto");
-	});
-
-  $(document).keyup(function(e) {
-    if (e.keyCode == 27) { 
-    	$('.overlay').removeClass('open'); 
-			$('html, body').css("overflow", "auto");
-  	}
-  });
+$(document).ready(function() {
+	  
+  // $(document).keyup(function(e) {
+  //   if (e.keyCode == 27 && overlayOpened) { 
+	 //    closeIt();
+  // 	}
+  // });
 
 	// Show/Hide on Mouse Scroll
 	$('html').on('DOMMouseScroll mousewheel', function (e) {
