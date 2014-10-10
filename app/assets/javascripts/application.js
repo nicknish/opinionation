@@ -20,12 +20,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-	  
-  // $(document).keyup(function(e) {
-  //   if (e.keyCode == 27 && overlayOpened) { 
-	 //    closeIt();
-  // 	}
-  // });
 
 	// Show/Hide on Mouse Scroll
 	$('html').on('DOMMouseScroll mousewheel', function (e) {

@@ -6,9 +6,9 @@
 
   <!-- Profile Tabs -->
   <div class="profile-tabs clearfix">
-    <button class="profile-tab question-tab" ng-click="changeProfileTab('questions')"><%= render 'partials/questionicon' %></button>
-    <button class="profile-tab answer-tab" ng-click="changeProfileTab('answers')"><%= render 'partials/answericon' %></button>
-    <button class="profile-tab favorite-tab" ng-click="changeProfileTab('favorites')"><%= render 'partials/favoriteicon' %></button>
+    <button class="profile-tab question-tab" ng-class="{ selected : selectedTab == 'questions' }" ng-click="changeProfileTab('questions')"><%= render 'partials/questionicon' %></button>
+    <button class="profile-tab answer-tab" ng-class="{ selected : selectedTab == 'answers' }" ng-click="changeProfileTab('answers')"><%= render 'partials/answericon' %></button>
+    <button class="profile-tab favorite-tab" ng-class="{ selected : selectedTab == 'favorites' }" ng-click="changeProfileTab('favorites')"><%= render 'partials/favoriteicon' %></button>
   </div>
 
   <div data-ng-controller="UserPostCtrl">

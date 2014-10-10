@@ -3,7 +3,7 @@
 /* User Profile
 ================= */
 .user-profile {
-	background-color: $user-profile-gray;
+	background-color: $user-profile-color;
 	border-radius: .2rem;
 	width: 100%;
 	position: absolute;
@@ -39,13 +39,23 @@
 /* Profile Tabs
 ================= */
 .profile-tabs {
+	z-index: 1;
+
 	.profile-tab { 
 		width: 33.3333333%; 
 		border: 1px solid rgba(151,151,151,.40); 
 		min-height: 7rem;
 		float: left;
-		background-color: $user-profile-gray;
+		background-color: $user-contrast-color;
 		border-left: none;
+		// margin-bottom: -1px;
+
+		&.selected {
+			border-bottom: 4px solid #0084b4;
+		}
+		&:last-child {
+			border-right: none;
+		}
 	}
 	.question-svg,
 	.answer-svg,
@@ -56,7 +66,7 @@
 	.answer-icon-color,
 	.question-icon-color,
 	.favorite-icon-color {
-		fill: $user-profile-gray;
+		fill: #eee;
 
 		&.selected { fill: #227FBB; }
 	}
@@ -75,19 +85,24 @@
 	padding: 0;
 	margin: 0;
 	background-color: $post-contrast-color;
-	border-bottom: .1rem solid $user-profile-gray;
+	
 	a { 
 		color: #0E1B18; 
 		&:hover { text-decoration: none; } 
 	}
 	li {
 		margin:0;
+		// margin-bottom: -1px;
 		list-style:none;
 		// padding: 3rem 2rem;
 		transition: color .7s ease;
 		font-size: 1.4rem;
-		
-		&:hover { color: #497bad; }
+		border: .1rem solid $user-profile-color;
+
+		&:hover {
+			border-color: #0084b4;
+			z-index: 1;
+		}
 	}
 }
 
@@ -95,7 +110,7 @@
 =============================== */
 @media (min-width: 45rem) {
 	.user-profile { 
-		padding: inherit 0;
+		padding: 0;
 		position: relative;
 		min-height: 1px;
 		width: 50%;
@@ -120,12 +135,10 @@
 
 
 // Post Info
-.user-profile .post-info { border-bottom: 1px solid rgba(0,0,0,.3); }
+// .user-profile .post-info { border-bottom: 1px solid rgba(0,0,0,.3); }
 .post-info {
 	position: relative;
 	width: 100%;
-	margin: 10px inherit 15px 5px;
-
 	box-shadow: none; 
 	overflow: hidden;
 	padding: 1rem 2rem 3rem;

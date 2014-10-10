@@ -1,5 +1,6 @@
 // Toggles Nav Overlay
-opinionationApp.directive("toggleNav", function () {
+opinionationApp.directive("toggleNav", ['$document', '$rootScope', 
+	function ($document, $rootScope) {
     return {
         restrict: 'A',
         compile: function (element, attr) {
@@ -17,9 +18,18 @@ opinionationApp.directive("toggleNav", function () {
 
 							closeNav = function() {
 								$overlay.removeClass('open');
-								setTimeout(function(){$htmlBody.css("overflow", "auto")}, 250);
+								setTimeout(function(){$htmlBody.css("overflow", "auto")}, 500);
 								overlayOpened = false;
 							};
+
+							$document.bind('keydown', function(e) {
+								if (e.which === 27 && overlayOpened) {
+			            e.preventDefault();
+			            $rootScope.$apply(function () {
+			            	closeNav();
+			            });
+				        }
+							});
 
 							if ($overlay.hasClass('open')) { 
 								closeNav();
@@ -30,4 +40,4 @@ opinionationApp.directive("toggleNav", function () {
             });
         }
     }
-});
+}]);
