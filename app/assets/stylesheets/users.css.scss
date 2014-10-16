@@ -3,7 +3,7 @@
 /* User Profile
 ================= */
 .user-profile {
-	background-color: $user-profile-gray;
+	background-color: $user-profile-color;
 	border-radius: .2rem;
 	width: 100%;
 	position: absolute;
@@ -21,78 +21,60 @@
 		overflow: hidden; 
 		position: relative;
 		top: -7rem;
+		margin: 0 auto;
+		background: url() no-repeat center center / cover;
 	}
 	.user-profile-username { 
 		color: #828282; 
 		// font-size: 21px;
+		text-align: center;
 		font-size: 2.1rem; 
-		margin-top: -2.5rem;
+		margin-top: -5.5rem;
 		margin-bottom: 1.5rem; 
 	}
-	button { 
-		outline: 0; 
-	}
+	button { outline: 0; }
 }
 
 
 /* Profile Tabs
 ================= */
 .profile-tabs {
+	z-index: 1;
+
 	.profile-tab { 
 		width: 33.3333333%; 
 		border: 1px solid rgba(151,151,151,.40); 
 		min-height: 7rem;
 		float: left;
-		background-color: $user-profile-gray;
+		background-color: $user-contrast-color;
 		border-left: none;
+		// margin-bottom: -1px;
+
+		&.selected {
+			border-bottom: 4px solid #0084b4;
+		}
+		&:last-child {
+			border-right: none;
+		}
 	}
-	.question-icon,
-	.answer-icon,
-	.favorite-icon {
-		box-shadow: inset .1rem .1rem black;
+	.question-svg,
+	.answer-svg,
+	.favorite-svg {
+		width: 40px;
+		height: 40px;
+	}
+	.answer-icon-color,
+	.question-icon-color,
+	.favorite-icon-color {
+		fill: #eee;
+
+		&.selected { fill: #227FBB; }
 	}
 	span { 
 		display: inline-block; 
 		width: 5.3rem;
 		height: 4.5rem;
 		cursor: pointer;
-	}
-	#question-icon {
-		background: url('sprites.png') no-repeat;
-		background-size: 170px;
-		background-position: -2px -170px;
-		&:hover { background-position: -2px -116px; }
-	}
-	#answer-icon {
-		background: url('sprites.png') no-repeat;
-		background-size: 170px;
-		background-position: -58px -169px;
-		&:hover { background-position: -58px -117px; }
-	}
-	#favorite-icon {
-		background: url('sprites.png') no-repeat;
-		background-size: 170px;
-		background-position: -114px -170px;
-		&:hover { background-position: -114px -116px; }
-	}
-
-	// Media Queries For Retina Display
-	@media screen and (-webkit-min-device-pixel-ratio: 2), 
-		screen and (min--moz-device-pixel-ratio: 2), 
-		screen and (-o-min-device-pixel-ratio: 2/1), 
-		screen and (min-device-pixel-ratio: 2), 
-		screen and (min-resolution: 192dpi), 
-		screen and (min-resolution: 2dppx) { 
-	
-			#question-icon {
-				background-image: url('sprites@2x.png');
-			}
-			#answer-icon {
-				background-image: url('sprites@2x.png');
-			}
-			#favorite-icon {
-				background-image: url('sprites@2x.png');
-			}
 	}
 }
 
@@ -103,18 +85,24 @@
 	padding: 0;
 	margin: 0;
 	background-color: $post-contrast-color;
-	border-bottom: .1rem solid $user-profile-gray;
+	
 	a { 
 		color: #0E1B18; 
 		&:hover { text-decoration: none; } 
 	}
 	li {
 		margin:0;
+		// margin-bottom: -1px;
 		list-style:none;
 		// padding: 3rem 2rem;
 		transition: color .7s ease;
-		&:hover { color: #497bad; }
 		font-size: 1.4rem;
+		border: .1rem solid $user-profile-color;
+
+		&:hover {
+			border-color: #0084b4;
+			z-index: 1;
+		}
 	}
 }
 
@@ -122,36 +110,23 @@
 =============================== */
 @media (min-width: 45rem) {
 	.user-profile { 
-		padding: inherit 0;
+		padding: 0;
 		position: relative;
 		min-height: 1px;
 		width: 50%;
 		margin-left: 25%;
 	}
 	.profile-tabs {
+		.question-svg,
+		.answer-svg,
+		.favorite-svg {
+			width: 45px;
+			height: 45px;
+		}
 		span { 
 			display: inline-block; 
 			width: 5.3rem;
 			height: 5rem;
-		}
-		#question-icon,
-		#answer-icon,
-		#favorite-icon {
-			background: url('sprites.png') no-repeat;
-			background-size: 16rem;
-		}
-
-		#question-icon {
-			background-position: 0rem -15.7rem;
-			&:hover { background-position: 0rem -10.5rem; }
-		}
-		#answer-icon {
-			background-position: -5.3rem -15.5rem;
-			&:hover { background-position: -5.3rem -10.7rem; }
-		}
-		#favorite-icon {
-			background-position: -10.6rem -15.8rem;
-			&:hover { background-position: -10.6rem -10.7rem; }
 		}
 	}
 }
@@ -160,12 +135,10 @@
 
 
 // Post Info
-.user-profile .post-info { border-bottom: 1px solid rgba(0,0,0,.3); }
+// .user-profile .post-info { border-bottom: 1px solid rgba(0,0,0,.3); }
 .post-info {
 	position: relative;
 	width: 100%;
-	margin: 10px inherit 15px 5px;
-
 	box-shadow: none; 
 	overflow: hidden;
 	padding: 1rem 2rem 3rem;
@@ -192,16 +165,13 @@
 		width: 80%;
 	}
 	.poster-profile-pic {
-		img { width: 100%; height: 100%; }
 		width: 50px;
 		height: 50px;
 		border-radius: 2px;
 		background-color: $post-contrast-color;
 		margin: 0 auto;
 		display: inline-block;
-		background: url() no-repeat center center;
-		-webkit-background-size: cover;
-		background-size: cover;
+		background: url() no-repeat center center / cover;
 	}
 	.tags { display: inline; }
 	.tag { display: inline-block; }

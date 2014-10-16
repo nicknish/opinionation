@@ -1,18 +1,14 @@
 <!-- User Profile -->
 <div class="user-profile" data-ng-controller="UserProfileCtrl">
-  
-  <div class="container">
-    <div class="imageWrapper">
-      <%= image_tag @user.profile_pic(:medium), class: "img-circle user-profile-pic" %>
-    </div>
-    <h2 class="user-profile-username">@<%= @user.username %></h2>
-  </div>
+
+  <div class="img-circle user-profile-pic" bg-image="{{user.profile_pic_medium}}"></div>
+  <h2 class="user-profile-username" ng-bind="'@'+user.username"></h2>
 
   <!-- Profile Tabs -->
   <div class="profile-tabs clearfix">
-    <button class="profile-tab question-tab"><span id="question-icon" ng-click="changeProfileTab('questions')"></span></button>
-    <button class="profile-tab answer-tab"><span id="answer-icon" ng-click="changeProfileTab('answers')"></span></button>
-    <button class="profile-tab favorite-tab"><span id="favorite-icon" ng-click="changeProfileTab('favorites')"></span></button>
+    <button class="profile-tab question-tab" ng-class="{ selected : selectedTab == 'questions' }" ng-click="changeProfileTab('questions')"><%= render 'partials/questionicon' %></button>
+    <button class="profile-tab answer-tab" ng-class="{ selected : selectedTab == 'answers' }" ng-click="changeProfileTab('answers')"><%= render 'partials/answericon' %></button>
+    <button class="profile-tab favorite-tab" ng-class="{ selected : selectedTab == 'favorites' }" ng-click="changeProfileTab('favorites')"><%= render 'partials/favoriteicon' %></button>
   </div>
 
   <div data-ng-controller="UserPostCtrl">
@@ -34,7 +30,7 @@
         <ul class="user-profile-fill-space" ng-show="selectedTab === 'answers'">
           <li class="post-info" data-ng-repeat="answer in user_answers">
             <div class="picture-column">
-              <a href="/posts/{{answer.post_id}}"><img data-ng-src="{{answer.question.post_pic}}" class="poster-profile-pic"></a>
+              <a href="/posts/{{answer.post_id}}" bg-image="{{answer.question.post_pic}}" class="poster-profile-pic"></a>
             </div>
             <div class="content">
               <a href="/posts/{{answer.post_id}}"><p class="user-answers">{{ answer.body }}</p></a>
@@ -48,7 +44,7 @@
         <ul class="user-profile-fill-space" ng-show="selectedTab === 'favorites'">
           <li class="post-info" data-ng-repeat="favorite in user_favorites">
             <div class="picture-column">
-              <a href="/posts/{{favorite.id}}"><img data-ng-src="{{favorite.post_pic}}" class="poster-profile-pic"></a>
+              <a href="/posts/{{favorite.id}}" bg-image="{{favorite.post_pic}}" class="poster-profile-pic"></a>
             </div>
             <div class="content">
               <a href="/posts/{{favorite.id}}"><p class="user-answers">{{favorite.question}}</p></a>
