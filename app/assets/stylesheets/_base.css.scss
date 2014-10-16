@@ -18,13 +18,14 @@ $brand-color: #D12943;
 $brand-color-hover: #921c2d;
 $nav-overlay-color: rgba(61,89,122,0.9);
 $nav-overlay-links-color: #fff;
-$nav-overlay-links-hover-color: #fff;
+$nav-overlay-links-hover-color: rgba(255,255,255,.85);
 
 // Post
 $post-contrast-color: #fff; // bg, front, profile
 
 // User
-$user-profile-gray: #ECF0F1;
+$user-profile-color: #ECF0F1;
+$user-contrast-color: #fff; // bg, front, profile
 
 // Typography
 $bold: 800;

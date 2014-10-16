@@ -5,13 +5,11 @@ opinionationApp.controller('UserProfileCtrl', ['$scope', 'User', '$location', fu
   var user_id = url[url.length - 1];
   $scope.user = User.get({id: user_id});
 
-	// changeProfileTab() determines what type of content
-  // to fill the Fill Container – Questions is the default.
+	// changeProfileTab determines the content of fill container
+  $scope.selectedTab = 'questions';  
+  
   $scope.changeProfileTab = function(tab) {
 		$scope.selectedTab = tab;
   };
-  	// if there is no tab selected (falsy value)
-		// default to the question tab
-	  $scope.selectedTab = 'questions';
 
 }]);

@@ -80,7 +80,7 @@ body {
 	.navbar-toggle { display: block; margin-top: 9px; }
 	.navbar-right { display: none; }
 }
-@media(min-width: 60rem) { html { font-size: 75%; } }
+@media (min-width: 60rem) { html { font-size: 75%; } }
 
 
 /* ======== NAV STYLES ========= */
@@ -94,7 +94,6 @@ body {
 
 	// Hide Nav
   transition: transform 0.7s .3s ease;
-  -webkit-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px);
 }
 .hide-navbar { transform: translate(0, -100%); }
@@ -131,19 +130,23 @@ body {
 
 /* Overlay closing cross */
 .overlay .overlay-close {
-	width: 40px;
-	height: 40px;
-	position: absolute;
-	right: 20px;
-	top: 20px;
 	overflow: hidden;
 	border: none;
-	background: url('sprites.png') no-repeat center center;
-	background-size: 150px;
-	background-position: -100px -15px;
-	text-indent: 200%;
+	background-color: transparent;
 	color: transparent;
 	outline: none;
+	cursor: pointer;
+	
+	.close-button {
+		position: absolute;
+		top: 0;
+		right: 30px;
+		width: 50px;
+	}
+	#close-button-svg {
+		stroke: white;
+		stroke-width: 6px;
+	}
 }
 
 /* Menu style */
@@ -152,7 +155,7 @@ body {
 	position: relative;
 	top: 50%;
 	height: 60%;
-	font-size: 54px;
+	font-size: 40px;
 	transform: translateY(-50%);
 }
 
@@ -160,7 +163,7 @@ body {
 	list-style: none;
 	padding: 0;
 	margin: 0 auto;
-	display: inline-block;
+	display: block;
 	height: 100%;
 	position: relative;
 }
@@ -168,22 +171,21 @@ body {
 .overlay ul li {
 	display: block;
 	height: 20%;
-	height: calc(100% / 5);
+	// height: calc(100% / 5);
 	min-height: 54px;
-	padding: 25px 0;
 }
 
 .overlay ul li a {
 	font-weight: $light;
 	display: block;
 	color: $nav-overlay-links-color;
-	-webkit-transition: color 0.2s;
-	transition: color 0.2s;
-}
+	padding: 12.5px 0;
+	text-decoration: none;
 
-.overlay ul li a:hover,
-.overlay ul li a:focus {
-	color: $nav-overlay-links-color;
+	&:hover {
+		color: $nav-overlay-color;
+		background-color: $nav-overlay-links-hover-color;
+	}
 }
 
 /* Effects */
@@ -201,7 +203,8 @@ body {
 		nav ul { opacity: 1; transform: rotateX(0deg); }
 	}
 	nav { 
-		perspective: 1200px; 
+		perspective: 1200px;
+
 		ul {
 			opacity: 0.4;
 			transform: translateY(-25%) rotateX(35deg);
