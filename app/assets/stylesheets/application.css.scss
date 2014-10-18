@@ -3,10 +3,18 @@
  *= require_self
  */
 
-@import 'bootstrap';
+@import "bootstrap-custom";
 @import "base";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,800);
 @import url(http://fonts.googleapis.com/css?family=Bevan);
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: font_url('glyphicons-halflings-regular.eot');
+  src: 	font_url('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+			  font_url('glyphicons-halflings-regular.woff') format('woff'), 
+			  font_url('glyphicons-halflings-regular.ttf') format('truetype'), 
+			  font_url('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
 
 /* Global Properties 
 =============================== */
@@ -41,7 +49,7 @@ body {
 }
 
 #plus-sign-glyph {
-	background: url('plus.svg') no-repeat;
+	background: url('newPost.svg') no-repeat;
 	width: 21px;
 	background-size: 20px;
 	background-position: 2px 0px;
