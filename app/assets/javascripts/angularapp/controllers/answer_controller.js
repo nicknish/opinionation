@@ -1,19 +1,12 @@
 opinionationApp.controller('AnswerCtrl', ['$scope', 'Answer', function($scope, Answer){
 
   $scope.getAnswers = function(postId){
-    $scope.noAnswers = true;
-    $scope.waiting = true;
+    $scope.loading = true;
     $scope.answers = Answer.query({post_id: postId});
     $scope.answers.$promise.then(function(fulfilledPromise){
-      if($scope.answers.length < 1){
-        $scope.noAnswers = true;
-        $scope.waiting = false;
-      }
-      else {
-        $scope.noAnswers = false;
-      }
+      $scope.loading = false;
+      $scope.answers.length < 1 ? $scope.noAnswers = true : $scope.noAnswers = false;
     })
-
   }
 
   this.addAnswer = function(post_id){

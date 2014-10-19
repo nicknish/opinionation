@@ -51,8 +51,8 @@
       </div>
 
       <div class="answers">
-        <div class="loader" ng-show="noAnswers && waiting"></div>
-        <h2 ng-show="!waiting && noAnswers" class="text-center" id="no-answer">Be the first to answer this question. Share your thoughts!</h2>
+        <div class="loader" ng-show="loading"></div>
+        <h2 ng-show="noAnswers" class="text-center" id="no-answer">Be the first to answer this question. Share your thoughts!</h2>
         <div class="answer clearfix" data-ng-repeat="answer in answers">
           <div class="post-info">
             <div class="picture-column">
