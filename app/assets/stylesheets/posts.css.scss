@@ -273,6 +273,14 @@
 
 /* Answer Thread Styles
 ===================== */
+
+.loader {
+  width:30px;
+  height:30px;
+  background:url('../assets/loader.gif') no-repeat 50% 50%;
+  margin: 0 auto;
+}
+
 .answer {
 	border: 1px solid rgba(151,151,151,.14);
 	background-color: #F3F3F3;
