@@ -37,3 +37,17 @@ $base-font-family: 'Open Sans';
 $base-font-weight: $regular;
 $base-font-size: 10px;
 $brand-font: 'Bevan';
+
+
+/* Fonts
+============================= */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,800);
+@import url(http://fonts.googleapis.com/css?family=Bevan);
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: font_url('glyphicons-halflings-regular.eot');
+  src: 	font_url('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+			  font_url('glyphicons-halflings-regular.woff') format('woff'), 
+			  font_url('glyphicons-halflings-regular.ttf') format('truetype'), 
+			  font_url('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}

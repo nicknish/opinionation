@@ -15,20 +15,22 @@
 //= require angular
 //= require angular-resource
 //= require angular-sanitize
-//= require angular-rails-templates
-//= require bootstrap
+// require angular-rails-templates
+// require bootstrap
 //= require_tree .
 
 $(document).ready(function() {
+
+	var navbar = $('.navbar-default');
 
 	// Show/Hide on Mouse Scroll
 	$('html').on('DOMMouseScroll mousewheel', function (e) {
 	  if(e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) {
 	    // Scroll down
-	    $(".navbar-default").addClass("hide-navbar");
+	    navbar.addClass("hide-navbar");
 	  } else {
 	    // Scroll up
-	    $(".navbar-default").removeClass("hide-navbar");
+	    navbar.removeClass("hide-navbar");
 	  }
 	});
 
