@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :check_security, only: [:edit, :update]
+  before_action :skip_password_attribute, only: :update
   respond_to :html, :json
   
   def new
@@ -20,7 +21,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.where(username: params[:id]).first
-    if @user.update_attributes(user_params)
+    user = User.find_by_email(current_user.email).try(:authenticate, params[:current_password])
+    if user && @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
     else
@@ -51,5 +53,9 @@ private
       redirect_to posts_path
     end
   end
-
+  def skip_password_attribute
+    if params[:password].blank? && params[:password_validation].blank? && params[:current_password].blank?
+      params.except!(:password, :password_validation, :current_password)
+    end
+  end
 end
