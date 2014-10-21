@@ -350,7 +350,6 @@
 // Media Queries
 @media (min-width: 49rem) {
 	.posts {
-		margin: 2rem 8rem;
 		.col { float: left; }
 		.post { 
 			height: 400px; 
@@ -369,6 +368,11 @@
 
 @media (min-width: 49rem) and (max-width: 55rem) { 
 	.front { h1 { font-size: 31px; } } 
+	.posts { margin: 2rem 5rem; }
+}
+
+@media (min-width: 55.01rem) {
+	.posts { margin: 2rem 8rem; }	
 }
 
 .new-post { color: $post-contrast-color; }
@@ -421,7 +425,8 @@
 	
 		h2 { 
 			font-size: 36px; 
-			margin-top: 100px;
+			margin-top: 60px;
+			line-height: 1.2;
 			margin-bottom: 35px;
 			padding: 0 10px 0 10px;
 		}
@@ -452,10 +457,19 @@
 	background-color: $post-contrast-color; 
 
 	h4 { 
-		font-size: 1.3rem;
+		font-size: .9rem;
 		color: #333; 
 		padding: 25px 0; 
 		margin: 0; 
 		text-align: center; 
 	}
+
+	@media (min-width: 60rem) {
+		h4 { font-size: 1.3rem; }
+	}
+}
+
+
+@media (min-width: 50rem) {
+	.landing .header h2 { margin-top: 100px; }
 }

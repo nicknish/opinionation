@@ -4,33 +4,32 @@
 ================= */
 .user-profile {
 	background-color: $user-profile-color;
-	border-radius: .2rem;
+	border-radius: 2px;
 	width: 100%;
 	position: absolute;
-	margin-top: 7.5rem;
-	margin-bottom: 1rem;
+	margin-top: 75px;
+	margin-bottom: 10px;
 
 	.container { 
 		width: 100%;
 		text-align: center; 
-		.imageWrapper { height: 10.5rem; }
+		.imageWrapper { height: 105px; }
 	}
 	.user-profile-pic { 
-		width: 14.5rem; 
-		height: 14.5rem; 
+		width: 145px; 
+		height: 145px; 
 		overflow: hidden; 
 		position: relative;
-		top: -7rem;
+		top: -70px;
 		margin: 0 auto;
 		background: url() no-repeat center center / cover;
 	}
 	.user-profile-username { 
 		color: #828282; 
-		// font-size: 21px;
 		text-align: center;
-		font-size: 2.1rem; 
-		margin-top: -5.5rem;
-		margin-bottom: 1.5rem; 
+		font-size: 21px; 
+		margin-top: -45px;
+		margin-bottom: 15px; 
 	}
 	button { outline: 0; }
 }
@@ -44,7 +43,7 @@
 	.profile-tab { 
 		width: 33.3333333%; 
 		border: 1px solid rgba(151,151,151,.40); 
-		min-height: 7rem;
+		min-height: 75px;
 		float: left;
 		background-color: $user-contrast-color;
 		border-left: none;
@@ -120,8 +119,8 @@
 		.question-svg,
 		.answer-svg,
 		.favorite-svg {
-			width: 45px;
-			height: 45px;
+			width: 40px;
+			height: 40px;
 		}
 		span { 
 			display: inline-block; 

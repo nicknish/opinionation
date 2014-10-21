@@ -85,7 +85,10 @@ body {
 
 /* ======== NAV STYLES ========= */
 
-#menu-logo { color: white; font-size: 3.5rem; }
+#menu-logo { 
+	color: white; 
+	font-size: 36px; 
+}
 
 @media (min-width: 44rem) { #menu-logo { font-size: 60px; } }
 
