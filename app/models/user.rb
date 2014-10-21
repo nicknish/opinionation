@@ -17,7 +17,9 @@ class User < ActiveRecord::Base
   #need a validation to prevent space in username
   validates :fname, presence: true, length: { in: 2..30 }
   validates :lname, presence: true, length: { in: 2..30 }
-  validates :password, presence: true, length: { in: 6..20 }
+  validates :password, presence: {if: :new_record?}, length: { in: 6..20 }, on: :create
+  validates :password, length: { in: 6..20 }, on: :update, allow_blank: true
+
   validates_attachment :profile_pic, presence: true, content_type: { content_type: ["image/jpeg", "image/jpg", "image/gif", "image/png"] }
 
   def prep_username
@@ -27,8 +29,7 @@ class User < ActiveRecord::Base
 
 
 
-
-  #formatting user inputs before save
+  #user inputs before save
   before_save {[
     self.prep_username,
     self.email = email.downcase, 
