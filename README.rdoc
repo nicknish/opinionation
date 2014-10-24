@@ -1,28 +1,5 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+OpinioNation is an online community that connects people who have questions with people who have answers. The mantra of OpinioNation is: "Ask a question. Give an answer. Get involved." The site favors visual, bite-sized, fun, lightweight engagement.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+OpinioNation was designed with a mobile-first approach so it looks great on your phone. The app was built with AngularJS, Ruby on Rails (serving primarily as the API layer), and PostgreSQL.
